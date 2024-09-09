@@ -14,7 +14,7 @@ public class MiControlador : MonoBehaviour
     private float originalHeight;
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;  // Nuevo: Referencia al CapsuleCollider
-    private bool isCrouching = false;
+ 
     private float rotationX = 0f;  // Para controlar la rotación en el eje X (arriba/abajo)
 
     // Variables para agacharse de forma suave
