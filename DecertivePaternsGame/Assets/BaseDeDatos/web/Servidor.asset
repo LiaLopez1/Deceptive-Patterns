@@ -18,14 +18,13 @@ MonoBehaviour:
     URL: login.php
     parametros:
     - nombreroll
-  - nombre: registrar usuario
+  - nombre: registro
     URL: reg_usuario.php
     parametros:
     - terminos
     - nombreroll
-    - correo
-    - nivel
+    - nombrecompleto
   ocupado: 0
   respuesta:
-    codigo: 404
-    mensaje: Error
+    codigo: 204
+    mensaje: El usuario es incorrecto
