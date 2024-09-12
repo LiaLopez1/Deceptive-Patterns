@@ -12,7 +12,7 @@ public class login : MonoBehaviour
     public GameObject Loading;
     public TMP_Text TxtIncorrecto;
     public TMP_Text TxtError;
-    public TMP_Text TxtCampoVacio; // El texto que se mostrará si el campo está vacío
+    public TMP_Text TxtCampoVacio;
     public GameObject CrearUsuario;
 
     public void IniciarSesion()
@@ -22,15 +22,12 @@ public class login : MonoBehaviour
         TxtIncorrecto.gameObject.SetActive(false);
         TxtError.gameObject.SetActive(false);
 
-        // Verificar si el campo de usuario está vacío
         if (string.IsNullOrEmpty(InputUsuario.text))
         {
-            // Si está vacío, mostrar el mensaje y no iniciar el proceso
             TxtCampoVacio.gameObject.SetActive(true);
             return;
         }
 
-        // Si el campo no está vacío, iniciar el proceso de inicio de sesión
         StartCoroutine(Iniciar());
     }
 
@@ -50,11 +47,13 @@ public class login : MonoBehaviour
     {
         TxtIncorrecto.gameObject.SetActive(false);
         TxtError.gameObject.SetActive(false);
+        Loading.SetActive(false);
 
         switch (servidor.respuesta.codigo)
         {
             case 204: // El usuario es incorrecto
                 TxtIncorrecto.gameObject.SetActive(true);
+                Loading.SetActive(true);
                 break;
 
             case 205: // Inicio de sesión correcto
@@ -63,6 +62,7 @@ public class login : MonoBehaviour
 
             case 404: // Error DB
                 TxtError.gameObject.SetActive(true);
+                Loading.SetActive(true);
                 break;
 
             default:
@@ -74,4 +74,5 @@ public class login : MonoBehaviour
     {
         CrearUsuario.SetActive(true);
     }
+  
 }
