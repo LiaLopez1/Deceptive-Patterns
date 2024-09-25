@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     }
 
     public GameState currentState = GameState.Exploring;
+    public int dialogueSequence = 0; 
 
     public void ChangeState(GameState newState)
     {
@@ -26,5 +27,9 @@ public class GameManager : MonoBehaviour
         }
         // Agrega condiciones similares para otras llaves
        
+    }
+    public void AdvanceDialogueSequence()
+    {
+        dialogueSequence++;
     }
 }
