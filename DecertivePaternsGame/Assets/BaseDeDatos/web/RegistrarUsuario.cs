@@ -7,7 +7,6 @@ public class RegistrarUsuario : MonoBehaviour
 {
     public Servidor servidor;
 
-    // Referencias a los elementos de la UI
     public TMP_InputField inputNombreCompleto;
     public TMP_InputField inputNombreRoll;
     public Toggle toggleAceptar;
@@ -17,9 +16,12 @@ public class RegistrarUsuario : MonoBehaviour
     public TMP_Text txtUsado;
     public TMP_Text txtCampos;
     public TMP_Text txtTerminos;
-    public TMP_Text txtNoAceptar;  // Mensaje que se mostrará si no aceptan los términos
+    public TMP_Text txtNoAceptar; 
     public GameObject crearUsuarioCanvas;
     public Button btnCerrarCanvas;
+    public Button btnCerrarCanvasTyC;
+    public GameObject TyCCanvas;
+
 
     void Start()
     {
@@ -30,6 +32,8 @@ public class RegistrarUsuario : MonoBehaviour
         btnCerrarCanvas.gameObject.SetActive(false);
 
         btnCerrarCanvas.onClick.AddListener(CerrarCanvasCrearUsuario);
+
+        btnCerrarCanvasTyC.onClick.AddListener(CerrarCanvasTyC);
 
         // Ocultar todos los mensajes al inicio
         OcultarTodosLosMensajes();
@@ -71,7 +75,7 @@ public class RegistrarUsuario : MonoBehaviour
         // Si el usuario ha seleccionado "No Aceptar", mostrar advertencia y no continuar
         if (toggleNoAceptar.isOn)
         {
-            txtNoAceptar.gameObject.SetActive(true);
+            TyCCanvas.SetActive(true);
             return; // No continuar con el registro
         }
 
@@ -149,5 +153,10 @@ public class RegistrarUsuario : MonoBehaviour
         crearUsuarioCanvas.SetActive(false);
         btnCerrarCanvas.gameObject.SetActive(false);
         OcultarTodosLosMensajes();
+    }    
+    public void CerrarCanvasTyC()
+    {
+        TyCCanvas.SetActive(false);
+        btnCerrarCanvas.gameObject.SetActive(false);
     }
 }

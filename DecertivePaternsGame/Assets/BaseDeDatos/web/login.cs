@@ -17,11 +17,7 @@ public class login : MonoBehaviour
 
     public void IniciarSesion()
     {
-        // Limpiar mensajes previos
-        TxtCampoVacio.gameObject.SetActive(false);
-        TxtIncorrecto.gameObject.SetActive(false);
-        TxtError.gameObject.SetActive(false);
-
+       
         if (string.IsNullOrEmpty(InputUsuario.text))
         {
             TxtCampoVacio.gameObject.SetActive(true);
@@ -72,6 +68,9 @@ public class login : MonoBehaviour
 
     public void ActivarCrearUsuarioCanvas()
     {
+        TxtCampoVacio.gameObject.SetActive(false);
+        TxtIncorrecto.gameObject.SetActive(false);
+        TxtError.gameObject.SetActive(false);
         CrearUsuario.SetActive(true);
     }
   
