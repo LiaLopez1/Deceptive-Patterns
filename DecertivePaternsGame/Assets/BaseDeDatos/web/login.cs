@@ -15,9 +15,11 @@ public class login : MonoBehaviour
     public TMP_Text TxtCampoVacio;
     public GameObject CrearUsuario;
 
+    // Variable para almacenar el nombre del usuario logueado
+    public static string nombreRollActual;
+
     public void IniciarSesion()
     {
-       
         if (string.IsNullOrEmpty(InputUsuario.text))
         {
             TxtCampoVacio.gameObject.SetActive(true);
@@ -31,7 +33,7 @@ public class login : MonoBehaviour
     {
         Loading.SetActive(true);
         string[] datos = new string[1];
-        datos[0] = InputUsuario.text;
+        datos[0] = InputUsuario.text;  // Aquí se captura el nombreRoll
 
         StartCoroutine(servidor.ConsumirServicio("login", datos, PosCarga));
         yield return new WaitForSeconds(0.5f);
@@ -47,16 +49,18 @@ public class login : MonoBehaviour
 
         switch (servidor.respuesta.codigo)
         {
-            case 204: // El usuario es incorrecto
+            case 205: // Inicio de sesión correcto
+                // Almacenar el nombreRoll actual cuando el inicio de sesión sea correcto
+                nombreRollActual = InputUsuario.text;
+                SceneManager.LoadScene("SampleScene");
+                break;
+
+            case 204: // Usuario incorrecto
                 TxtIncorrecto.gameObject.SetActive(true);
                 Loading.SetActive(true);
                 break;
 
-            case 205: // Inicio de sesión correcto
-                SceneManager.LoadScene("SampleScene");
-                break;
-
-            case 404: // Error DB
+            case 404: // Error en la base de datos
                 TxtError.gameObject.SetActive(true);
                 Loading.SetActive(true);
                 break;
@@ -73,5 +77,4 @@ public class login : MonoBehaviour
         TxtError.gameObject.SetActive(false);
         CrearUsuario.SetActive(true);
     }
-  
 }

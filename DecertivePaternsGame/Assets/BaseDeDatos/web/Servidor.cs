@@ -6,13 +6,14 @@ using UnityEngine.Networking;
 [CreateAssetMenu(fileName = "Servidor", menuName = "Game/Servidor", order = 1)]
 public class Servidor : ScriptableObject
 {
-    public string servidor;
-    public Servicio[] servicios;
+    public string servidor; // URL base del servidor
+    public Servicio[] servicios; // Lista de servicios disponibles
 
-    public bool ocupado = false;
-    public Respuesta respuesta;
+    public bool ocupado = false; // Indicador de si el servidor está ocupado
+    public Respuesta respuesta; // Respuesta genérica del servidor
 
-    public IEnumerator ConsumirServicio(string nombre, string[] datos, UnityAction e)
+    // Método para consumir un servicio
+    public IEnumerator ConsumirServicio(string nombre, string[] datos, UnityAction callback)
     {
         ocupado = true;
 
@@ -48,31 +49,29 @@ public class Servidor : ScriptableObject
         else
         {
             Debug.Log("Respuesta del servidor: " + www.downloadHandler.text);
-            respuesta = JsonUtility.FromJson<Respuesta>(www.downloadHandler.text);
+            respuesta = JsonUtility.FromJson<Respuesta>(www.downloadHandler.text); // Parsear la respuesta JSON
         }
 
         ocupado = false;
-        e.Invoke();
+        if (callback != null) callback.Invoke(); // Invocar el callback si no es null
     }
 }
 
 [System.Serializable]
 public class Servicio
 {
-    public string nombre;  // Nombre del servicio (ej. "registro")
-    public string URL;     // URL del archivo PHP en el servidor
+    public string nombre;  // Nombre del servicio (ej. "registro", "login", "actualizar_llaves")
+    public string URL;     // URL del archivo PHP en el servidor (ej. "reg_usuario.php", "login.php", "actualizar_llaves.php")
     public string[] parametros;  // Lista de parámetros que requiere el servicio
 }
 
 [System.Serializable]
 public class Respuesta
 {
-    public int codigo;     // Código de la respuesta (ej. 201, 403, etc.)
-    public string mensaje; // Mensaje de la respuesta
+    public int codigo;     // Código de la respuesta (ej. 201, 403, 404)
 
     public Respuesta()
     {
         codigo = 404;      // Código por defecto en caso de error
-        mensaje = "Error"; // Mensaje por defecto
     }
 }

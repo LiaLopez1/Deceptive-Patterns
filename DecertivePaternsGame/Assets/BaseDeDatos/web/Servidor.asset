@@ -24,7 +24,10 @@ MonoBehaviour:
     - terminos
     - nombreroll
     - nombrecompleto
+  - nombre: actualizar_llaves
+    URL: actualizar_llaves.php
+    parametros:
+    - nombreroll
   ocupado: 0
   respuesta:
     codigo: 204
-    mensaje: El usuario es incorrecto
