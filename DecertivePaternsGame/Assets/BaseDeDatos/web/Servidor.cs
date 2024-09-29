@@ -69,9 +69,10 @@ public class Servicio
 public class Respuesta
 {
     public int codigo;     // Código de la respuesta (ej. 201, 403, 404)
-
+    public int llaves;
     public Respuesta()
     {
         codigo = 404;      // Código por defecto en caso de error
+        llaves = 0;
     }
 }

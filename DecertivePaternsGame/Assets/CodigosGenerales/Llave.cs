@@ -13,17 +13,23 @@ public class Llave : MonoBehaviour
         {
             doorToUnlock.UnlockDoor();
             gameManager.LlaveRecolectada(gameObject.name);
+
+            // Actualiza el contador de llaves
+            GameObject.FindObjectOfType<ContadorLlaves>().RecolectarLlave();
+
+            // Actualiza las llaves en la base de datos
             StartCoroutine(ActualizarLlavesEnBD());
+
             Destroy(gameObject);
         }
     }
 
     IEnumerator ActualizarLlavesEnBD()
     {
-        // Usamos el nombre del usuario logueado en lugar de un valor fijo
         string[] datos = new string[1];
-        datos[0] = login.nombreRollActual;  // Aquí utilizamos el nombre del usuario logueado
+        datos[0] = login.nombreRollActual;  // Utilizar el nombre del usuario logueado
 
+        // Consumir el servicio "actualizar_llaves"
         StartCoroutine(servidor.ConsumirServicio("actualizar_llaves", datos, null));
         yield return new WaitUntil(() => !servidor.ocupado);
     }
