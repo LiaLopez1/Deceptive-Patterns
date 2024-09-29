@@ -43,6 +43,7 @@ public class login : MonoBehaviour
 
     public void PosCarga()
     {
+        TxtCampoVacio.gameObject.SetActive(false);
         TxtIncorrecto.gameObject.SetActive(false);
         TxtError.gameObject.SetActive(false);
         Loading.SetActive(false);
