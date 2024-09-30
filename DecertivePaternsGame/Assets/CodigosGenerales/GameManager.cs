@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     }
 
     public GameState currentState = GameState.Exploring;
-    public int dialogueSequence = 0; 
+    public int dialogueSequence = 0;
 
     public void ChangeState(GameState newState)
     {

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class RelAspect : MonoBehaviour
 {
     public TMP_Dropdown aspectRatioDropdown; 
-
     // Resoluciones recomendadas para cada relación de aspecto
     private readonly Dictionary<string, Vector2Int> aspectRatios = new Dictionary<string, Vector2Int>
     {
