@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiControlador : MonoBehaviour
+public class PruebaControlador : MonoBehaviour
 {
     public float walkSpeed = 10f;
     public float runSpeed = 20f;
@@ -82,17 +82,22 @@ public class MiControlador : MonoBehaviour
 
     void Look()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        // Solo permitir la rotación si el panel de configuración no está activo
+        if (!PanelManager.isSettingsActive)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        // Rotar el jugador sobre el eje Y (horizontal, izquierda/derecha)
-        transform.Rotate(Vector3.up * mouseX);
+            // Rotar el jugador sobre el eje Y (horizontal, izquierda/derecha)
+            transform.Rotate(Vector3.up * mouseX);
 
-        // Rotar la cámara sobre el eje X (vertical, arriba/abajo)
-        rotationX -= mouseY;
-        rotationX = Mathf.Clamp(rotationX, -80f, 80f);  // Limitar el ángulo de la cámara para no mirar completamente arriba o abajo
-        cameraTransform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);  // Aseguramos que solo la cámara se incline verticalmente
+            // Rotar la cámara sobre el eje X (vertical, arriba/abajo)
+            rotationX -= mouseY;
+            rotationX = Mathf.Clamp(rotationX, -80f, 80f);  // Limitar el ángulo de la cámara
+            cameraTransform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);  // Aseguramos que solo la cámara se incline verticalmente
+        }
     }
+
 
     void Jump()
     {

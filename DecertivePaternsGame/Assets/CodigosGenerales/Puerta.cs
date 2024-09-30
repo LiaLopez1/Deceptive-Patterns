@@ -6,27 +6,28 @@ public class Puerta : MonoBehaviour
     private bool isNear = false; // Si el jugador está cerca
     private string message = "La puerta está bloqueada"; // Mensaje inicial
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             isNear = true; // El jugador está cerca de la puerta
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnCollisionExit(Collision collision)
     {
-       if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             isNear = false; // El jugador se aleja de la puerta
         }
     }
+
     void OnGUI()
     {
         if (isNear)
         {
             GUIStyle guiStyle = new GUIStyle(GUI.skin.label);
-            guiStyle.fontSize = 30; // Cambia el tamaño de la fuente
+            guiStyle.fontSize = 30;
             GUI.Label(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 50, 300, 100), message, guiStyle);
         }
     }
@@ -34,8 +35,7 @@ public class Puerta : MonoBehaviour
     public void UnlockDoor()
     {
         isLocked = false;
-        message = "Presiona 'E' para abrir la puerta"; // Actualiza el mensaje
-        Debug.Log("Puerta desbloqueada!");
+        message = "Presiona 'E' para abrir la puerta";
     }
 
     void Update()
