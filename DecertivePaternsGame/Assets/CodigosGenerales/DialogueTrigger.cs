@@ -6,8 +6,9 @@ public class DialogueTrigger : MonoBehaviour
 {
     public GameManager gameManager;
     public float delayBeforeDialogue = 2.0f;
+    public float delayBetweenDialogues = 1.0f; // Retraso entre diálogos consecutivos
     public float durationOfDialogue = 5.0f; // Duración en segundos que el diálogo es visible
-    public string dialogos; // Array de diálogos para este trigger
+    public string[] dialogos; // Array de diálogos para este trigger
     public GameObject dialoguePanel; // Panel que contiene el texto del diálogo
     public Text dialogueText; // Componente de texto para mostrar el diálogo
     public int triggerSequence; // Secuencia necesaria para activar este trigger
@@ -25,9 +26,16 @@ public class DialogueTrigger : MonoBehaviour
     private IEnumerator HandleDialogue()
     {
         yield return new WaitForSeconds(delayBeforeDialogue);
-        dialogueText.text = dialogos; // Asegúrate de que este índice exista en el array /este por si le colocamos [] [gameManager.dialogueSequence]
+
         dialoguePanel.SetActive(true);
-        yield return new WaitForSeconds(durationOfDialogue);
+        foreach (string dialogo in dialogos)
+        {
+            dialogueText.text = dialogo;
+            yield return new WaitForSeconds(durationOfDialogue);
+
+            // Si quieres un retraso entre diálogos (opcional)
+            yield return new WaitForSeconds(delayBetweenDialogues);
+        }
         dialoguePanel.SetActive(false);
 
         if (changeState)
