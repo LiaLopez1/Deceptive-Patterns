@@ -14,6 +14,7 @@ public class MiControlador : MonoBehaviour
     private float originalHeight;
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;  // Nuevo: Referencia al CapsuleCollider
+    public GameObject PuntoPatalla;
 
     private float rotationX = 0f;  // Para controlar la rotación en el eje X (arriba/abajo)
 
@@ -37,14 +38,19 @@ public class MiControlador : MonoBehaviour
         // Guardamos las escalas para agacharse y estar de pie
         escalaNormal = transform.localScale;
         escalaAgachado = new Vector3(transform.localScale.x, crouchHeight, transform.localScale.z);
+
+        // Activa el crosshair al inicio del juego
+        if (PuntoPatalla != null)
+        {
+            PuntoPatalla.SetActive(true);  // Activa el crosshair
+        }
     }
+
 
     void Update()
     {
         // Movimiento
         Move();
-
-        // Rotación de la cámara y el jugador
         Look();
 
         // Salto con la tecla "Espacio"
