@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 
-public class Keypad : MonoBehaviour
+public class Keypad1 : MonoBehaviour
 {
     public GameObject player;
     public GameObject keypadOB;
