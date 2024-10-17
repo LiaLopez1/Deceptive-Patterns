@@ -10,7 +10,6 @@ public class Llave : MonoBehaviour
     public AudioSource audioSource;  // AudioSource de la llave
 
     private Volumen volumenManager;  // Referencia al script de Volumen para obtener el volumen de efectos
-    private bool jugadorEnRango = false;  // Para verificar si el jugador está en rango para recoger la llave
 
     void Start()
     {
@@ -32,44 +31,21 @@ public class Llave : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            jugadorEnRango = true;
-            // Aquí podrías mostrar un UI para decirle al jugador que presione 'E' para recoger la llave
+            doorToUnlock.UnlockDoor();
+            gameManager.LlaveRecolectada(gameObject.name);
+
+            // Actualiza el contador de llaves
+            GameObject.FindObjectOfType<ContadorLlaves>().RecolectarLlave();
+
+            // Reproducir sonido de recolección de la llave con el volumen correcto de efectos
+            PlaySound();
+
+            // Actualiza las llaves en la base de datos
+            StartCoroutine(ActualizarLlavesEnBD());
+
+            // Destruir la llave después de un breve retraso para permitir que el sonido se reproduzca completamente
+            Destroy(gameObject, audioSource.clip.length);
         }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            jugadorEnRango = false;
-            // Aquí podrías ocultar el UI anteriormente mostrado
-        }
-    }
-
-    void Update()
-    {
-        if (jugadorEnRango && Input.GetKeyDown(KeyCode.E))
-        {
-            RecolectarLlave();
-        }
-    }
-
-    public void RecolectarLlave()
-    {
-        doorToUnlock.UnlockDoor();
-        gameManager.LlaveRecolectada(gameObject.name);
-
-        // Actualiza el contador de llaves
-        GameObject.FindObjectOfType<ContadorLlaves>().RecolectarLlave();
-
-        // Reproducir sonido de recolección de la llave con el volumen correcto de efectos
-        PlaySound();
-
-        // Actualiza las llaves en la base de datos
-        StartCoroutine(ActualizarLlavesEnBD());
-
-        // Destruir la llave después de un breve retraso para permitir que el sonido se reproduzca completamente
-        Destroy(gameObject, audioSource.clip.length);
     }
 
     // Método para reproducir el sonido de recolección
