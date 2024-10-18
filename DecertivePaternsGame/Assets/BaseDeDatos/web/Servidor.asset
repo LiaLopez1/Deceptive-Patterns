@@ -28,6 +28,7 @@ MonoBehaviour:
     URL: actualizar_llaves.php
     parametros:
     - nombreroll
+    - llaves
   - nombre: obtener_llaves
     URL: obtener_llaves.php
     parametros:
@@ -35,4 +36,4 @@ MonoBehaviour:
   ocupado: 0
   respuesta:
     codigo: 200
-    llaves: 1
+    llaves: 0

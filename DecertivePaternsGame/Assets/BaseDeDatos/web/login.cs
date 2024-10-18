@@ -53,7 +53,7 @@ public class login : MonoBehaviour
             case 205: // Inicio de sesión correcto
                 // Almacenar el nombreRoll actual cuando el inicio de sesión sea correcto
                 nombreRollActual = InputUsuario.text;
-                SceneManager.LoadScene("CasaPrueba");
+                SceneManager.LoadScene("CasaVer3Prueba");
                 break;
 
             case 204: // Usuario incorrecto

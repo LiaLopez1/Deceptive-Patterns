@@ -107,11 +107,13 @@ public class Llave : MonoBehaviour
 
     IEnumerator ActualizarLlavesEnBD()
     {
-        string[] datos = new string[1];
-        datos[0] = login.nombreRollActual;  // Utilizar el nombre del usuario logueado
+        string[] datos = new string[2];
+        datos[0] = login.nombreRollActual;  // Usar el nombre del usuario logueado
+        datos[1] = GameObject.FindObjectOfType<ContadorLlaves>().llavesActuales.ToString();  // Usar el número actual de llaves
 
         // Consumir el servicio "actualizar_llaves"
         StartCoroutine(servidor.ConsumirServicio("actualizar_llaves", datos, null));
         yield return new WaitUntil(() => !servidor.ocupado);
     }
+
 }
