@@ -8,8 +8,9 @@ public class Safe : MonoBehaviour
 
     public GameObject objectToAnimate;  // El objeto que contiene el Animator
     public AnimationClip animationClip;  // La animación que se ejecutará al verificar el código correcto
-    private bool isPlayerInTrigger = false;
+    public GameObject objectToShow;  // El objeto que aparecerá cuando el código sea correcto
 
+    private bool isPlayerInTrigger = false;
     private Animator objectAnimator;  // Animator del objeto
     private Animation objectAnimation;  // Si prefieres usar el componente Animation en vez de Animator
     private bool hasBeenUnlocked = false;  // Verifica si el código ya ha sido ingresado correctamente
@@ -19,7 +20,7 @@ public class Safe : MonoBehaviour
     void Start()
     {
         interactionText.SetActive(false);  // Ocultar el texto de interacción al inicio
-        
+
         // Obtener el componente Collider (trigger) del objeto
         safeTrigger = GetComponent<Collider>();
 
@@ -32,12 +33,18 @@ public class Safe : MonoBehaviour
         {
             Debug.LogWarning("No se asignó un objeto para animar en " + gameObject.name);
         }
+
+        // Asegurarse de que el objeto a mostrar esté desactivado al inicio
+        if (objectToShow != null)
+        {
+            objectToShow.SetActive(false);  // El objeto permanece oculto hasta que se introduce el código correcto
+        }
     }
 
     void Update()
     {
         // Mostrar el mensaje solo si el jugador está en el trigger y la caja no ha sido desbloqueada aún
-        if (isPlayerInTrigger && !hasBeenUnlocked && Input.GetKeyDown(KeyCode.E))  
+        if (isPlayerInTrigger && !hasBeenUnlocked && Input.GetKeyDown(KeyCode.E))
         {
             KeypadManager.instance.SetCurrentCode(correctCode);  // Pasar el código correcto al KeypadManager
             KeypadManager.instance.SetCurrentObject(this);  // Pasar el objeto actual al KeypadManager
@@ -48,7 +55,7 @@ public class Safe : MonoBehaviour
     // Detectar cuando el jugador entra en el trigger
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !hasBeenUnlocked)  // Verificar si el objeto es el jugador y si no ha sido desbloqueado
+        if (other.CompareTag("Player") && !hasBeenUnlocked)
         {
             isPlayerInTrigger = true;
             interactionText.SetActive(true);  // Mostrar el texto de interacción
@@ -84,6 +91,12 @@ public class Safe : MonoBehaviour
 
         // Marcar que la caja ha sido desbloqueada y desactivar el trigger
         hasBeenUnlocked = true;
+
+        // Mostrar el objeto oculto al introducir el código correcto
+        if (objectToShow != null)
+        {
+            objectToShow.SetActive(true);  // El objeto aparecerá al introducir el código correcto
+        }
 
         // Desactivar el trigger
         DisableTrigger();

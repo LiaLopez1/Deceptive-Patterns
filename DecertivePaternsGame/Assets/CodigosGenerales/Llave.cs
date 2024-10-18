@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;  // Usamos TextMeshPro para el texto en pantalla
 
 public class Llave : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Llave : MonoBehaviour
     public Servidor servidor;
 
     public AudioSource audioSource;  // AudioSource de la llave
-
+    public TextMeshProUGUI mensajeUI;  // El mensaje de UI para mostrar al jugador
     private Volumen volumenManager;  // Referencia al script de Volumen para obtener el volumen de efectos
     private bool jugadorEnRango = false;  // Para verificar si el jugador está en rango para recoger la llave
 
@@ -26,6 +27,12 @@ public class Llave : MonoBehaviour
         {
             audioSource.volume = volumenManager.sliderEfectosValue;  // Asignar el volumen de efectos de sonido inicial
         }
+
+        // Ocultar el mensaje de interacción al inicio del juego
+        if (mensajeUI != null)
+        {
+            mensajeUI.gameObject.SetActive(false);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -33,7 +40,12 @@ public class Llave : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jugadorEnRango = true;
-            // Aquí podrías mostrar un UI para decirle al jugador que presione 'E' para recoger la llave
+            // Mostrar el mensaje de "Pulsa E para recoger" cuando el jugador está en rango
+            if (mensajeUI != null)
+            {
+                mensajeUI.text = "Pulsa E para recoger";
+                mensajeUI.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -42,12 +54,17 @@ public class Llave : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jugadorEnRango = false;
-            // Aquí podrías ocultar el UI anteriormente mostrado
+            // Ocultar el mensaje cuando el jugador sale del rango
+            if (mensajeUI != null)
+            {
+                mensajeUI.gameObject.SetActive(false);
+            }
         }
     }
 
     void Update()
     {
+        // Verificar si el jugador está en rango y presiona la tecla E para recoger la llave
         if (jugadorEnRango && Input.GetKeyDown(KeyCode.E))
         {
             RecolectarLlave();
@@ -67,6 +84,12 @@ public class Llave : MonoBehaviour
 
         // Actualiza las llaves en la base de datos
         StartCoroutine(ActualizarLlavesEnBD());
+
+        // Ocultar el mensaje después de recoger la llave
+        if (mensajeUI != null)
+        {
+            mensajeUI.gameObject.SetActive(false);
+        }
 
         // Destruir la llave después de un breve retraso para permitir que el sonido se reproduzca completamente
         Destroy(gameObject, audioSource.clip.length);
