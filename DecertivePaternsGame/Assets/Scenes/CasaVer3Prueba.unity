@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.17778505, g: 0.22259042, b: 0.30474678, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5357,7 +5357,8 @@ MonoBehaviour:
   computerCamera: {fileID: 838994366}
   interactionText: {fileID: 1722055247}
   panelToDisable: {fileID: 1694678631}
-  computerCanvas: {fileID: 736071485}
+  computerCanvas: {fileID: 1210961038}
+  playerMovementScript: {fileID: 2070728856}
 --- !u!1 &572675528
 GameObject:
   m_ObjectHideFlags: 0
@@ -7599,6 +7600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 838994367}
   - component: {fileID: 838994366}
+  - component: {fileID: 838994368}
   m_Layer: 0
   m_Name: cameraPC
   m_TagString: Untagged
@@ -7657,21 +7659,41 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &838994367
-Transform:
+--- !u!224 &838994367
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838994364}
-  serializedVersion: 2
   m_LocalRotation: {x: 0.0254567, y: 0.70760787, z: -0.025526062, w: 0.70568514}
-  m_LocalPosition: {x: 27.97, y: 13.26, z: 26.26}
+  m_LocalPosition: {x: 0, y: 0, z: 26.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 4.132, y: 90.156, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 27.97, y: 13.26}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &838994368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838994364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &869985378
 GameObject:
   m_ObjectHideFlags: 0
