@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class Safe : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class Safe : MonoBehaviour
     public GameObject objectToAnimate;  // El objeto que contiene el Animator
     public AnimationClip animationClip;  // La animación que se ejecutará al verificar el código correcto
     public GameObject objectToShow;  // El objeto que aparecerá cuando el código sea correcto
+    public GameObject dialogPanel;  // Panel de diálogo que se mostrará al ingresar el código correcto
+    public Text dialogText;  // Texto del panel de diálogo que se podrá editar
+    public string dialogMessage = "Código correcto, caja desbloqueada.";  // Mensaje del diálogo a mostrar
+    public float dialogDelay = 1.0f;  // Tiempo de retraso antes de mostrar el diálogo
+    public float dialogDuration = 3.0f;  // Duración del diálogo
 
     private bool isPlayerInTrigger = false;
     private Animator objectAnimator;  // Animator del objeto
@@ -38,6 +44,12 @@ public class Safe : MonoBehaviour
         if (objectToShow != null)
         {
             objectToShow.SetActive(false);  // El objeto permanece oculto hasta que se introduce el código correcto
+        }
+
+        // Asegurarse de que el panel de diálogo esté desactivado al inicio
+        if (dialogPanel != null)
+        {
+            dialogPanel.SetActive(false);
         }
     }
 
@@ -98,11 +110,28 @@ public class Safe : MonoBehaviour
             objectToShow.SetActive(true);  // El objeto aparecerá al introducir el código correcto
         }
 
+        // Iniciar la rutina para mostrar el panel de diálogo con un retraso
+        StartCoroutine(ShowDialogWithDelay());
+
         // Desactivar el trigger
         DisableTrigger();
 
         // Desactivar el panel del Keypad
         KeypadManager.instance.ToggleKeypadPanel();  // Cerrar el panel del Keypad
+    }
+
+    // Corrutina para mostrar el diálogo con un retraso y duración específica
+    private IEnumerator ShowDialogWithDelay()
+    {
+        yield return new WaitForSeconds(dialogDelay);  // Esperar el retraso antes de mostrar el diálogo
+
+        if (dialogPanel != null && dialogText != null)
+        {
+            dialogText.text = dialogMessage;  // Establecer el mensaje del diálogo
+            dialogPanel.SetActive(true);
+            yield return new WaitForSeconds(dialogDuration);  // Mantener el diálogo visible durante un tiempo
+            dialogPanel.SetActive(false);  // Ocultar el panel de diálogo
+        }
     }
 
     // Función para desactivar el trigger del objeto

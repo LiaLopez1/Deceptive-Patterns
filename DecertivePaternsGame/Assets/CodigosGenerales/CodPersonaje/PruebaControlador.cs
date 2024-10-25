@@ -10,31 +10,30 @@ public class PruebaControlador : MonoBehaviour
     public float crouchHeight = 0.2f;
     public float mouseSensitivity = 600f;
     public Transform cameraTransform;
+    public float raycastDistance = 5f;  // Distancia del raycast
 
     private float originalHeight;
     private Rigidbody rb;
-    private CapsuleCollider capsuleCollider;  // Nuevo: Referencia al CapsuleCollider
+    private CapsuleCollider capsuleCollider;
 
-    private float rotationX = 0f;  // Para controlar la rotación en el eje X (arriba/abajo)
+    private float rotationX = 0f;
 
     // Variables para agacharse de forma suave
     private Vector3 escalaNormal;
     private Vector3 escalaAgachado;
-    public float tiempoAgachado = 0.1f;  // Duración del agachado
+    public float tiempoAgachado = 0.1f;
     private bool agachado = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        capsuleCollider = GetComponent<CapsuleCollider>();  // Inicializa el CapsuleCollider
-        Cursor.lockState = CursorLockMode.Locked;  // Bloquea el cursor en el centro de la pantalla
-        originalHeight = transform.localScale.y;  // Guarda la altura original del jugador
+        capsuleCollider = GetComponent<CapsuleCollider>();
+        Cursor.lockState = CursorLockMode.Locked;
+        originalHeight = transform.localScale.y;
 
-        // Inicializamos la rotación de la cámara asegurando que empieza mirando hacia el frente
-        rotationX = 0f;  // Rotación vertical en 0
-        cameraTransform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);  // Aseguramos que la cámara comience mirando hacia el frente
+        rotationX = 0f;
+        cameraTransform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
 
-        // Guardamos las escalas para agacharse y estar de pie
         escalaNormal = transform.localScale;
         escalaAgachado = new Vector3(transform.localScale.x, crouchHeight, transform.localScale.z);
     }
@@ -47,13 +46,13 @@ public class PruebaControlador : MonoBehaviour
         // Rotación de la cámara y el jugador
         Look();
 
-        // Salto con la tecla "Espacio"
+        // Salto
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             Jump();
         }
 
-        // Agacharse o pararse
+        // Agacharse
         if (Input.GetKey(KeyCode.C))
         {
             agachado = true;
@@ -63,8 +62,11 @@ public class PruebaControlador : MonoBehaviour
             agachado = false;
         }
 
-        // Interpolación suave entre agacharse y estar de pie
+        // Interpolación suave
         transform.localScale = Vector3.Lerp(transform.localScale, agachado ? escalaAgachado : escalaNormal, Time.deltaTime / tiempoAgachado);
+
+        // Raycast para apuntar
+        Raycast();
     }
 
     void Move()
@@ -76,42 +78,55 @@ public class PruebaControlador : MonoBehaviour
 
         float speed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
         Vector3 velocity = moveDirection * speed;
-        velocity.y = rb.velocity.y;  // Mantiene la velocidad vertical existente (gravedad)
+        velocity.y = rb.velocity.y;
         rb.velocity = velocity;
     }
 
     void Look()
     {
-        // Solo permitir la rotación si el panel de configuración no está activo
         if (!PanelManager.isSettingsActive)
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-            // Rotar el jugador sobre el eje Y (horizontal, izquierda/derecha)
             transform.Rotate(Vector3.up * mouseX);
 
-            // Rotar la cámara sobre el eje X (vertical, arriba/abajo)
             rotationX -= mouseY;
-            rotationX = Mathf.Clamp(rotationX, -80f, 80f);  // Limitar el ángulo de la cámara
-            cameraTransform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);  // Aseguramos que solo la cámara se incline verticalmente
+            rotationX = Mathf.Clamp(rotationX, -80f, 80f);
+            cameraTransform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
         }
     }
-
 
     void Jump()
     {
         if (IsGrounded())
         {
-            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);  // Resetea la velocidad en el eje Y para evitar saltos acumulados
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);  // Añadir la fuerza de salto
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 
     bool IsGrounded()
     {
-        // Usamos el CapsuleCollider para verificar si está tocando el suelo
         float distanceToGround = capsuleCollider.bounds.extents.y;
         return Physics.Raycast(transform.position, Vector3.down, distanceToGround + 0.1f);
+    }
+
+    void Raycast()
+    {
+        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, raycastDistance))
+        {
+            // Opcional: Dibujar el rayo en la escena para visualización
+            Debug.DrawRay(cameraTransform.position, cameraTransform.forward * raycastDistance, Color.red);
+
+            // Opcional: Interacción con el objeto apuntado
+            if (hit.collider != null)
+            {
+                Debug.Log("Apuntando a: " + hit.collider.gameObject.name);
+            }
+        }
     }
 }

@@ -2,43 +2,72 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CojerObjeto : MonoBehaviour
+public class CojerObjetoRaycast : MonoBehaviour
 {
-   
-    public GameObject HandPoint;
+    public Transform cameraTransform;
+    public float raycastDistance = 5f;  // Distancia del raycast
+    public Transform HandPoint;  // Punto donde se sostendrá el objeto
     private GameObject pickedObject = null;
 
-
-    // Update is called once per frame
     void Update()
+    {
+        // Verificar si el jugador está tratando de soltar el objeto
+        if (pickedObject != null)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SoltarObjeto();
+            }
+        }
+        else
+        {
+            // Realizar el Raycast para recoger el objeto
+            RaycastParaCogerObjeto();
+        }
+    }
+
+    void RaycastParaCogerObjeto()
+    {
+        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, raycastDistance))
+        {
+            // Verificar si el objeto tiene el tag "objeto" y si el jugador presiona la tecla "E"
+            if (hit.collider.CompareTag("objeto") && Input.GetKeyDown(KeyCode.E))
+            {
+                CogerObjeto(hit.collider.gameObject);
+            }
+        }
+    }
+
+    void CogerObjeto(GameObject objeto)
+    {
+        Rigidbody objetoRb = objeto.GetComponent<Rigidbody>();
+        if (objetoRb != null)
+        {
+            objetoRb.useGravity = false;
+            objetoRb.isKinematic = true;
+
+            objeto.transform.position = HandPoint.position;
+            objeto.transform.SetParent(HandPoint);
+            pickedObject = objeto;
+        }
+    }
+
+    void SoltarObjeto()
     {
         if (pickedObject != null)
         {
-            if (Input.GetKey("r"))
+            Rigidbody objetoRb = pickedObject.GetComponent<Rigidbody>();
+            if (objetoRb != null)
             {
-                pickedObject.GetComponent<Rigidbody>().useGravity = true;
-                pickedObject.GetComponent<Rigidbody>().isKinematic = false;
-
-                pickedObject.gameObject.transform.SetParent(null);
-                pickedObject = null;
+                objetoRb.useGravity = true;
+                objetoRb.isKinematic = false;
             }
-        }
-        
-    }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("objeto"))
-        {
-            if (Input.GetKey("e")&& pickedObject ==null) 
-            {
-                other.GetComponent<Rigidbody>().useGravity = false;
-                other.GetComponent <Rigidbody>().isKinematic = true;
-
-                other.transform.position = HandPoint.transform.position;
-                other.gameObject.transform.SetParent(HandPoint.gameObject.transform);
-                pickedObject = other.gameObject;
-            }
+            pickedObject.transform.SetParent(null);
+            pickedObject = null;
         }
     }
 }

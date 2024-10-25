@@ -7,7 +7,10 @@ public class GameManager : MonoBehaviour
         Exploring,
         Dialogue,
         ResolviendoPuzzle1,
-        Puzzle1Resuelto
+        Puzzle1Resuelto,
+        ResolviendoPuzzle2,
+        Puzzle2Resuelto,
+
     }
 
     public GameState currentState = GameState.Exploring;
@@ -25,8 +28,15 @@ public class GameManager : MonoBehaviour
             ChangeState(GameState.Puzzle1Resuelto);
             Debug.Log("Has recolectado la Llave del Puzzle 1. Ahora puedes abrir la puerta al siguiente área.");
         }
+        if (Llave1nombre == "Llave2")
+        {
+            ChangeState(GameState.Puzzle2Resuelto);
+            Debug.Log("Has recolectado la Llave del Puzzle 1. Ahora puedes abrir la puerta al siguiente área.");
+        }
+
+
         // Agrega condiciones similares para otras llaves
-       
+
     }
     public void AdvanceDialogueSequence()
     {
