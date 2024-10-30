@@ -1,6 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class Safe : MonoBehaviour
 {
@@ -15,20 +16,20 @@ public class Safe : MonoBehaviour
     public string dialogMessage = "Código correcto, caja desbloqueada.";  // Mensaje del diálogo a mostrar
     public float dialogDelay = 1.0f;  // Tiempo de retraso antes de mostrar el diálogo
     public float dialogDuration = 3.0f;  // Duración del diálogo
+    public Transform cameraTransform;  // Transform de la cámara del jugador
+    public float raycastDistance = 5f;  // Distancia del raycast
 
-    private bool isPlayerInTrigger = false;
+    private bool isNear = false;  // Si el jugador está apuntando al objeto
     private Animator objectAnimator;  // Animator del objeto
     private Animation objectAnimation;  // Si prefieres usar el componente Animation en vez de Animator
     private bool hasBeenUnlocked = false;  // Verifica si el código ya ha sido ingresado correctamente
 
-    private Collider safeTrigger;  // Referencia al Collider (trigger) del objeto
-
     void Start()
     {
-        interactionText.SetActive(false);  // Ocultar el texto de interacción al inicio
-
-        // Obtener el componente Collider (trigger) del objeto
-        safeTrigger = GetComponent<Collider>();
+        if (interactionText != null)
+        {
+            interactionText.SetActive(false);  // Ocultar el texto de interacción al inicio
+        }
 
         if (objectToAnimate != null)
         {
@@ -55,8 +56,10 @@ public class Safe : MonoBehaviour
 
     void Update()
     {
-        // Mostrar el mensaje solo si el jugador está en el trigger y la caja no ha sido desbloqueada aún
-        if (isPlayerInTrigger && !hasBeenUnlocked && Input.GetKeyDown(KeyCode.E))
+        RaycastParaMostrarIndicador();
+
+        // Mostrar el mensaje solo si el jugador está apuntando al objeto y la caja no ha sido desbloqueada aún
+        if (isNear && !hasBeenUnlocked && Input.GetKeyDown(KeyCode.E))
         {
             KeypadManager.instance.SetCurrentCode(correctCode);  // Pasar el código correcto al KeypadManager
             KeypadManager.instance.SetCurrentObject(this);  // Pasar el objeto actual al KeypadManager
@@ -64,23 +67,41 @@ public class Safe : MonoBehaviour
         }
     }
 
-    // Detectar cuando el jugador entra en el trigger
-    private void OnTriggerEnter(Collider other)
+    void RaycastParaMostrarIndicador()
     {
-        if (other.CompareTag("Player") && !hasBeenUnlocked)
-        {
-            isPlayerInTrigger = true;
-            interactionText.SetActive(true);  // Mostrar el texto de interacción
-        }
-    }
+        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+        RaycastHit hit;
 
-    // Detectar cuando el jugador sale del trigger
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        if (Physics.Raycast(ray, out hit, raycastDistance))
         {
-            isPlayerInTrigger = false;
-            interactionText.SetActive(false);  // Ocultar el texto de interacción
+            // Verificar si el objeto tiene el tag "Safe"
+            if (hit.collider.gameObject == gameObject && !hasBeenUnlocked)
+            {
+                if (!isNear)
+                {
+                    isNear = true;
+                    if (interactionText != null)
+                    {
+                        interactionText.SetActive(true);  // Mostrar el texto de interacción
+                    }
+                }
+            }
+            else if (isNear)
+            {
+                isNear = false;
+                if (interactionText != null)
+                {
+                    interactionText.SetActive(false);  // Ocultar el texto de interacción
+                }
+            }
+        }
+        else if (isNear)
+        {
+            isNear = false;
+            if (interactionText != null)
+            {
+                interactionText.SetActive(false);  // Ocultar el texto de interacción
+            }
         }
     }
 
@@ -101,7 +122,7 @@ public class Safe : MonoBehaviour
             Debug.LogWarning("No se encontró Animator o Animation en el objeto " + objectToAnimate.name);
         }
 
-        // Marcar que la caja ha sido desbloqueada y desactivar el trigger
+        // Marcar que la caja ha sido desbloqueada
         hasBeenUnlocked = true;
 
         // Mostrar el objeto oculto al introducir el código correcto
@@ -112,9 +133,6 @@ public class Safe : MonoBehaviour
 
         // Iniciar la rutina para mostrar el panel de diálogo con un retraso
         StartCoroutine(ShowDialogWithDelay());
-
-        // Desactivar el trigger
-        DisableTrigger();
 
         // Desactivar el panel del Keypad
         KeypadManager.instance.ToggleKeypadPanel();  // Cerrar el panel del Keypad
@@ -132,21 +150,5 @@ public class Safe : MonoBehaviour
             yield return new WaitForSeconds(dialogDuration);  // Mantener el diálogo visible durante un tiempo
             dialogPanel.SetActive(false);  // Ocultar el panel de diálogo
         }
-    }
-
-    // Función para desactivar el trigger del objeto
-    private void DisableTrigger()
-    {
-        if (safeTrigger != null)
-        {
-            safeTrigger.enabled = false;  // Desactivar el trigger para que no se pueda interactuar más
-        }
-        else
-        {
-            Debug.LogWarning("No se encontró un Collider en el objeto " + gameObject.name);
-        }
-
-        // Ocultar el texto de interacción, si estaba visible
-        interactionText.SetActive(false);
     }
 }

@@ -4,13 +4,30 @@ public class Puerta : MonoBehaviour
 {
     public bool isLocked = true; // La puerta está inicialmente bloqueada
     private bool isNear = false; // Si el jugador está cerca
-    private string message = "La puerta está bloqueada"; // Mensaje inicial
+    public GameObject interactMessagePanel; // Panel de interacción
+    public GameObject lockedMessagePanel; // Panel de puerta bloqueada
+    public bool unlockAfterDelay = false; // Desbloquear después de un tiempo
+    public float unlockDelay = 5f; // Tiempo de espera para desbloquear la puerta
+
+    void Start()
+    {
+        // Asegúrate de desactivar ambos paneles al inicio
+        if (interactMessagePanel != null) interactMessagePanel.SetActive(false);
+        if (lockedMessagePanel != null) lockedMessagePanel.SetActive(false);
+
+        // Desbloquea la puerta después de unos segundos si está habilitado
+        if (unlockAfterDelay)
+        {
+            Invoke("UnlockDoor", unlockDelay);
+        }
+    }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             isNear = true; // El jugador está cerca de la puerta
+            UpdateMessagePanel();
         }
     }
 
@@ -19,23 +36,36 @@ public class Puerta : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isNear = false; // El jugador se aleja de la puerta
-        }
-    }
-
-    void OnGUI()
-    {
-        if (isNear)
-        {
-            GUIStyle guiStyle = new GUIStyle(GUI.skin.label);
-            guiStyle.fontSize = 30;
-            GUI.Label(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 50, 300, 100), message, guiStyle);
+            UpdateMessagePanel();
         }
     }
 
     public void UnlockDoor()
     {
         isLocked = false;
-        message = "Presiona 'E' para abrir la puerta";
+        UpdateMessagePanel();
+    }
+
+    void UpdateMessagePanel()
+    {
+        if (isNear)
+        {
+            if (isLocked)
+            {
+                if (lockedMessagePanel != null) lockedMessagePanel.SetActive(true);
+                if (interactMessagePanel != null) interactMessagePanel.SetActive(false);
+            }
+            else
+            {
+                if (lockedMessagePanel != null) lockedMessagePanel.SetActive(false);
+                if (interactMessagePanel != null) interactMessagePanel.SetActive(true);
+            }
+        }
+        else
+        {
+            if (lockedMessagePanel != null) lockedMessagePanel.SetActive(false);
+            if (interactMessagePanel != null) interactMessagePanel.SetActive(false);
+        }
     }
 
     void Update()
@@ -51,9 +81,8 @@ public class Puerta : MonoBehaviour
         // Realiza el movimiento de la puerta aquí
         transform.Rotate(0, 90f, 0); // Ajusta según necesidad
 
-        // igual la puerta tendra una animación, esta debe onerse aqui en vez de eso, o revisarlo.
-
+        // Si tienes una animación de puerta, podrías activar esa animación en vez de rotarla manualmente.
         Debug.Log("Puerta abierta");
-        message = ""; // Limpia el mensaje una vez abierta la puerta
+        UpdateMessagePanel(); // Actualiza el panel después de abrir la puerta
     }
 }

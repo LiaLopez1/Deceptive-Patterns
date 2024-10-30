@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class IndicadorInterac : MonoBehaviour
 {
-    public string mensajeInteraccion = "Presiona 'E' para interactuar";  // Mensaje que se mostrará al interactuar
     public GameObject indicadorInteraccion;  // Objeto que contiene el indicador de interacción (puede ser un texto, imagen, etc.)
     public Transform cameraTransform;  // Transform de la cámara del jugador
     public float raycastDistance = 5f;  // Distancia del raycast
@@ -31,8 +30,8 @@ public class IndicadorInterac : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, raycastDistance))
         {
-            // Verificar si el objeto tiene el tag "objeto"
-            if (hit.collider.gameObject == gameObject)
+            // Verificar si el objeto tiene el tag "Interactuable"
+            if (hit.collider.CompareTag("objeto"))
             {
                 // Mostrar el indicador de interacción
                 if (indicadorInteraccion != null)

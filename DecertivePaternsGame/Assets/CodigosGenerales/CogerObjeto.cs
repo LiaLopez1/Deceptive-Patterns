@@ -11,18 +11,17 @@ public class CojerObjetoRaycast : MonoBehaviour
 
     void Update()
     {
-        // Verificar si el jugador está tratando de soltar el objeto
-        if (pickedObject != null)
+        // Verificar si el jugador está tratando de recoger o soltar el objeto
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (pickedObject != null)
             {
                 SoltarObjeto();
             }
-        }
-        else
-        {
-            // Realizar el Raycast para recoger el objeto
-            RaycastParaCogerObjeto();
+            else
+            {
+                RaycastParaCogerObjeto();
+            }
         }
     }
 
@@ -33,8 +32,8 @@ public class CojerObjetoRaycast : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, raycastDistance))
         {
-            // Verificar si el objeto tiene el tag "objeto" y si el jugador presiona la tecla "E"
-            if (hit.collider.CompareTag("objeto") && Input.GetKeyDown(KeyCode.E))
+            // Verificar si el objeto tiene el tag "objeto"
+            if (hit.collider.CompareTag("objeto"))
             {
                 CogerObjeto(hit.collider.gameObject);
             }
