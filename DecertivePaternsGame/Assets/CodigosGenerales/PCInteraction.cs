@@ -3,54 +3,61 @@ using UnityEngine.UI;
 
 public class PCInteraction : MonoBehaviour
 {
-    public Camera playerCamera;     // Cámara del jugador
-    public Camera computerCamera;   // Cámara del PC
-    public GameObject interactionText;  // Texto "Presiona E para interactuar"
-    public GameObject panelToDisable;  // El otro panel que deseas desactivar al cambiar de cámara
-    public GameObject computerCanvas;  // Canvas de la pantalla del ordenador
-    public MonoBehaviour playerMovementScript; // Referencia al script de movimiento del jugador
+    public Camera playerCamera;
+    public Camera computerCamera;
+    public GameObject interactionText;
+    public GameObject panelToDisable;
+    public GameObject computerCanvas;
+    public MonoBehaviour playerMovementScript;
+    public GameObject pointerImage; // Imagen del puntero en el canvas
 
-    private bool isPlayerInTrigger = false;  // Verificar si el jugador está en el trigger
-    private RectTransform canvasRectTransform;  // Para manejar los límites del Canvas
+    private bool isPlayerInTrigger = false;
+    private RectTransform canvasRectTransform;
 
     void Start()
     {
         playerCamera.enabled = true;
         computerCamera.enabled = false;
-        interactionText.SetActive(false);  // Ocultar el mensaje al inicio
-        panelToDisable.SetActive(true);  // Asegurarse de que el otro panel esté activo al inicio
-        computerCanvas.SetActive(false);  // Asegurar que el Canvas del ordenador esté desactivado al inicio
+        interactionText.SetActive(false);
+        panelToDisable.SetActive(true);
+        computerCanvas.SetActive(false);
 
-        // Obtener el RectTransform del Canvas para definir los límites
+        // Asegurar que el puntero esté activo al inicio
+        if (pointerImage != null)
+        {
+            pointerImage.SetActive(true);
+        }
+
         canvasRectTransform = computerCanvas.GetComponent<RectTransform>();
     }
 
     void Update()
     {
-        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))  // Solo si el jugador está en el trigger
+        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
             if (playerCamera.enabled)
             {
                 // Cambiar a la cámara del PC
                 playerCamera.enabled = false;
                 computerCamera.enabled = true;
-                Cursor.lockState = CursorLockMode.None;  // Desbloquear el cursor
-                Cursor.visible = true;  // Mostrar el cursor
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
 
-                // Desactivar el otro panel y activar el Canvas del PC
-                panelToDisable.SetActive(false);  // Deshabilitar el panel que mencionas
-                computerCanvas.SetActive(true);   // Habilitar la UI del ordenador
-
-                // Asignar la cámara del PC como la cámara del Canvas
+                panelToDisable.SetActive(false);
+                computerCanvas.SetActive(true);
                 computerCanvas.GetComponent<Canvas>().worldCamera = computerCamera;
 
-                // Ocultar el mensaje de interacción
                 interactionText.SetActive(false);
 
-                // Desactivar el script de movimiento del jugador
                 if (playerMovementScript != null)
                 {
                     playerMovementScript.enabled = false;
+                }
+
+                // Desactivar el puntero cuando se usa la cámara del PC
+                if (pointerImage != null)
+                {
+                    pointerImage.SetActive(false);
                 }
             }
             else
@@ -58,25 +65,30 @@ public class PCInteraction : MonoBehaviour
                 // Volver a la cámara del jugador
                 computerCamera.enabled = false;
                 playerCamera.enabled = true;
-                Cursor.lockState = CursorLockMode.Locked;  // Bloquear el cursor en el centro de la pantalla
-                Cursor.visible = false;  // Ocultar el cursor
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
 
-                // Volver a habilitar el otro panel y desactivar el Canvas del PC
-                panelToDisable.SetActive(true);  // Volver a habilitar el panel
-                computerCanvas.SetActive(false);  // Desactivar el Canvas del ordenador
+                panelToDisable.SetActive(true);
+                computerCanvas.SetActive(false);
 
-                // Mostrar el mensaje de interacción nuevamente (opcional)
-                interactionText.SetActive(true);
+                if (isPlayerInTrigger)
+                {
+                    interactionText.SetActive(true);
+                }
 
-                // Activar el script de movimiento del jugador
                 if (playerMovementScript != null)
                 {
                     playerMovementScript.enabled = true;
                 }
+
+                // Reactivar el puntero al volver a la cámara del jugador
+                if (pointerImage != null)
+                {
+                    pointerImage.SetActive(true);
+                }
             }
         }
 
-        // Mostrar u ocultar el cursor dependiendo de si está dentro del área del Canvas
         if (computerCamera.enabled)
         {
             UpdateCursorVisibility();
@@ -88,26 +100,28 @@ public class PCInteraction : MonoBehaviour
         Vector2 mousePosition = Input.mousePosition;
         Vector2 localPoint;
 
-        // Convertir la posición del mouse a un punto local dentro del RectTransform del Canvas
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, mousePosition, computerCamera, out localPoint);
 
-        // Verificar si el cursor está dentro del área del Canvas
         if (canvasRectTransform.rect.Contains(localPoint))
         {
-            Cursor.visible = true;  // Mostrar el cursor si está dentro del Canvas
+            Cursor.visible = true;
         }
         else
         {
-            Cursor.visible = false;  // Ocultar el cursor si está fuera del Canvas
+            Cursor.visible = false;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))  // Verificar que sea el jugador quien entra
+        if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = true;
-            interactionText.SetActive(true);  // Mostrar el mensaje "Presiona E para interactuar"
+
+            if (!computerCamera.enabled)
+            {
+                interactionText.SetActive(true);
+            }
         }
     }
 
@@ -116,7 +130,7 @@ public class PCInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = false;
-            interactionText.SetActive(false);  // Ocultar el mensaje al salir del trigger
+            interactionText.SetActive(false);
         }
     }
 }

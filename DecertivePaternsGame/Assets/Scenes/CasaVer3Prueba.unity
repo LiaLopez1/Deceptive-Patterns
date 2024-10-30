@@ -6517,6 +6517,7 @@ MonoBehaviour:
   panelToDisable: {fileID: 1694678631}
   computerCanvas: {fileID: 1210961038}
   playerMovementScript: {fileID: 2070728856}
+  pointerImage: {fileID: 1416080545}
 --- !u!1 &572675528
 GameObject:
   m_ObjectHideFlags: 0
@@ -9766,7 +9767,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879934236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 0.32443732, y: 0.8505407, z: 0.57574}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9776,7 +9777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 46}
+  m_AnchoredPosition: {x: 394, y: 15}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &879934238
@@ -10300,7 +10301,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921430112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 0.32443732, y: 0.8505407, z: 0.57574}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10310,7 +10311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 46}
+  m_AnchoredPosition: {x: -190, y: 46}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &921430114
@@ -12843,10 +12844,10 @@ RectTransform:
   - {fileID: 736071486}
   - {fileID: 1070652827}
   - {fileID: 1662852846}
-  - {fileID: 879934237}
-  - {fileID: 1734381761}
-  - {fileID: 921430113}
   - {fileID: 1659694137}
+  - {fileID: 921430113}
+  - {fileID: 1734381761}
+  - {fileID: 879934237}
   - {fileID: 1933308952}
   - {fileID: 49442027}
   m_Father: {fileID: 1379773174}
@@ -12953,6 +12954,7 @@ MonoBehaviour:
   "Bot\xF3nNo": {fileID: 1467468740}
   enviarCorreoButton: {fileID: 592240193}
   boton4CanvasGroup: {fileID: 1191102666}
+  pcTrigger: {fileID: 556619063}
 --- !u!1 &1211164529
 GameObject:
   m_ObjectHideFlags: 0
@@ -18307,7 +18309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 46}
+  m_AnchoredPosition: {x: 4, y: 49}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1659694138
@@ -18892,7 +18894,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 46}
+  m_AnchoredPosition: {x: 0, y: -64}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1734381762

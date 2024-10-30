@@ -5,46 +5,46 @@ using System.Text.RegularExpressions;
 
 public class A : MonoBehaviour
 {
-    public GameObject[] panels; // Los 4 paneles de anuncios
-    public GameObject[] normalPanels; // Los 4 paneles normales
-    public GameObject panelAjustes; // El panel de ajustes que se muestra después del anuncio 4
-    public GameObject panelCorreo; // Panel para pedir el correo después de desactivar anuncios
-    public TMP_InputField correoInputField; // Campo para ingresar el correo en el panelCorreo
-    public Button[] BotonesInicio; // Los 4 botones principales
-    public Button BotónSí; // Botón para desactivar los paneles de anuncios
-    public Button BotónNo; // Botón para reiniciar la secuencia de anuncios
-    public Button enviarCorreoButton; // Botón para enviar el correo y activar el Botón 4
-    public CanvasGroup boton4CanvasGroup; // CanvasGroup para controlar opacidad y estado de Botón 4
+    public GameObject[] panels;           // Paneles de anuncios en secuencia
+    public GameObject[] normalPanels;     // Paneles normales
+    public GameObject panelAjustes;       // Panel de ajustes
+    public GameObject panelCorreo;        // Panel de correo
+    public TMP_InputField correoInputField;
+    public Button[] BotonesInicio;
+    public Button BotónSí;
+    public Button BotónNo;
+    public Button enviarCorreoButton;
+    public CanvasGroup boton4CanvasGroup;
+    public GameObject pcTrigger;
 
     private int panelIndex = 0;
     private bool panelsEnabled = true;
-    private string storedEmail = ""; // Variable para almacenar el correo ingresado
+    private string storedEmail = "";
+    private bool reactivarTrigger = false;
+    private bool isCorreoIngresado = false;
 
     void Start()
     {
-        // Oculta todos los paneles al inicio
+        // Inicialización: desactiva todos los paneles
         foreach (var panel in panels)
             panel.SetActive(false);
-        foreach (var panel in normalPanels)
-            panel.SetActive(false);
+        foreach (var normalPanel in normalPanels)
+            normalPanel.SetActive(false);
 
-        panelAjustes.SetActive(false); // Oculta el panel de ajustes al inicio
-        panelCorreo.SetActive(false); // Oculta el panel de correo al inicio
+        panelAjustes.SetActive(false);
+        panelCorreo.SetActive(false);
 
         BotónSí.gameObject.SetActive(false);
         BotónNo.gameObject.SetActive(false);
 
-        // Configura los botones principales
+        // Asigna listeners a los botones principales para abrir paneles
         for (int i = 0; i < BotonesInicio.Length; i++)
         {
-            int index = i; // Captura el índice para el botón correspondiente
+            int index = i;
             BotonesInicio[i].onClick.AddListener(() => OnMainButtonClick(index));
         }
 
-        // Desactiva el Botón 4 al inicio
         SetButton4Interactable(false);
-
-        // Configura botones de desactivación y reinicio
         BotónSí.onClick.AddListener(DeactivatePanels);
         BotónNo.onClick.AddListener(ResetPanels);
         enviarCorreoButton.onClick.AddListener(ValidarYGuardarCorreo);
@@ -52,70 +52,102 @@ public class A : MonoBehaviour
 
     void OnMainButtonClick(int buttonIndex)
     {
+        Debug.Log("OnMainButtonClick called with buttonIndex: " + buttonIndex);
+        // Si ya hay un panel abierto, no permite abrir otro
+        if (IsAnyPanelOpen())
+        {
+            Debug.Log("Cannot open panel. Another panel is already open.");
+            return;
+        }
+
         if (panelsEnabled)
         {
-            // Muestra el siguiente panel de anuncios en la secuencia
+            // Abre el siguiente panel de anuncios en secuencia
             if (panelIndex < panels.Length)
             {
                 panels[panelIndex].SetActive(true);
+                Debug.Log("Panel " + panelIndex + " opened.");
                 panelIndex++;
             }
 
-            // Si llegamos al último panel de anuncios, el panel de ajustes se mostrará automáticamente debido al `OnClick` configurado
+            // Si llega al último panel, muestra opciones para desactivar anuncios
             if (panelIndex == panels.Length)
             {
                 BotónSí.gameObject.SetActive(true);
                 BotónNo.gameObject.SetActive(true);
+                Debug.Log("All panels shown. Displaying options to deactivate panels.");
             }
         }
         else
         {
-            // Si los paneles de anuncios están desactivados, muestra el panel normal correspondiente
+            // Abre un panel normal si los anuncios están desactivados
             if (buttonIndex < normalPanels.Length)
             {
                 normalPanels[buttonIndex].SetActive(true);
+                Debug.Log("Normal panel " + buttonIndex + " opened.");
             }
         }
     }
 
     void DeactivatePanels()
     {
-        // Oculta todos los paneles de anuncios y muestra el panel de correo
-        foreach (var panel in panels)
-            panel.SetActive(false);
+        Debug.Log("DeactivatePanels called.");
+        if (IsAnyPanelOpen())
+        {
+            Debug.Log("Cannot deactivate panels. Another panel is already open.");
+            return;
+        }
 
         panelsEnabled = false;
         panelIndex = 0;
 
         BotónSí.gameObject.SetActive(false);
         BotónNo.gameObject.SetActive(false);
-        panelCorreo.SetActive(true); // Muestra el panel de correo para solicitar el correo
+        Debug.Log("Panels deactivated.");
+
+        // Muestra el panel de correo si aún no se ha ingresado un correo válido
+        if (!isCorreoIngresado)
+        {
+            panelCorreo.SetActive(true);
+            pcTrigger.SetActive(false);
+            reactivarTrigger = true;
+            Debug.Log("Correo panel opened.");
+        }
     }
 
     void ResetPanels()
     {
-        // Reinicia la secuencia de paneles de anuncios
-        foreach (var panel in panels)
-            panel.SetActive(false);
+        Debug.Log("ResetPanels called.");
+        CerrarPaneles(); // Cierra los paneles activos y restablece el estado
 
+        // Reiniciar el ciclo de los paneles de anuncios
+        panelsEnabled = true;
         panelIndex = 0;
 
-        BotónSí.gameObject.SetActive(false);
-        BotónNo.gameObject.SetActive(false);
+        Debug.Log("Panels reset. Starting over the ad sequence.");
     }
 
     void ValidarYGuardarCorreo()
     {
+        Debug.Log("ValidarYGuardarCorreo called.");
         string email = correoInputField.text;
-
-        // Expresión regular para validar el formato de correo
         string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
         if (Regex.IsMatch(email, emailPattern))
         {
-            storedEmail = email; // Almacena el correo
-            SetButton4Interactable(true); // Activa el Botón 4
-            panelCorreo.SetActive(false); // Oculta el panel de correo
+            storedEmail = email;
+            isCorreoIngresado = true;
+            SetButton4Interactable(true);
+            panelCorreo.SetActive(false);
             Debug.Log("Correo válido y guardado: " + storedEmail);
+
+            // Reactiva el trigger solo si se marcó como necesario
+            if (reactivarTrigger)
+            {
+                pcTrigger.SetActive(true);
+                reactivarTrigger = false;
+                Debug.Log("pcTrigger reactivated.");
+            }
         }
         else
         {
@@ -125,27 +157,106 @@ public class A : MonoBehaviour
 
     void SetButton4Interactable(bool interactable)
     {
-        // Usa CanvasGroup para controlar la opacidad y la interacción del Botón 4
+        Debug.Log("SetButton4Interactable called. Interactable: " + interactable);
         boton4CanvasGroup.interactable = interactable;
         boton4CanvasGroup.blocksRaycasts = interactable;
         boton4CanvasGroup.alpha = interactable ? 1f : 0.5f;
 
         if (interactable)
         {
-            BotonesInicio[3].onClick.AddListener(MostrarPanelAjustes); // Agrega el evento para abrir el panel de ajustes
+            BotonesInicio[3].onClick.AddListener(MostrarPanelAjustes);
         }
         else
         {
-            BotonesInicio[3].onClick.RemoveAllListeners(); // Remueve cualquier evento si está desactivado
+            BotonesInicio[3].onClick.RemoveAllListeners();
         }
     }
 
     void MostrarPanelAjustes()
     {
-        panelAjustes.SetActive(true); // Muestra el panel de ajustes
+        Debug.Log("MostrarPanelAjustes called.");
+        // Si ya hay un panel abierto, no permite abrir otro
+        if (IsAnyPanelOpen())
+        {
+            Debug.Log("Cannot open ajustes panel. Another panel is already open.");
+            return;
+        }
 
-        // Activa los botones Sí y No al mostrar el panel de ajustes
+        panelAjustes.SetActive(true);
         BotónSí.gameObject.SetActive(true);
         BotónNo.gameObject.SetActive(true);
+        Debug.Log("Ajustes panel opened.");
+    }
+
+    public void CerrarPaneles()
+    {
+        Debug.Log("CerrarPaneles called.");
+        // Cierra todos los paneles activos y permite abrir otro
+        foreach (var panel in panels)
+        {
+            if (panel.activeSelf)
+            {
+                panel.SetActive(false);
+                Debug.Log("Panel closed.");
+            }
+        }
+
+        foreach (var normalPanel in normalPanels)
+        {
+            if (normalPanel.activeSelf)
+            {
+                normalPanel.SetActive(false);
+                Debug.Log("Normal panel closed.");
+            }
+        }
+
+        if (panelAjustes.activeSelf)
+        {
+            panelAjustes.SetActive(false);
+            Debug.Log("Ajustes panel closed.");
+        }
+
+        if (panelCorreo.activeSelf)
+        {
+            panelCorreo.SetActive(false);
+            Debug.Log("Correo panel closed.");
+        }
+
+        BotónSí.gameObject.SetActive(false);
+        BotónNo.gameObject.SetActive(false);
+    }
+
+    bool IsAnyPanelOpen()
+    {
+        // Revisa si algún panel está activo usando activeSelf
+        foreach (var panel in panels)
+        {
+            if (panel.activeSelf)
+            {
+                Debug.Log("A panel is currently open.");
+                return true;
+            }
+        }
+        foreach (var normalPanel in normalPanels)
+        {
+            if (normalPanel.activeSelf)
+            {
+                Debug.Log("A normal panel is currently open.");
+                return true;
+            }
+        }
+        if (panelAjustes.activeSelf)
+        {
+            Debug.Log("Ajustes panel is currently open.");
+            return true;
+        }
+        if (panelCorreo.activeSelf)
+        {
+            Debug.Log("Correo panel is currently open.");
+            return true;
+        }
+
+        Debug.Log("No panels are open.");
+        return false;
     }
 }
