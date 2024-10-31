@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
         Puzzle1Resuelto,
         ResolviendoPuzzle2,
         Puzzle2Resuelto,
+        ResolviendoPuzzle3,
+        Puzzle3Resuelto,
+        ResolviendoPuzzle4,
+        Puzzle4Resuelto
     }
 
     public GameState currentState = GameState.Exploring;
@@ -18,6 +22,8 @@ public class GameManager : MonoBehaviour
     // Referencias a las series de triggers
     public GameObject[] triggerSerie1;
     public GameObject[] triggerSerie2;
+    public GameObject[] triggerSerie3;
+    public GameObject[] triggerSerie4;
 
     public void ChangeState(GameState newState)
     {
@@ -29,11 +35,22 @@ public class GameManager : MonoBehaviour
             case GameState.Puzzle1Resuelto:
                 ActivateTriggers(triggerSerie2);
                 DeactivateTriggers(triggerSerie1);
+
                 ResetDialogueSequence(); // Restablecer la secuencia de diálogos
                 break;
 
             case GameState.Puzzle2Resuelto:
-                // Puedes agregar lógica para cambiar triggers cuando el puzzle 2 esté resuelto
+                ActivateTriggers(triggerSerie3);
+                DeactivateTriggers(triggerSerie2);// Puedes agregar lógica para cambiar triggers cuando el puzzle 2 esté resuelto
+
+                ResetDialogueSequence(); // Restablecer la secuencia de diálogos
+                break;
+
+            case GameState.Puzzle3Resuelto:
+                ActivateTriggers(triggerSerie4);
+                DeactivateTriggers(triggerSerie3);// Puedes agregar lógica para cambiar triggers cuando el puzzle 2 esté resuelto
+
+                ResetDialogueSequence(); // Restablecer la secuencia de diálogos
                 break;
         }
     }
@@ -50,6 +67,17 @@ public class GameManager : MonoBehaviour
             ChangeState(GameState.Puzzle2Resuelto);
             Debug.Log("Has recolectado la Llave del Puzzle 2. Ahora puedes abrir la puerta al siguiente área.");
         }
+        if (llaveNombre == "Llave3")
+        {
+            ChangeState(GameState.Puzzle3Resuelto);
+            Debug.Log("Has recolectado la Llave del Puzzle 3. Ahora puedes abrir la puerta al siguiente área.");
+        }
+        if (llaveNombre == "Llave4")
+        {
+            ChangeState(GameState.Puzzle4Resuelto);
+            Debug.Log("Has recolectado la Llave del Puzzle 4. Ahora puedes abrir la puerta al siguiente área.");
+        }
+
         // Agrega condiciones similares para otras llaves
     }
 
