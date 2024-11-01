@@ -1,47 +1,42 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;  // Importar la librería de TextMeshPro
-using System.Collections.Generic;
+using TMPro;
 
-public class TriggerManager : MonoBehaviour
+public class TriggerInteraction : MonoBehaviour
 {
-    [System.Serializable]
-    public class TriggerData
-    {
-        public Collider interactionTrigger;    // Trigger para la interacción
-        public Canvas interactionHintCanvas;   // Canvas que muestra "Presiona E para interactuar"
-        [TextArea]
-        public string description;             // Descripción específica para el pilar
-    }
+    public Canvas interactionHintCanvas;   // Canvas que muestra "Presiona E para interactuar"
+    public Canvas descriptionCanvas;       // Canvas que muestra la descripción con botón para salir
+    [TextArea]
+    public string description;             // Descripción específica para el pilar
+    public TextMeshProUGUI descriptionText; // TextMeshPro que muestra la descripción
+    public Button closeButton;             // Botón para cerrar la descripción
+    public Button takeKeyButton;           // Botón para tomar la llave
+    public GameObject keyModel;            // Modelo de la llave visible sobre el pilar (individual, debe ser único)
+    public GameObject player;              // Referencia al jugador
+    public int keyID;                      // ID de la llave específica
 
-    public List<TriggerData> triggers = new List<TriggerData>();
-
-    // Referencias al Canvas principal en Screen Space
-    public Canvas descriptionCanvas;          // Canvas que muestra la descripción completa
-    public TextMeshProUGUI descriptionText;   // TextMeshPro que muestra la descripción
-    public Button closeButton;                // Botón para cerrar la descripción
-
-    public GameObject player;                 // Referencia al jugador
-
-    private TriggerData currentTrigger;       // Trigger actual con el que se está interactuando
-    private MonoBehaviour[] playerMovementScripts; // Referencia a todos los scripts del jugador para control de movimiento
+    private MonoBehaviour playerMovementScript; // Referencia al script de movimiento del jugador
+    private bool playerInRange = false;          // Para verificar si el jugador está dentro del rango de interacción
+    private bool keyTaken = false;               // Para verificar si la llave ya fue tomada
 
     private void Start()
     {
-        // Obtener todos los scripts de movimiento del jugador
-        playerMovementScripts = player.GetComponents<MonoBehaviour>();
+        // Obtener el script de movimiento del jugador
+        playerMovementScript = player.GetComponent<MonoBehaviour>();
 
-        // Desactivar todos los hints y el canvas de descripción al inicio
-        foreach (var trigger in triggers)
-        {
-            trigger.interactionHintCanvas.gameObject.SetActive(false);
-        }
+        // Desactivar los canvas al inicio
+        interactionHintCanvas.gameObject.SetActive(false);
         descriptionCanvas.gameObject.SetActive(false);
 
-        // Configurar el botón de cierre
+        // Configurar los botones
         if (closeButton != null)
         {
             closeButton.onClick.AddListener(CloseDescription);
+        }
+
+        if (takeKeyButton != null)
+        {
+            takeKeyButton.onClick.AddListener(TakeKey);
         }
     }
 
@@ -49,15 +44,8 @@ public class TriggerManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            foreach (var trigger in triggers)
-            {
-                if (other == trigger.interactionTrigger)
-                {
-                    trigger.interactionHintCanvas.gameObject.SetActive(true);
-                    currentTrigger = trigger;  // Guardar el trigger actual
-                    break;
-                }
-            }
+            interactionHintCanvas.gameObject.SetActive(true);
+            playerInRange = true;
         }
     }
 
@@ -65,40 +53,38 @@ public class TriggerManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            foreach (var trigger in triggers)
-            {
-                if (other == trigger.interactionTrigger)
-                {
-                    trigger.interactionHintCanvas.gameObject.SetActive(false);
-                    currentTrigger = null;  // Limpiar el trigger actual
-                    break;
-                }
-            }
+            interactionHintCanvas.gameObject.SetActive(false);
+            descriptionCanvas.gameObject.SetActive(false);
+            playerInRange = false;
         }
     }
 
     private void Update()
     {
-        if (currentTrigger != null && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            ShowDescription(currentTrigger);
+            ShowDescription();
         }
     }
 
-    private void ShowDescription(TriggerData trigger)
+    private void ShowDescription()
     {
         // Ocultar el mensaje de interacción
-        trigger.interactionHintCanvas.gameObject.SetActive(false);
+        interactionHintCanvas.gameObject.SetActive(false);
 
         // Mostrar el canvas de descripción y actualizar el texto
         descriptionCanvas.gameObject.SetActive(true);
-        descriptionText.text = trigger.description;
+        descriptionText.text = description;
 
-        // Desactivar los scripts de movimiento del jugador
-        foreach (var script in playerMovementScripts)
+        // Desactivar el script de movimiento del jugador
+        if (playerMovementScript != null)
         {
-            script.enabled = false;
+            playerMovementScript.enabled = false;
         }
+
+        // Mostrar el cursor del mouse
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void CloseDescription()
@@ -106,16 +92,57 @@ public class TriggerManager : MonoBehaviour
         // Ocultar la descripción
         descriptionCanvas.gameObject.SetActive(false);
 
-        // Reactivar los scripts de movimiento del jugador
-        foreach (var script in playerMovementScripts)
+        // Reactivar el script de movimiento del jugador
+        if (playerMovementScript != null)
         {
-            script.enabled = true;
+            playerMovementScript.enabled = true;
         }
 
-        // Volver a mostrar el mensaje de interacción, si todavía está en el área del trigger
-        if (currentTrigger != null)
+        // Ocultar el cursor del mouse
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        // Volver a mostrar el mensaje de interacción si el jugador sigue en el área
+        if (playerInRange)
         {
-            currentTrigger.interactionHintCanvas.gameObject.SetActive(true);
+            interactionHintCanvas.gameObject.SetActive(true);
         }
+    }
+
+    private void TakeKey()
+    {
+        // Verificar si la llave ya ha sido tomada
+        if (keyTaken)
+        {
+            Debug.Log($"La llave con ID {keyID} ya fue tomada.");
+            return;
+        }
+
+        Debug.Log($"Intentando tomar la llave con ID: {keyID}");
+
+        // Obtener el inventario del jugador
+        PlayerInventory playerInventory = player.GetComponent<PlayerInventory>();
+        if (playerInventory == null) return;
+
+        // Si ya tiene una llave, devolver la llave anterior y desactivar el estado de tener una llave
+        if (playerInventory.HasKey())
+        {
+            GameObject previousKeyModel = playerInventory.GetKeyModel();
+            if (previousKeyModel != null)
+            {
+                previousKeyModel.SetActive(true);
+            }
+        }
+
+        // Desactivar el modelo de la llave actual y actualizar el inventario del jugador
+        if (keyModel != null)
+        {
+            keyModel.SetActive(false);
+            playerInventory.SetKey(keyID, keyModel);
+            keyTaken = true;  // Marcar la llave como tomada
+        }
+
+        // Desactivar el botón de tomar llave para evitar que se tome más de una vez
+        takeKeyButton.interactable = false;
     }
 }
