@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.17778477, g: 0.22258987, b: 0.30474588, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24084,7 +24084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionText: {fileID: 1722055247}
-  correctCode: 1234
+  correctCode: 2167
   objectToAnimate: {fileID: 1879812436}
   animationClip: {fileID: 7400000, guid: b86ed2c1012e0f74eae4ea8fd19746ea, type: 2}
   objectToShow: {fileID: 548234213}
@@ -25589,7 +25589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionText: {fileID: 1722055247}
-  correctCode: 1234
+  correctCode: 2167
   objectToAnimate: {fileID: 1211164529}
   animationClip: {fileID: 7400000, guid: 6a6903ab7f0466a4885a64f29016e0ee, type: 2}
   objectToShow: {fileID: 0}
