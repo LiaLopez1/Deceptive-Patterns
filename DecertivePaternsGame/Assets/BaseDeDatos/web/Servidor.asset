@@ -33,7 +33,13 @@ MonoBehaviour:
     URL: obtener_llaves.php
     parametros:
     - nombreroll
+  - nombre: guardar_correo
+    URL: guardar_correo.php
+    parametros:
+    - nombreroll
+    - correo
   ocupado: 0
   respuesta:
     codigo: 200
+    mensaje: Llaves actualizadas correctamente
     llaves: 0

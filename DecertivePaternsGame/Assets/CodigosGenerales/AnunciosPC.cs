@@ -2,14 +2,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Text.RegularExpressions;
+using System.Collections;
 
 public class A : MonoBehaviour
 {
-    public GameObject[] panels;           // Paneles de anuncios en secuencia
-    public GameObject[] normalPanels;     // Paneles normales
-    public GameObject panelAjustes;       // Panel de ajustes
-    public GameObject panelCorreo;        // Panel de correo
-    public TMP_InputField correoInputField;
+    public Servidor servidor;              // Referencia al objeto Servidor para enviar datos al servidor
+    public GameObject[] panels;            // Paneles de anuncios en secuencia
+    public GameObject[] normalPanels;      // Paneles normales
+    public GameObject panelAjustes;        // Panel de ajustes
+    public GameObject panelCorreo;         // Panel de correo para ingresar el correo electrónico
+    public TMP_InputField correoInputField; // InputField para ingresar el correo electrónico
     public Button[] BotonesInicio;
     public Button BotónSí;
     public Button BotónNo;
@@ -19,7 +21,6 @@ public class A : MonoBehaviour
 
     private int panelIndex = 0;
     private bool panelsEnabled = true;
-    private string storedEmail = "";
     private bool reactivarTrigger = false;
     private bool isCorreoIngresado = false;
 
@@ -47,13 +48,65 @@ public class A : MonoBehaviour
         SetButton4Interactable(false);
         BotónSí.onClick.AddListener(DeactivatePanels);
         BotónNo.onClick.AddListener(ResetPanels);
-        enviarCorreoButton.onClick.AddListener(ValidarYGuardarCorreo);
+        enviarCorreoButton.onClick.AddListener(ValidarYGuardarCorreo); // Asigna el listener para el botón de enviar correo
+    }
+
+    void ValidarYGuardarCorreo()
+    {
+        string email = correoInputField.text;
+        string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$"; // Patrón para validar el correo
+
+        if (Regex.IsMatch(email, emailPattern))
+        {
+            isCorreoIngresado = true; // Marca que el correo ha sido ingresado
+            SetButton4Interactable(true);
+            panelCorreo.SetActive(false);
+            Debug.Log("Correo válido y guardado: " + email);
+
+            // Inicia la coroutine para enviar el correo al servidor
+            StartCoroutine(EnviarCorreoAlServidor(email));
+
+            // Reactiva el trigger si es necesario
+            if (reactivarTrigger)
+            {
+                pcTrigger.SetActive(true);
+                reactivarTrigger = false;
+                Debug.Log("pcTrigger reactivated.");
+            }
+        }
+        else
+        {
+            Debug.Log("Por favor ingrese un correo válido.");
+        }
+    }
+
+    IEnumerator EnviarCorreoAlServidor(string correo)
+    {
+        string[] datos = new string[2];
+        datos[0] = login.nombreRollActual; // Nombre del usuario (nombreroll)
+        datos[1] = correo; // Correo a guardar
+
+        // Llama al servicio "guardar_correo" en el servidor
+        StartCoroutine(servidor.ConsumirServicio("guardar_correo", datos, ConfirmarCorreoGuardado));
+        yield return new WaitUntil(() => !servidor.ocupado);
+    }
+
+    private void ConfirmarCorreoGuardado()
+    {
+        if (servidor.respuesta.codigo == 200) // Si el servidor respondió correctamente
+        {
+            Debug.Log("Correo guardado correctamente en la base de datos.");
+        }
+        else
+        {
+            Debug.LogError("Error al guardar el correo en el servidor: " + servidor.respuesta.mensaje);
+        }
     }
 
     void OnMainButtonClick(int buttonIndex)
     {
         Debug.Log("OnMainButtonClick called with buttonIndex: " + buttonIndex);
-        // Si ya hay un panel abierto, no permite abrir otro
+
         if (IsAnyPanelOpen())
         {
             Debug.Log("Cannot open panel. Another panel is already open.");
@@ -62,7 +115,6 @@ public class A : MonoBehaviour
 
         if (panelsEnabled)
         {
-            // Abre el siguiente panel de anuncios en secuencia
             if (panelIndex < panels.Length)
             {
                 panels[panelIndex].SetActive(true);
@@ -70,7 +122,6 @@ public class A : MonoBehaviour
                 panelIndex++;
             }
 
-            // Si llega al último panel, muestra opciones para desactivar anuncios
             if (panelIndex == panels.Length)
             {
                 BotónSí.gameObject.SetActive(true);
@@ -80,7 +131,6 @@ public class A : MonoBehaviour
         }
         else
         {
-            // Abre un panel normal si los anuncios están desactivados
             if (buttonIndex < normalPanels.Length)
             {
                 normalPanels[buttonIndex].SetActive(true);
@@ -105,7 +155,6 @@ public class A : MonoBehaviour
         BotónNo.gameObject.SetActive(false);
         Debug.Log("Panels deactivated.");
 
-        // Muestra el panel de correo si aún no se ha ingresado un correo válido
         if (!isCorreoIngresado)
         {
             panelCorreo.SetActive(true);
@@ -118,41 +167,12 @@ public class A : MonoBehaviour
     void ResetPanels()
     {
         Debug.Log("ResetPanels called.");
-        CerrarPaneles(); // Cierra los paneles activos y restablece el estado
+        CerrarPaneles();
 
-        // Reiniciar el ciclo de los paneles de anuncios
         panelsEnabled = true;
         panelIndex = 0;
 
         Debug.Log("Panels reset. Starting over the ad sequence.");
-    }
-
-    void ValidarYGuardarCorreo()
-    {
-        Debug.Log("ValidarYGuardarCorreo called.");
-        string email = correoInputField.text;
-        string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-
-        if (Regex.IsMatch(email, emailPattern))
-        {
-            storedEmail = email;
-            isCorreoIngresado = true;
-            SetButton4Interactable(true);
-            panelCorreo.SetActive(false);
-            Debug.Log("Correo válido y guardado: " + storedEmail);
-
-            // Reactiva el trigger solo si se marcó como necesario
-            if (reactivarTrigger)
-            {
-                pcTrigger.SetActive(true);
-                reactivarTrigger = false;
-                Debug.Log("pcTrigger reactivated.");
-            }
-        }
-        else
-        {
-            Debug.Log("Por favor ingrese un correo válido.");
-        }
     }
 
     void SetButton4Interactable(bool interactable)
@@ -175,7 +195,6 @@ public class A : MonoBehaviour
     void MostrarPanelAjustes()
     {
         Debug.Log("MostrarPanelAjustes called.");
-        // Si ya hay un panel abierto, no permite abrir otro
         if (IsAnyPanelOpen())
         {
             Debug.Log("Cannot open ajustes panel. Another panel is already open.");
@@ -191,7 +210,6 @@ public class A : MonoBehaviour
     public void CerrarPaneles()
     {
         Debug.Log("CerrarPaneles called.");
-        // Cierra todos los paneles activos y permite abrir otro
         foreach (var panel in panels)
         {
             if (panel.activeSelf)
@@ -228,7 +246,6 @@ public class A : MonoBehaviour
 
     bool IsAnyPanelOpen()
     {
-        // Revisa si algún panel está activo usando activeSelf
         foreach (var panel in panels)
         {
             if (panel.activeSelf)
@@ -245,14 +262,9 @@ public class A : MonoBehaviour
                 return true;
             }
         }
-        if (panelAjustes.activeSelf)
+        if (panelAjustes.activeSelf || panelCorreo.activeSelf)
         {
-            Debug.Log("Ajustes panel is currently open.");
-            return true;
-        }
-        if (panelCorreo.activeSelf)
-        {
-            Debug.Log("Correo panel is currently open.");
+            Debug.Log("Ajustes or Correo panel is currently open.");
             return true;
         }
 
