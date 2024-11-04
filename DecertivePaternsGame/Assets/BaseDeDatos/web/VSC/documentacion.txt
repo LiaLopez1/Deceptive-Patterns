@@ -1,0 +1,18 @@
+Códigos de respuesta:
+    200 : Conectado correctamente
+    201 : Usuario creado correctamente
+    202 : El usuario ya existente
+    203 : El usuario NO existe
+    204 : El usuario es incorrecto
+    205 : Inicio de sesión correcto
+
+    400 : Error intentando conectar
+    401 : Error creando el usuario
+    402 : Faltan datos para ejecutar la accion solicitada
+    403 : Ya existente un usuario registrado con ese nombre
+
+
+Usos de las funciones:
+reg_usuario(terminos, nombreroll, correo, nivel)
+verificar_usuario(nombreroll)
+login(nombreroll)
