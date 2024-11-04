@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/login.unity
     guid: 9daa93ce60ab0e64dbe63408aefdc4df
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CasaVer3Prueba.unity
     guid: 5b35a215cdddf574d94fc4dc650c2878
+  - enabled: 1
+    path: Assets/Scenes/CasaVer4.unity
+    guid: db41ac29b6d13c24da5964381c6d2dfb
   m_configObjects: {}
