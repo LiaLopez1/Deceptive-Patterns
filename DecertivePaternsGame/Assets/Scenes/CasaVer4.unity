@@ -4407,9 +4407,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - Solo silencio, intenta otra vez con los libros.
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 8
   nextState: 2
   changeState: 0
@@ -5175,9 +5178,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - oh! otra caja fuerte, encontremos el codigo
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 0
   nextState: 4
   changeState: 1
@@ -6225,11 +6231,15 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - "Ya entiendo \xA1estamos encerrados en nuestra propia casa!, necesitamos abrir
-    esta puerta. "
-  - 'Nos faltan 5 llaves, a lo mejor hay una escondia aqui en la sala. '
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 2
   nextState: 2
   changeState: 1
@@ -8067,10 +8077,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - "El tel\xE9fono est\xE1 desconectado, mala m\xEDa; revisa en esos libros, a lo
-    mejor la contrase\xF1a est\xE1 ah\xED. "
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 5
   nextState: 2
   changeState: 0
@@ -9701,11 +9713,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 5
   dialogos:
-  - "Hola, parece que ya despertaste, bueno, que ya despertamos (se r\xEDe).   No
-    s\xE9 d\xF3nde estamos, pero es un lugar realmente extra\xF1o... Deber\xEDamos
-    salir. "
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 0
   nextState: 0
   changeState: 0
@@ -9941,9 +9954,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - jmmm, tal vez no revisaste bien el libro que era
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 11
   nextState: 2
   changeState: 0
@@ -10504,9 +10520,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - "Ah, que bien, lo hiciste, super... dig\xEDtalos en la caja fuerte.    "
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 13
   nextState: 2
   changeState: 0
@@ -14742,9 +14761,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - Estamos el cuarto 3 xxdxdxdxdxdxdxd
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 0
   nextState: 6
   changeState: 1
@@ -17591,10 +17613,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - "   Aaaaaaaah, est\xE1bamos buscando n\xFAmeros, lo hab\xEDa olvidado (risa nerviosa),ahora
-    solo falta un n\xFAmero. "
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 12
   nextState: 2
   changeState: 0
@@ -19483,6 +19507,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalText: {fileID: 1771350855}
+  warningPanel: {fileID: 0}
+  warningText: {fileID: 0}
+  mensajeAdvertencia: "\xA1Un objeto de sabotaje ha salido del \xE1rea!"
+  mensajeDuracion: 3
   objetoSabotajePrefab: {fileID: 357486674}
   spawnPoints:
   - {fileID: 16652501}
@@ -21888,10 +21916,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - "Bueno, nada funcion\xF3 y me qued\xE9 sin ideas, a lo mejor si revisas el tel\xE9fono
-    de nuevo, pase algo diferente... "
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 7
   nextState: 2
   changeState: 0
@@ -23270,9 +23300,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - "No pasa nada, puedes contestar una vez m\xE1s el tel\xE9fono.    "
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 10
   nextState: 2
   changeState: 0
@@ -23658,10 +23691,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - "faltan dos digitos, se me ocurri\xF3 algo \xBFpuedes revisar el tel\xE9fono?,
-    quiz\xE1s ah\xED haya una pista. "
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 4
   nextState: 2
   changeState: 0
@@ -30931,9 +30966,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - "Vac\xEDos, prueba poner nuevamente otro objeto en la mesa. "
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 9
   nextState: 2
   changeState: 0
@@ -32223,7 +32261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37327ceb91bd9c0489edcfe9ff027085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 0
+  isLocked: 1
   interactMessagePanel: {fileID: 128809623}
   lockedMessagePanel: {fileID: 592654676}
   unlockAfterDelay: 0
@@ -32555,10 +32593,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - "Wow, estamos en la casa, pero parece estar cambiado. Vayamos a la sala, parece
-    que hay algo all\xED. "
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 1
   nextState: 0
   changeState: 1
@@ -33361,9 +33401,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - "\xA1Bingo!, en esa caja fuerte debe estar la llave. "
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 3
   nextState: 2
   changeState: 0
@@ -35328,10 +35371,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - "En estos libros no hay nada, bueno, se me ocurre otra idea; trata de poner ese
-    vaso sobre la mesa de centro, quiz\xE1 eso puede servir. "
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 6
   nextState: 2
   changeState: 0
@@ -35499,7 +35544,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 30
   runSpeed: 50
-  jumpForce: 10
   crouchHeight: 0.2
   mouseSensitivity: 800
   cameraTransform: {fileID: 474191596}
@@ -36069,9 +36113,12 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - Ahora el cuarto 4 xsdxdxd
+  - texto: 
+    mostrarMision: 0
+    textoMision: 
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 1514992031}
+  missionText: {fileID: 0}
   triggerSequence: 0
   nextState: 8
   changeState: 1
