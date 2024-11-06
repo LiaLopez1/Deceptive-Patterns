@@ -2,42 +2,33 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class TriggerInteraction : MonoBehaviour
+public class PilarKeyInteraction : MonoBehaviour
 {
-    public Canvas interactionHintCanvas;   // Canvas que muestra "Presiona E para interactuar"
-    public Canvas descriptionCanvas;       // Canvas que muestra la descripción con botón para salir
+    public Canvas interactionHintCanvas;
+    public Canvas descriptionCanvas;
     [TextArea]
-    public string description;             // Descripción específica para el pilar
-    public TextMeshProUGUI descriptionText; // TextMeshPro que muestra la descripción
-    public Button closeButton;             // Botón para cerrar la descripción
-    public Button takeKeyButton;           // Botón para tomar la llave
-    public GameObject keyModel;            // Modelo de la llave visible sobre el pilar (individual, debe ser único)
-    public GameObject player;              // Referencia al jugador
-    public int keyID;                      // ID de la llave específica
+    public string description;
+    public TextMeshProUGUI descriptionText;
+    public Button closeButton;
+    public GameObject keyModel;
+    public MonoBehaviour playerMovementScript;
+    public bool isCorrectKey = false;
+    private bool playerInRange = false;
+    private bool descriptionOpen = false;
 
-    private MonoBehaviour playerMovementScript; // Referencia al script de movimiento del jugador
-    private bool playerInRange = false;          // Para verificar si el jugador está dentro del rango de interacción
-    private bool keyTaken = false;               // Para verificar si la llave ya fue tomada
+    // Referencia estática para controlar una sola llave activa a la vez
+    private static GameObject lastKeyModel = null;
+
+    // Variable estática para verificar si el jugador tiene la llave correcta
+    public static bool hasCorrectKey = false;
 
     private void Start()
     {
-        // Obtener el script de movimiento del jugador
-        playerMovementScript = player.GetComponent<MonoBehaviour>();
-
-        // Desactivar los canvas al inicio
         interactionHintCanvas.gameObject.SetActive(false);
         descriptionCanvas.gameObject.SetActive(false);
 
-        // Configurar los botones
-        if (closeButton != null)
-        {
-            closeButton.onClick.AddListener(CloseDescription);
-        }
-
-        if (takeKeyButton != null)
-        {
-            takeKeyButton.onClick.AddListener(TakeKey);
-        }
+        closeButton.onClick.RemoveAllListeners();
+        closeButton.onClick.AddListener(CloseDescription);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,7 +45,10 @@ public class TriggerInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             interactionHintCanvas.gameObject.SetActive(false);
-            descriptionCanvas.gameObject.SetActive(false);
+            if (descriptionOpen)
+            {
+                CloseDescription(); // Cierra el canvas si el jugador se aleja
+            }
             playerInRange = false;
         }
     }
@@ -63,86 +57,75 @@ public class TriggerInteraction : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            ShowDescription();
+            if (!descriptionOpen)
+            {
+                ShowDescription(); // Abre el canvas
+            }
+            else
+            {
+                TakeKey(); // Toma la llave si el canvas ya está abierto
+            }
         }
     }
 
     private void ShowDescription()
     {
-        // Ocultar el mensaje de interacción
         interactionHintCanvas.gameObject.SetActive(false);
-
-        // Mostrar el canvas de descripción y actualizar el texto
         descriptionCanvas.gameObject.SetActive(true);
         descriptionText.text = description;
-
-        // Desactivar el script de movimiento del jugador
-        if (playerMovementScript != null)
-        {
-            playerMovementScript.enabled = false;
-        }
-
-        // Mostrar el cursor del mouse
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        descriptionOpen = true;
+        DisablePlayerMovement();
     }
 
     private void CloseDescription()
     {
-        // Ocultar la descripción
         descriptionCanvas.gameObject.SetActive(false);
-
-        // Reactivar el script de movimiento del jugador
-        if (playerMovementScript != null)
-        {
-            playerMovementScript.enabled = true;
-        }
-
-        // Ocultar el cursor del mouse
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        // Volver a mostrar el mensaje de interacción si el jugador sigue en el área
-        if (playerInRange)
-        {
-            interactionHintCanvas.gameObject.SetActive(true);
-        }
+        descriptionOpen = false;
+        EnablePlayerMovement();
     }
 
     private void TakeKey()
     {
-        // Verificar si la llave ya ha sido tomada
-        if (keyTaken)
+        if (lastKeyModel != null && lastKeyModel != keyModel)
         {
-            Debug.Log($"La llave con ID {keyID} ya fue tomada.");
-            return;
+            lastKeyModel.SetActive(true);
         }
 
-        Debug.Log($"Intentando tomar la llave con ID: {keyID}");
-
-        // Obtener el inventario del jugador
-        PlayerInventory playerInventory = player.GetComponent<PlayerInventory>();
-        if (playerInventory == null) return;
-
-        // Si ya tiene una llave, devolver la llave anterior y desactivar el estado de tener una llave
-        if (playerInventory.HasKey())
-        {
-            GameObject previousKeyModel = playerInventory.GetKeyModel();
-            if (previousKeyModel != null)
-            {
-                previousKeyModel.SetActive(true);
-            }
-        }
-
-        // Desactivar el modelo de la llave actual y actualizar el inventario del jugador
-        if (keyModel != null)
+        if (keyModel != null && keyModel.activeSelf)
         {
             keyModel.SetActive(false);
-            playerInventory.SetKey(keyID, keyModel);
-            keyTaken = true;  // Marcar la llave como tomada
-        }
+            lastKeyModel = keyModel;
 
-        // Desactivar el botón de tomar llave para evitar que se tome más de una vez
-        takeKeyButton.interactable = false;
+            if (isCorrectKey)
+            {
+                Debug.Log($"[{gameObject.name}] - Has tomado la llave correcta.");
+                hasCorrectKey = true; // Marca que el jugador tiene la llave correcta
+            }
+            else
+            {
+                Debug.Log($"[{gameObject.name}] - Has tomado una llave incorrecta.");
+                hasCorrectKey = false; // Marca que el jugador no tiene la llave correcta
+            }
+        }
+    }
+
+    private void DisablePlayerMovement()
+    {
+        if (playerMovementScript != null)
+        {
+            playerMovementScript.enabled = false;
+        }
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    private void EnablePlayerMovement()
+    {
+        if (playerMovementScript != null)
+        {
+            playerMovementScript.enabled = true;
+        }
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
