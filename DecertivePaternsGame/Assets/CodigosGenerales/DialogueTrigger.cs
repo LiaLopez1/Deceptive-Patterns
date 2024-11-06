@@ -27,6 +27,11 @@ public class DialogueTrigger : MonoBehaviour
     public bool changeState; // Indica si este trigger cambia el estado del juego
 
     private bool isDialogueActive = false; // Para evitar colisiones durante el diálogo
+    private int dialoguesShownCount = 0; // Contador de diálogos mostrados
+
+    // Variables para la verificación de triggers completados
+    private static int completedTriggers = 0; // Contador global de triggers completados
+    private const int totalTriggersToComplete = 14; // Total de triggers necesarios para cambiar de estado
 
     private void OnTriggerEnter(Collider other)
     {
@@ -51,6 +56,7 @@ public class DialogueTrigger : MonoBehaviour
         foreach (DialogueEntry dialogo in dialogos)
         {
             dialogueText.text = dialogo.texto;
+            dialoguesShownCount++; // Aumentamos el contador de diálogos mostrados
 
             // Controlamos si mostramos o actualizamos el texto de misión
             if (dialogo.mostrarMision)
@@ -76,15 +82,28 @@ public class DialogueTrigger : MonoBehaviour
             missionText.gameObject.SetActive(false); // Solo ocultamos si el último diálogo no necesita mostrar misión
         }
 
-        // Cambiamos de estado si es necesario
-        if (changeState)
-        {
-            gameManager.ChangeState(nextState);
-        }
+        // Marcamos este trigger como completado
+        completedTriggers++;
 
         // Avanzamos en la secuencia de diálogos
         gameManager.AdvanceDialogueSequence();
 
+        // Verificamos si los diálogos se reinician (es decir, dialoguesShownCount se va a poner en 0)
+        if (dialoguesShownCount > 0)
+        {
+            if (completedTriggers >= totalTriggersToComplete)
+            {
+                Debug.Log("Todos los diálogos de los 14 triggers fueron activados antes de reiniciar.");
+            }
+            else
+            {
+                int triggersRestantes = totalTriggersToComplete - completedTriggers;
+                Debug.LogWarning($"Reinicio de diálogos realizado faltando {triggersRestantes} triggers por activar.");
+            }
+        }
+
+        // Reiniciamos el contador de diálogos para la próxima secuencia
+        dialoguesShownCount = 0;
         isDialogueActive = false; // Marcamos que el diálogo ha finalizado
     }
 }

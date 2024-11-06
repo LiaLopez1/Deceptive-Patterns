@@ -124,10 +124,10 @@ public class PruebaControlador : MonoBehaviour
             Debug.DrawRay(cameraTransform.position, cameraTransform.forward * raycastDistance, Color.red);
 
             // Opcional: Interacción con el objeto apuntado
-            if (hit.collider != null)
-            {
-                Debug.Log("Apuntando a: " + hit.collider.gameObject.name);
-            }
+            //if (hit.collider != null)
+            //{
+            //    //Debug.Log("Apuntando a: " + hit.collider.gameObject.name);
+            //}
         }
     }
 }
