@@ -6,7 +6,6 @@ public class PruebaControlador : MonoBehaviour
 {
     public float walkSpeed = 10f;
     public float runSpeed = 20f;
-    public float jumpForce = 5f;
     public float crouchHeight = 0.2f;
     public float mouseSensitivity = 600f;
     public Transform cameraTransform;
@@ -46,13 +45,8 @@ public class PruebaControlador : MonoBehaviour
         // Rotación de la cámara y el jugador
         Look();
 
-        // Salto
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
-        {
-            Jump();
-        }
-
         // Agacharse
+        /*
         if (Input.GetKey(KeyCode.C))
         {
             agachado = true;
@@ -62,11 +56,15 @@ public class PruebaControlador : MonoBehaviour
             agachado = false;
         }
 
-        // Interpolación suave
+        // Interpolación suave para el agachado
         transform.localScale = Vector3.Lerp(transform.localScale, agachado ? escalaAgachado : escalaNormal, Time.deltaTime / tiempoAgachado);
+        */
 
-        // Raycast para apuntar
-        Raycast();
+        rb.AddForce(Vector3.down * 10f, ForceMode.Acceleration);
+    
+
+    // Raycast para apuntar
+    Raycast();
     }
 
     void Move()
@@ -97,6 +95,8 @@ public class PruebaControlador : MonoBehaviour
         }
     }
 
+    // Eliminado el método Jump ya que el salto no es necesario
+    /*
     void Jump()
     {
         if (IsGrounded())
@@ -105,6 +105,7 @@ public class PruebaControlador : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
+    */
 
     bool IsGrounded()
     {
