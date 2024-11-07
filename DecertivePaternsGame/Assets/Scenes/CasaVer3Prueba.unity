@@ -4994,7 +4994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37327ceb91bd9c0489edcfe9ff027085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 0
+  isLocked: 1
   interactMessagePanel: {fileID: 128809623}
   lockedMessagePanel: {fileID: 592654676}
   unlockAfterDelay: 0
@@ -20366,6 +20366,7 @@ MonoBehaviour:
     m\xE1s. "
   multiAttemptMessage: "Como que elegir una simple llave se te complica mucho \xBFNo?. "
   dialogDisplayDuration: 3
+  successDialogDuration: 3
   openAnimationDuration: 0.75
 --- !u!65 &966469811
 BoxCollider:
@@ -42628,8 +42629,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da0f97226d028140b294c5158c3a20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentKeyID: -1
-  currentKeyModel: {fileID: 0}
 --- !u!81 &2070728864
 AudioListener:
   m_ObjectHideFlags: 0
