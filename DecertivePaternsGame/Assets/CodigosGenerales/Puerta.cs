@@ -4,10 +4,16 @@ public class Puerta : MonoBehaviour
 {
     public bool isLocked = true; // La puerta está inicialmente bloqueada
     private bool isNear = false; // Si el jugador está cerca
+    private bool isOpen = false; // Estado de la puerta (cerrada inicialmente)
     public GameObject interactMessagePanel; // Panel de interacción
     public GameObject lockedMessagePanel; // Panel de puerta bloqueada
     public bool unlockAfterDelay = false; // Desbloquear después de un tiempo
     public float unlockDelay = 5f; // Tiempo de espera para desbloquear la puerta
+
+    // Referencias de audio
+    public AudioClip openSound; // Sonido para abrir la puerta
+    public AudioClip closeSound; // Sonido para cerrar la puerta
+    private AudioSource audioSource; // Componente AudioSource para reproducir sonidos
 
     void Start()
     {
@@ -20,6 +26,9 @@ public class Puerta : MonoBehaviour
         {
             Invoke("UnlockDoor", unlockDelay);
         }
+
+        // Inicializa el componente AudioSource
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -70,19 +79,40 @@ public class Puerta : MonoBehaviour
 
     void Update()
     {
+        // Solo permite la interacción si la puerta no está bloqueada, el jugador está cerca y presiona la tecla E
         if (!isLocked && Input.GetKeyDown(KeyCode.E) && isNear)
         {
-            OpenDoor();
+            ToggleDoor(); // Alterna entre abrir y cerrar la puerta
         }
     }
 
-    private void OpenDoor()
+    private void ToggleDoor()
     {
-        // Realiza el movimiento de la puerta aquí
-        transform.Rotate(0, 90f, 0); // Ajusta según necesidad
+        if (isOpen)
+        {
+            // Si la puerta está abierta, la cerramos (rotamos -90 grados)
+            transform.Rotate(0, 90f, 0);
+            Debug.Log("Puerta cerrada");
+            PlaySound(closeSound); // Reproducimos el sonido de cierre
+        }
+        else
+        {
+            // Si la puerta está cerrada, la abrimos (rotamos 90 grados)
+            transform.Rotate(0, -90f, 0);
+            Debug.Log("Puerta abierta");
+            PlaySound(openSound); // Reproducimos el sonido de apertura
+        }
 
-        // Si tienes una animación de puerta, podrías activar esa animación en vez de rotarla manualmente.
-        Debug.Log("Puerta abierta");
-        UpdateMessagePanel(); // Actualiza el panel después de abrir la puerta
+        isOpen = !isOpen; // Cambiamos el estado de la puerta
+        UpdateMessagePanel(); // Actualizamos el panel después de cambiar el estado de la puerta
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
     }
 }

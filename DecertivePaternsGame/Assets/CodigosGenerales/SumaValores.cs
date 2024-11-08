@@ -19,6 +19,9 @@ public class SumaValores : MonoBehaviour
     private int objetosGenerados = 0;
     private int maxObjetosSabotaje = 2; // Máximo número de objetos de sabotaje a generar
     private bool primerObjetoColocado = false;
+    private bool mensajeMostrado = false; // Bandera para controlar si el mensaje de advertencia ya se mostró
+
+    private List<GameObject> objetosSabotajeClonados = new List<GameObject>(); // Lista para almacenar los objetos de sabotaje clonados
 
     private void Start()
     {
@@ -65,9 +68,10 @@ public class SumaValores : MonoBehaviour
             UpdateTotalText();
         }
 
-        // Verificar si el objeto es un objeto de sabotaje al salir del Trigger
-        if (other.CompareTag("objeto"))
+        // Verificar si el objeto que sale es un objeto de sabotaje clonado y si el mensaje no ha sido mostrado aún
+        if (objetosSabotajeClonados.Contains(other.gameObject) && !mensajeMostrado)
         {
+            mensajeMostrado = true; // Marcamos que el mensaje ya fue mostrado
             // Mostrar el mensaje de advertencia con retraso
             StartCoroutine(ShowWarningMessageWithDelay(1f)); // 1 segundo de retraso antes de mostrar el mensaje
 
@@ -96,6 +100,9 @@ public class SumaValores : MonoBehaviour
                 Transform spawnPoint = spawnPoints[objetosGenerados];
                 GameObject nuevoObjeto = Instantiate(objetoSabotajePrefab, spawnPoint.position, spawnPoint.rotation);
                 nuevoObjeto.tag = "objeto"; // Asegurarse de que el objeto tenga el tag correcto
+
+                // Agregar el objeto clonado a la lista de sabotajes
+                objetosSabotajeClonados.Add(nuevoObjeto);
 
                 // Copiar todas las propiedades del prefab
                 ObjetosMercado nuevoItem = nuevoObjeto.GetComponent<ObjetosMercado>();
