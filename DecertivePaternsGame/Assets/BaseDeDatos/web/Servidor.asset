@@ -38,8 +38,8 @@ MonoBehaviour:
     parametros:
     - nombreroll
     - correo
-  ocupado: 1
+  ocupado: 0
   respuesta:
-    codigo: 205
-    mensaje: "Inicio de sesi\xF3n correcto"
+    codigo: 200
+    mensaje: Llaves actualizadas correctamente
     llaves: 0
