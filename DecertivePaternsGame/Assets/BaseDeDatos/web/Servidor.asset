@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4192fbafa8ae045b1038eb6443b4f3, type: 3}
   m_Name: Servidor
   m_EditorClassIdentifier: 
-  servidor: http://localhost/deceptivePatterns
+  servidor: http://localhost/deceptivePatterns/
   servicios:
   - nombre: login
     URL: login.php
@@ -38,8 +38,8 @@ MonoBehaviour:
     parametros:
     - nombreroll
     - correo
-  ocupado: 0
+  ocupado: 1
   respuesta:
-    codigo: 200
-    mensaje: Llaves actualizadas correctamente
+    codigo: 205
+    mensaje: "Inicio de sesi\xF3n correcto"
     llaves: 0

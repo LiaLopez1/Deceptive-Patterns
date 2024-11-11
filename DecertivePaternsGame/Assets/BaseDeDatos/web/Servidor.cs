@@ -9,10 +9,10 @@ public class Servidor : ScriptableObject
     public string servidor; // URL base del servidor
     public Servicio[] servicios; // Lista de servicios disponibles
 
-    public bool ocupado = false; // Indicador de si el servidor está ocupado
-    public Respuesta respuesta; // Respuesta genérica del servidor
+    public bool ocupado = false; // Indicador de si el servidor estï¿½ ocupado
+    public Respuesta respuesta; // Respuesta genï¿½rica del servidor
 
-    // Método para consumir un servicio
+    // Mï¿½todo para consumir un servicio
     public IEnumerator ConsumirServicio(string nombre, string[] datos, UnityAction callback)
     {
         ocupado = true;
@@ -29,13 +29,13 @@ public class Servidor : ScriptableObject
             }
         }
 
-        // Añadir los parámetros al formulario
+        // Aï¿½adir los parï¿½metros al formulario
         for (int i = 0; i < s.parametros.Length; i++)
         {
             formulario.AddField(s.parametros[i], datos[i]);
         }
 
-        // Realizar la petición POST al servidor
+        // Realizar la peticiï¿½n POST al servidor
         UnityWebRequest www = UnityWebRequest.Post(servidor + "/" + s.URL, formulario);
         Debug.Log(servidor + "/" + s.URL);
         yield return www.SendWebRequest();
@@ -43,8 +43,8 @@ public class Servidor : ScriptableObject
         // Manejar errores de la solicitud
         if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError("Error en la conexión: " + www.error);
-            respuesta = new Respuesta(); // Código por defecto (404)
+            Debug.LogError("Error en la conexiï¿½n: " + www.error);
+            respuesta = new Respuesta(); // Cï¿½digo por defecto (404)
         }
         else
         {
@@ -62,20 +62,20 @@ public class Servicio
 {
     public string nombre;  // Nombre del servicio (ej. "registro", "login", "actualizar_llaves")
     public string URL;     // URL del archivo PHP en el servidor (ej. "reg_usuario.php", "login.php", "actualizar_llaves.php")
-    public string[] parametros;  // Lista de parámetros que requiere el servicio
+    public string[] parametros;  // Lista de parï¿½metros que requiere el servicio
 }
 
 [System.Serializable]
 public class Respuesta
 {
-    public int codigo;     // Código de la respuesta (ej. 201, 403, 404)
+    public int codigo;     // Cï¿½digo de la respuesta (ej. 201, 403, 404)
     public string mensaje; // Mensaje de la respuesta del servidor (ej. "Correo guardado correctamente")
     public int llaves;
 
     public Respuesta()
     {
-        codigo = 404;      // Código por defecto en caso de error
-        mensaje = "";      // Mensaje por defecto vacío
+        codigo = 404;      // Cï¿½digo por defecto en caso de error
+        mensaje = "";      // Mensaje por defecto vacï¿½o
         llaves = 0;
     }
 }

@@ -12,7 +12,7 @@ public class login : MonoBehaviour
     public TMP_Text TxtCampoVacio;
     public GameObject CrearUsuario;
 
-    // Panel que se muestra al iniciar sesión correctamente
+    // Panel que se muestra al iniciar sesiï¿½n correctamente
     public GameObject PanelInicioSesionCorrecto;
 
     // Variable para almacenar el nombre del usuario logueado
@@ -32,7 +32,7 @@ public class login : MonoBehaviour
     IEnumerator Iniciar()
     {
         string[] datos = new string[1];
-        datos[0] = InputUsuario.text;  // Aquí se captura el nombreRoll
+        datos[0] = InputUsuario.text;  // Aquï¿½ se captura el nombreRoll
 
         StartCoroutine(servidor.ConsumirServicio("login", datos, PosCarga));
         yield return new WaitForSeconds(0.5f);
@@ -47,11 +47,11 @@ public class login : MonoBehaviour
 
         switch (servidor.respuesta.codigo)
         {
-            case 205: // Inicio de sesión correcto
-                // Almacenar el nombreRoll actual cuando el inicio de sesión sea correcto
+            case 205: // Inicio de sesiï¿½n correcto
+                // Almacenar el nombreRoll actual cuando el inicio de sesiï¿½n sea correcto
                 nombreRollActual = InputUsuario.text;
 
-                // Mostrar el panel de inicio de sesión correcto
+                // Mostrar el panel de inicio de sesiï¿½n correcto
                 PanelInicioSesionCorrecto.SetActive(true);
 
                 // Iniciar la espera de 6 segundos antes de cambiar de escena
@@ -77,7 +77,7 @@ public class login : MonoBehaviour
         yield return new WaitForSeconds(6f);
 
         // Cambiar a la escena indicada
-        SceneManager.LoadScene("CasaVer4");
+        SceneManager.LoadScene("CasaVer3Prueba");
     }
 
     public void ActivarCrearUsuarioCanvas()
