@@ -38,8 +38,8 @@ MonoBehaviour:
     parametros:
     - nombreroll
     - correo
-  ocupado: 0
+  ocupado: 1
   respuesta:
     codigo: 200
-    mensaje: Llaves actualizadas correctamente
-    llaves: 0
+    mensaje: Llaves obtenidas correctamente
+    llaves: 7

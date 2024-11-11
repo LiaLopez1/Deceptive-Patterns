@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17778477, g: 0.22258987, b: 0.30474588, a: 1}
+  m_IndirectSpecularColor: {r: 0.1777845, g: 0.22258957, b: 0.30474555, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -887,10 +887,9 @@ MonoBehaviour:
     esos colores jam\xE1s."
   descriptionText: {fileID: 968964373}
   closeButton: {fileID: 33889661}
-  takeKeyButton: {fileID: 1972734672}
   keyModel: {fileID: 4217907920092037276}
-  player: {fileID: 2070728855}
-  keyID: 10
+  playerMovementScript: {fileID: 0}
+  isCorrectKey: 0
 --- !u!65 &55638702
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4310,6 +4309,8 @@ MonoBehaviour:
   lockedMessagePanel: {fileID: 592654676}
   unlockAfterDelay: 0
   unlockDelay: 5
+  openSound: {fileID: 0}
+  closeSound: {fileID: 0}
 --- !u!65 &166350564
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6494,6 +6495,8 @@ MonoBehaviour:
   lockedMessagePanel: {fileID: 592654676}
   unlockAfterDelay: 0
   unlockDelay: 5
+  openSound: {fileID: 0}
+  closeSound: {fileID: 0}
 --- !u!65 &352191091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8514,10 +8517,9 @@ MonoBehaviour:
   description: "Parece que abre un portal a otra dimensi\xF3n. O tal vez no."
   descriptionText: {fileID: 968964373}
   closeButton: {fileID: 33889661}
-  takeKeyButton: {fileID: 1972734672}
   keyModel: {fileID: 5407974929491322501}
-  player: {fileID: 2070728855}
-  keyID: 7
+  playerMovementScript: {fileID: 0}
+  isCorrectKey: 0
 --- !u!65 &456629150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9879,10 +9881,9 @@ MonoBehaviour:
   description: "Encajar\xEDa en un reloj antiguo, si tan solo tuviera manecillas."
   descriptionText: {fileID: 968964373}
   closeButton: {fileID: 33889661}
-  takeKeyButton: {fileID: 1972734672}
   keyModel: {fileID: 4505506143839028490}
-  player: {fileID: 2070728855}
-  keyID: 6
+  playerMovementScript: {fileID: 0}
+  isCorrectKey: 0
 --- !u!65 &523681783
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12218,10 +12219,9 @@ MonoBehaviour:
   description: "Podr\xEDa abrir algo en un sue\xF1o, pero nunca en el mundo real."
   descriptionText: {fileID: 968964373}
   closeButton: {fileID: 33889661}
-  takeKeyButton: {fileID: 1972734672}
   keyModel: {fileID: 7245608363086853248}
-  player: {fileID: 2070728855}
-  keyID: 9
+  playerMovementScript: {fileID: 0}
+  isCorrectKey: 0
 --- !u!65 &643410719
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17267,10 +17267,9 @@ MonoBehaviour:
     qu\xE9."
   descriptionText: {fileID: 968964373}
   closeButton: {fileID: 33889661}
-  takeKeyButton: {fileID: 1972734672}
   keyModel: {fileID: 3148966249613855884}
-  player: {fileID: 2070728855}
-  keyID: 1
+  playerMovementScript: {fileID: 0}
+  isCorrectKey: 0
 --- !u!1 &962800381
 GameObject:
   m_ObjectHideFlags: 0
@@ -17352,9 +17351,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10a12a15c4160b44a101f8b3c8d8458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chestAnimator: {fileID: 0}
   interactionHintCanvas: {fileID: 1062458499}
-  player: {fileID: 2070728855}
-  correctKeyID: 8
+  keyObject: {fileID: 0}
+  firstDialogPanel: {fileID: 0}
+  firstDialogText: {fileID: 0}
+  multiAttemptDialogPanel: {fileID: 0}
+  multiAttemptDialogText: {fileID: 0}
+  firstAttemptMessage: La llave es incorrecta. Prueba con otra llave.
+  successMessage: "\xA1Cofre abierto exitosamente!"
+  multiAttemptMessage: "A\xFAn no tienes la llave correcta. Sigue intentando."
+  dialogDisplayDuration: 2
+  successDialogDuration: 3
+  openAnimationDuration: 2
 --- !u!65 &966469811
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20895,10 +20904,9 @@ MonoBehaviour:
     no hab\xEDa ninguna puerta."
   descriptionText: {fileID: 968964373}
   closeButton: {fileID: 33889661}
-  takeKeyButton: {fileID: 1972734672}
   keyModel: {fileID: 8307455895401278039}
-  player: {fileID: 2070728855}
-  keyID: 2
+  playerMovementScript: {fileID: 0}
+  isCorrectKey: 0
 --- !u!65 &1197330397
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22131,10 +22139,9 @@ MonoBehaviour:
     est\xE1 ese bot\xF3n."
   descriptionText: {fileID: 968964373}
   closeButton: {fileID: 33889661}
-  takeKeyButton: {fileID: 1972734672}
   keyModel: {fileID: 4171038191027932741}
-  player: {fileID: 2070728855}
-  keyID: 4
+  playerMovementScript: {fileID: 0}
+  isCorrectKey: 0
 --- !u!65 &1257415939
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25871,6 +25878,8 @@ MonoBehaviour:
   lockedMessagePanel: {fileID: 0}
   unlockAfterDelay: 0
   unlockDelay: 5
+  openSound: {fileID: 0}
+  closeSound: {fileID: 0}
 --- !u!1 &1463023972
 GameObject:
   m_ObjectHideFlags: 0
@@ -27567,10 +27576,9 @@ MonoBehaviour:
   description: "Parece que abre alg\xFAn compartimento oculto por aqu\xED."
   descriptionText: {fileID: 968964373}
   closeButton: {fileID: 33889661}
-  takeKeyButton: {fileID: 1972734672}
   keyModel: {fileID: 3718512508838913962}
-  player: {fileID: 2070728855}
-  keyID: 8
+  playerMovementScript: {fileID: 0}
+  isCorrectKey: 0
 --- !u!65 &1555846534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30758,6 +30766,8 @@ MonoBehaviour:
   lockedMessagePanel: {fileID: 592654676}
   unlockAfterDelay: 1
   unlockDelay: 5
+  openSound: {fileID: 0}
+  closeSound: {fileID: 0}
 --- !u!1 &1808332680
 GameObject:
   m_ObjectHideFlags: 0
@@ -31177,10 +31187,9 @@ MonoBehaviour:
   description: "Creo que era del armario, pero el armario se vendi\xF3 hace a\xF1os."
   descriptionText: {fileID: 968964373}
   closeButton: {fileID: 33889661}
-  takeKeyButton: {fileID: 1972734672}
   keyModel: {fileID: 7688323530254904008}
-  player: {fileID: 2070728855}
-  keyID: 3
+  playerMovementScript: {fileID: 0}
+  isCorrectKey: 0
 --- !u!65 &1841169545
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32266,6 +32275,8 @@ MonoBehaviour:
   lockedMessagePanel: {fileID: 592654676}
   unlockAfterDelay: 0
   unlockDelay: 5
+  openSound: {fileID: 0}
+  closeSound: {fileID: 0}
 --- !u!65 &1880002164
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32304,6 +32315,8 @@ MonoBehaviour:
   lockedMessagePanel: {fileID: 592654676}
   unlockAfterDelay: 0
   unlockDelay: 5
+  openSound: {fileID: 0}
+  closeSound: {fileID: 0}
 --- !u!65 &1880002166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33839,10 +33852,9 @@ MonoBehaviour:
     all\xED"
   descriptionText: {fileID: 968964373}
   closeButton: {fileID: 33889661}
-  takeKeyButton: {fileID: 1972734672}
   keyModel: {fileID: 3196454277782748575}
-  player: {fileID: 2070728855}
-  keyID: 5
+  playerMovementScript: {fileID: 0}
+  isCorrectKey: 0
 --- !u!65 &1952245320
 BoxCollider:
   m_ObjectHideFlags: 0
