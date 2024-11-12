@@ -12,7 +12,7 @@ public class login : MonoBehaviour
     public TMP_Text TxtCampoVacio;
     public GameObject CrearUsuario;
 
-    // Panel que se muestra al iniciar sesi�n correctamente
+    // Panel que se muestra al iniciar sesión correctamente
     public GameObject PanelInicioSesionCorrecto;
 
     // Variable para almacenar el nombre del usuario logueado
@@ -20,9 +20,12 @@ public class login : MonoBehaviour
 
     public void IniciarSesion()
     {
+        // Ocultar todos los mensajes de advertencia antes de cualquier verificación
+        OcultarMensajesAdvertencia();
+
         if (string.IsNullOrEmpty(InputUsuario.text))
         {
-            TxtCampoVacio.gameObject.SetActive(true);
+            TxtCampoVacio.gameObject.SetActive(true); // Mostrar mensaje de campo vacío
             return;
         }
 
@@ -32,7 +35,7 @@ public class login : MonoBehaviour
     IEnumerator Iniciar()
     {
         string[] datos = new string[1];
-        datos[0] = InputUsuario.text;  // Aqu� se captura el nombreRoll
+        datos[0] = InputUsuario.text;  // Aquí se captura el nombreRoll
 
         StartCoroutine(servidor.ConsumirServicio("login", datos, PosCarga));
         yield return new WaitForSeconds(0.5f);
@@ -41,17 +44,16 @@ public class login : MonoBehaviour
 
     public void PosCarga()
     {
-        TxtCampoVacio.gameObject.SetActive(false);
-        TxtIncorrecto.gameObject.SetActive(false);
-        TxtError.gameObject.SetActive(false);
+        // Ocultar todos los mensajes de advertencia antes de mostrar un nuevo mensaje
+        OcultarMensajesAdvertencia();
 
         switch (servidor.respuesta.codigo)
         {
-            case 205: // Inicio de sesi�n correcto
-                // Almacenar el nombreRoll actual cuando el inicio de sesi�n sea correcto
+            case 205: // Inicio de sesión correcto
+                // Almacenar el nombreRoll actual cuando el inicio de sesión sea correcto
                 nombreRollActual = InputUsuario.text;
 
-                // Mostrar el panel de inicio de sesi�n correcto
+                // Mostrar el panel de inicio de sesión correcto
                 PanelInicioSesionCorrecto.SetActive(true);
 
                 // Iniciar la espera de 6 segundos antes de cambiar de escena
@@ -82,9 +84,15 @@ public class login : MonoBehaviour
 
     public void ActivarCrearUsuarioCanvas()
     {
+        OcultarMensajesAdvertencia();
+        CrearUsuario.SetActive(true);
+    }
+
+    // Método para ocultar todos los mensajes de advertencia
+    private void OcultarMensajesAdvertencia()
+    {
         TxtCampoVacio.gameObject.SetActive(false);
         TxtIncorrecto.gameObject.SetActive(false);
         TxtError.gameObject.SetActive(false);
-        CrearUsuario.SetActive(true);
     }
 }

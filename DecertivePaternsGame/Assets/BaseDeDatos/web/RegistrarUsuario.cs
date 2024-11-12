@@ -16,12 +16,12 @@ public class RegistrarUsuario : MonoBehaviour
     public TMP_Text txtUsado;
     public TMP_Text txtCampos;
     public TMP_Text txtTerminos;
-    public TMP_Text txtNoAceptar; 
+    public TMP_Text txtNoAceptar;
+    public TMP_Text txtNombreInvalido; // Nuevo texto para nombre inv√°lido
     public GameObject crearUsuarioCanvas;
     public Button btnCerrarCanvas;
     public Button btnCerrarCanvasTyC;
     public GameObject TyCCanvas;
-
 
     void Start()
     {
@@ -62,14 +62,22 @@ public class RegistrarUsuario : MonoBehaviour
         // Ocultar mensajes previos antes de validar
         OcultarTodosLosMensajes();
 
-        // Validar que los campos no estÈn vacÌos
+        // Validar que los campos no est√©n vac√≠os
         string nombreCompleto = inputNombreCompleto.text;
         string nombreRoll = inputNombreRoll.text;
 
         if (string.IsNullOrEmpty(nombreCompleto) || string.IsNullOrEmpty(nombreRoll))
         {
             txtCampos.gameObject.SetActive(true);
-            return; // No continuar si los campos est·n vacÌos
+            return; // No continuar si los campos est√°n vac√≠os
+        }
+
+        // Validar que el nombre completo contenga al menos dos palabras
+        if (nombreCompleto.Trim().Split(' ').Length < 2)
+        {
+            txtNombreInvalido.gameObject.SetActive(true); // Mostrar mensaje de error
+            txtNombreInvalido.text = "Ingresa tu nombre y apellido";
+            return; // No continuar con el registro si no cumple con el requisito
         }
 
         // Si el usuario ha seleccionado "No Aceptar", mostrar advertencia y no continuar
@@ -79,11 +87,11 @@ public class RegistrarUsuario : MonoBehaviour
             return; // No continuar con el registro
         }
 
-        // Si no ha seleccionado ning˙n toggle, mostrar mensaje de advertencia de tÈrminos
+        // Si no ha seleccionado ning√∫n toggle, mostrar mensaje de advertencia de t√©rminos
         if (!toggleAceptar.isOn && !toggleNoAceptar.isOn)
         {
             txtTerminos.gameObject.SetActive(true);
-            return; // No continuar si no se ha seleccionado ning˙n toggle
+            return; // No continuar si no se ha seleccionado ning√∫n toggle
         }
 
         // Si ha seleccionado "Aceptar", continuar con el registro
@@ -105,20 +113,19 @@ public class RegistrarUsuario : MonoBehaviour
         // Consumir el servicio de registro
         StartCoroutine(servidor.ConsumirServicio("registro", datos, PosRegistro));
         yield return new WaitUntil(() => !servidor.ocupado);
-
     }
 
-    // MÈtodo llamado despuÈs de recibir la respuesta del servidor
+    // M√©todo llamado despu√©s de recibir la respuesta del servidor
     public void PosRegistro()
     {
-        // Asegurarse de que todos los mensajes anteriores est·n desactivados
+        // Asegurarse de que todos los mensajes anteriores est√©n desactivados
         OcultarTodosLosMensajes();
 
         switch (servidor.respuesta.codigo)
         {
             case 201: // Usuario creado correctamente
                 txtCorrecto.gameObject.SetActive(true);
-                btnCerrarCanvas.gameObject.SetActive(true);  // Mostrar el botÛn cuando el registro es exitoso
+                btnCerrarCanvas.gameObject.SetActive(true);  // Mostrar el bot√≥n cuando el registro es exitoso
                 break;
 
             case 403: // Usuario ya existe
@@ -146,6 +153,7 @@ public class RegistrarUsuario : MonoBehaviour
         txtCampos.gameObject.SetActive(false);
         txtTerminos.gameObject.SetActive(false);
         txtNoAceptar.gameObject.SetActive(false);
+        txtNombreInvalido.gameObject.SetActive(false); // Ocultar el mensaje de nombre inv√°lido
     }
 
     public void CerrarCanvasCrearUsuario()

@@ -38,8 +38,14 @@ MonoBehaviour:
     parametros:
     - nombreroll
     - correo
+  - nombre: obtener_datos_usuario
+    URL: obtener_datos_usuario.php
+    parametros:
+    - nombreroll
   ocupado: 1
   respuesta:
     codigo: 200
     mensaje: Llaves obtenidas correctamente
     llaves: 7
+    nombrecompleto: 
+    correo: 
