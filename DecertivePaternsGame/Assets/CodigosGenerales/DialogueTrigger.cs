@@ -1,9 +1,6 @@
-// este codigo baja el volumen del audio un poco cuando los audios suenan
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -18,15 +15,12 @@ public class DialogueTrigger : MonoBehaviour
         public string texto; // Texto principal del diálogo
         public bool mostrarMision; // Indica si se debe mostrar el texto de misión
         public string textoMision; // Texto de misión específico para este diálogo
-        public AudioClip audioClip; // Clip de audio asociado con este diálogo
     }
 
     public DialogueEntry[] dialogos; // Array de diálogos con información adicional
     public GameObject dialoguePanel; // Panel que contiene el texto del diálogo
-    public TMP_Text dialogueText; // Componente de texto para mostrar el diálogo principal
-    public TMP_Text missionText; // Componente de texto opcional para la misión
-
-    public AudioSource musicaFondo; // Referencia al AudioSource de la música de fondo
+    public Text dialogueText; // Componente de texto para mostrar el diálogo principal
+    public Text missionText; // Componente de texto opcional para la misión
 
     public int triggerSequence; // Secuencia necesaria para activar este trigger
     public GameManager.GameState nextState; // Estado a cambiar después de este diálogo
@@ -38,17 +32,6 @@ public class DialogueTrigger : MonoBehaviour
     // Variables para la verificación de triggers completados
     private static int completedTriggers = 0; // Contador global de triggers completados
     private const int totalTriggersToComplete = 14; // Total de triggers necesarios para cambiar de estado
-
-    private float originalMusicVolume; // Para almacenar el volumen original de la música
-
-    private void Start()
-    {
-        // Guardar el volumen original de la música de fondo
-        if (musicaFondo != null)
-        {
-            originalMusicVolume = musicaFondo.volume;
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -63,12 +46,6 @@ public class DialogueTrigger : MonoBehaviour
     {
         isDialogueActive = true; // Marcamos que un diálogo está en progreso
 
-        // Reducir el volumen de la música de fondo
-        if (musicaFondo != null)
-        {
-            musicaFondo.volume = originalMusicVolume * 0.3f; // Reducir  volumen de la música
-        }
-
         // Retraso opcional antes de que comience el diálogo
         yield return new WaitForSeconds(delayBeforeDialogue);
 
@@ -78,17 +55,10 @@ public class DialogueTrigger : MonoBehaviour
         // Recorremos todos los diálogos del array
         foreach (DialogueEntry dialogo in dialogos)
         {
-            dialogueText.text = dialogo.texto; // Asignar el texto del diálogo
-
-            // Reproducir el audio correspondiente si existe
-            if (dialogo.audioClip != null)
-            {
-                PlayDialogueAudio(dialogo.audioClip);
-            }
-
+            dialogueText.text = dialogo.texto;
             dialoguesShownCount++; // Aumentamos el contador de diálogos mostrados
 
-            // Controlar si mostramos o actualizamos el texto de misión
+            // Controlamos si mostramos o actualizamos el texto de misión
             if (dialogo.mostrarMision)
             {
                 missionText.text = dialogo.textoMision;
@@ -100,12 +70,6 @@ public class DialogueTrigger : MonoBehaviour
 
             // Retraso entre diálogos consecutivos (si está configurado)
             yield return new WaitForSeconds(delayBetweenDialogues);
-        }
-
-        // Restaurar el volumen de la música de fondo
-        if (musicaFondo != null)
-        {
-            musicaFondo.volume = originalMusicVolume;
         }
 
         // Desactivamos el panel de diálogo después de que todos los diálogos hayan terminado
@@ -141,20 +105,5 @@ public class DialogueTrigger : MonoBehaviour
         // Reiniciamos el contador de diálogos para la próxima secuencia
         dialoguesShownCount = 0;
         isDialogueActive = false; // Marcamos que el diálogo ha finalizado
-    }
-
-    private void PlayDialogueAudio(AudioClip clip)
-    {
-        // Crear un GameObject temporal para reproducir el audio
-        GameObject audioObject = new GameObject("DialogueAudio");
-        AudioSource audioSource = audioObject.AddComponent<AudioSource>();
-
-        // Configurar el AudioSource
-        audioSource.clip = clip;
-        audioSource.volume = 1.0f; // Aumentar un poco el volumen del diálogo para destacarlo
-        audioSource.Play();
-
-        // Destruir el GameObject después de que el audio termine
-        Destroy(audioObject, clip.length);
     }
 }

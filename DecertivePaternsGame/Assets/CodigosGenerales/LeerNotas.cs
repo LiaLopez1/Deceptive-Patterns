@@ -1,6 +1,6 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class LeerNotas : MonoBehaviour
@@ -30,13 +30,13 @@ public class LeerNotas : MonoBehaviour
     {
         RaycastParaMostrarIndicador();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (isNear && Input.GetKeyDown(KeyCode.E))
         {
-            if (isNear && !isViewingNote)
+            if (!isViewingNote)
             {
                 MostrarNota();
             }
-            else if (isViewingNote)
+            else
             {
                 OcultarNota();
             }
@@ -101,8 +101,9 @@ public class LeerNotas : MonoBehaviour
             rawImagenNota.gameObject.SetActive(false);
             isViewingNote = false;
         }
-
-        // No necesitamos verificar si el jugador sigue mirando al objeto para mostrar el indicador,
-        // simplemente queremos que se cierre la nota y el indicador no vuelva a mostrarse hasta que el jugador mire nuevamente.
+        if (isNear && indicadorInteraccion != null)
+        {
+            indicadorInteraccion.SetActive(true);
+        }
     }
 }
