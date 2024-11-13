@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Safe : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Safe : MonoBehaviour
     public AnimationClip animationClip;  // La animación que se ejecutará al verificar el código correcto
     public GameObject objectToShow;  // El objeto que aparecerá cuando el código sea correcto
     public GameObject dialogPanel;  // Panel de diálogo que se mostrará al ingresar el código correcto
-    public Text dialogText;  // Texto del panel de diálogo que se podrá editar
+    public TMP_Text dialogText;  // Texto del panel de diálogo que se podrá editar
     public string dialogMessage = "Código correcto, caja desbloqueada.";  // Mensaje del diálogo a mostrar
     public float dialogDelay = 1.0f;  // Tiempo de retraso antes de mostrar el diálogo
     public float dialogDuration = 3.0f;  // Duración del diálogo

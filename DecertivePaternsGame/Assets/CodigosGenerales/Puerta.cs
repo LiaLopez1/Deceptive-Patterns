@@ -9,11 +9,14 @@ public class Puerta : MonoBehaviour
     public GameObject lockedMessagePanel; // Panel de puerta bloqueada
     public bool unlockAfterDelay = false; // Desbloquear después de un tiempo
     public float unlockDelay = 5f; // Tiempo de espera para desbloquear la puerta
+    public float interactionDistance = 5f; // Distancia máxima de interacción
 
     // Referencias de audio
     public AudioClip openSound; // Sonido para abrir la puerta
     public AudioClip closeSound; // Sonido para cerrar la puerta
     private AudioSource audioSource; // Componente AudioSource para reproducir sonidos
+
+    private Camera playerCamera; // Referencia a la cámara del jugador
 
     void Start()
     {
@@ -29,22 +32,44 @@ public class Puerta : MonoBehaviour
 
         // Inicializa el componente AudioSource
         audioSource = gameObject.AddComponent<AudioSource>();
+
+        // Obtiene la cámara del jugador
+        playerCamera = Camera.main;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void Update()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        CheckPlayerInteraction();
+
+        // Solo permite la interacción si la puerta no está bloqueada, el jugador está cerca y presiona la tecla E
+        if (!isLocked && Input.GetKeyDown(KeyCode.E) && isNear)
         {
-            isNear = true; // El jugador está cerca de la puerta
-            UpdateMessagePanel();
+            ToggleDoor(); // Alterna entre abrir y cerrar la puerta
         }
     }
 
-    void OnCollisionExit(Collision collision)
+    private void CheckPlayerInteraction()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        // Realiza un Raycast desde la cámara del jugador hacia adelante
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, interactionDistance))
         {
-            isNear = false; // El jugador se aleja de la puerta
+            if (hit.collider != null && hit.transform == transform)
+            {
+                if (!isNear)
+                {
+                    isNear = true;
+                    UpdateMessagePanel();
+                }
+                return;
+            }
+        }
+
+        if (isNear)
+        {
+            isNear = false;
             UpdateMessagePanel();
         }
     }
@@ -74,15 +99,6 @@ public class Puerta : MonoBehaviour
         {
             if (lockedMessagePanel != null) lockedMessagePanel.SetActive(false);
             if (interactMessagePanel != null) interactMessagePanel.SetActive(false);
-        }
-    }
-
-    void Update()
-    {
-        // Solo permite la interacción si la puerta no está bloqueada, el jugador está cerca y presiona la tecla E
-        if (!isLocked && Input.GetKeyDown(KeyCode.E) && isNear)
-        {
-            ToggleDoor(); // Alterna entre abrir y cerrar la puerta
         }
     }
 

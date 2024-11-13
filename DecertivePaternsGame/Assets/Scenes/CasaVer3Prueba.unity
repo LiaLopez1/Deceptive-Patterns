@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1777845, g: 0.22258957, b: 0.30474555, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2921,7 +2921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &128809624
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2938,8 +2938,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -4}
-  m_SizeDelta: {x: 187.39, y: 198.4}
+  m_AnchoredPosition: {x: 0, y: 11}
+  m_SizeDelta: {x: 248.74, y: 198.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &128809625
 MonoBehaviour:
@@ -2962,11 +2962,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 39
+    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    m_FontSize: 42
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 55
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -5284,12 +5284,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocked: 1
   interactMessagePanel: {fileID: 128809623}
-  lockedMessagePanel: {fileID: 592654676}
+  lockedMessagePanel: {fileID: 1141134949}
   unlockAfterDelay: 0
   unlockDelay: 5
+  interactionDistance: 5
   openSound: {fileID: 8300000, guid: b14a566adea071047a6afc2ec92c3e95, type: 3}
   closeSound: {fileID: 8300000, guid: ac16f83147d287b4692f722d6c54e6e9, type: 3}
 --- !u!65 &166350564
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166350559}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.10994389, y: 0.19809593, z: 0.09949001}
+  m_Center: {x: 0.05497197, y: 0.09904797, z: -0.036785223}
+--- !u!65 &166350566
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5308,8 +5330,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1099439, y: 0.19809593, z: 0.02591961}
-  m_Center: {x: 0.054971956, y: 0.09904797, z: -3.1247905e-15}
+  m_Size: {x: 0.10994393, y: 0.19809593, z: 0.025919616}
+  m_Center: {x: 0.05497197, y: 0.09904797, z: 0}
 --- !u!1 &166986770 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5063223942988036812, guid: 8b09493d82a88fb46bad0a9dda571934, type: 3}
@@ -5389,9 +5411,11 @@ MonoBehaviour:
   - texto: 'Solo silencio, intentemos otra vez con los libros. '
     mostrarMision: 1
     textoMision: Encuentra los digitos faltantes para abrir la caja fuerte
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 8
   nextState: 2
   changeState: 0
@@ -6096,9 +6120,11 @@ MonoBehaviour:
   - texto: "A ver si esta llave la consigues m\xE1s r\xE1pido"
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 490136486}
-  dialogueText: {fileID: 1760534109}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 678520921}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 1
   nextState: 4
   changeState: 0
@@ -7448,15 +7474,15 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - texto: "\xA1Estamos encerrados!, necesitamos abrir esta puerta. "
-    mostrarMision: 0
-    textoMision: 
-  - texto: "Nos faltan 5 llaves, a lo mejor hay una aqu\xED escondida en la sala. "
+  - texto: " \xA1Estamos encerrados!, necesitamos abrir esta puerta y faltan 5 llaves,
+      a lo mejor hay una aqu\xED escondida en la sala. "
     mostrarMision: 1
     textoMision: Busca pistas en la sala
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 2
   nextState: 2
   changeState: 1
@@ -7807,9 +7833,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocked: 1
   interactMessagePanel: {fileID: 128809623}
-  lockedMessagePanel: {fileID: 592654676}
+  lockedMessagePanel: {fileID: 1141134949}
   unlockAfterDelay: 0
   unlockDelay: 5
+  interactionDistance: 5
   openSound: {fileID: 8300000, guid: b14a566adea071047a6afc2ec92c3e95, type: 3}
   closeSound: {fileID: 8300000, guid: ac16f83147d287b4692f722d6c54e6e9, type: 3}
 --- !u!65 &352191091
@@ -7827,12 +7854,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1099439, y: 0.19809593, z: 0.02591961}
-  m_Center: {x: 0.054971956, y: 0.09904797, z: -3.1247905e-15}
+  m_Size: {x: 0.109943904, y: 0.19809593, z: 0.08631132}
+  m_Center: {x: 0.05497195, y: 0.09904797, z: -0.018984968}
 --- !u!1 &355512282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3961922524456693609, guid: 8b09493d82a88fb46bad0a9dda571934, type: 3}
@@ -8077,7 +8104,7 @@ RectTransform:
   m_Children:
   - {fileID: 1527235819}
   - {fileID: 490136487}
-  - {fileID: 920546032}
+  - {fileID: 1364112329}
   - {fileID: 1416080548}
   - {fileID: 1722055250}
   - {fileID: 1440055494}
@@ -8869,6 +8896,141 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397984813}
   m_CullTransparentMesh: 1
+--- !u!1 &398214742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 398214743}
+  - component: {fileID: 398214745}
+  - component: {fileID: 398214744}
+  m_Layer: 5
+  m_Name: Text (TMP)normal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &398214743
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398214742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1527235819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 2}
+  m_SizeDelta: {x: 1325.1, y: 104.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &398214744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398214742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "Hola, parece que ya despertaste, bueno, que ya despertamos. No s\xE9 d\xF3nde
+    estamos, pero es un lugar realmente extra\xF1o... Deber\xEDamos salir. "
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 40
+  m_fontSizeBase: 40
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 12.7
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &398214745
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398214742}
+  m_CullTransparentMesh: 1
 --- !u!1 &398874425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4638535341903053277, guid: 8b09493d82a88fb46bad0a9dda571934, type: 3}
@@ -9416,9 +9578,11 @@ MonoBehaviour:
       a lo mejor la contrase\xF1a est\xE1 ah\xED. "
     mostrarMision: 1
     textoMision: Encuentra los digitos faltantes para abrir la caja fuerte
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 5
   nextState: 2
   changeState: 0
@@ -9890,6 +10054,88 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &450466801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450466802}
+  - component: {fileID: 450466804}
+  - component: {fileID: 450466803}
+  m_Layer: 0
+  m_Name: Trigger20 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &450466802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450466801}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.8050511, z: -0, w: 0.5932056}
+  m_LocalPosition: {x: -34.679, y: 30.14, z: -12.893}
+  m_LocalScale: {x: 0.33697897, y: 0.2832232, z: 3.0684402}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1012805804}
+  m_LocalEulerAnglesHint: {x: 0, y: -107.23, z: 0}
+--- !u!114 &450466803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450466801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 480d8c227409c3a4aa0c9a3e54743ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 590081471}
+  delayBeforeDialogue: 0
+  delayBetweenDialogues: 1
+  durationOfDialogue: 4
+  dialogos:
+  - texto: "Intentemos colocar los art\xEDculos en la caja"
+    mostrarMision: 1
+    textoMision: Consigue el codigo de la puerta para conseguir la llave
+    audioClip: {fileID: 0}
+  dialoguePanel: {fileID: 1527235818}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
+  triggerSequence: 3
+  nextState: 6
+  changeState: 0
+--- !u!65 &450466804
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450466801}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 91.74379, y: 20.263191, z: 1.2832243}
+  m_Center: {x: 11.363034, y: 9.631611, z: 3.4127}
 --- !u!1 &450907883
 GameObject:
   m_ObjectHideFlags: 0
@@ -11309,7 +11555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &490136487
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11322,13 +11568,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1760534108}
+  - {fileID: 678520920}
   m_Father: {fileID: 361544125}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -409.89423}
-  m_SizeDelta: {x: 0, y: -819.7885}
+  m_AnchoredPosition: {x: -18.339, y: -435.69}
+  m_SizeDelta: {x: -440.79, y: -908.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &490136488
 MonoBehaviour:
@@ -11343,7 +11589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12061,9 +12307,11 @@ MonoBehaviour:
       salir. "
     mostrarMision: 1
     textoMision: "Investiga la habitaci\xF3n"
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 0
   nextState: 0
   changeState: 0
@@ -12215,9 +12463,11 @@ MonoBehaviour:
   - texto: "De pronto la pista est\xE1 en un libro que no se encuentra en el estante "
     mostrarMision: 1
     textoMision: Encuentra los digitos faltantes para abrir la caja fuerte
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 11
   nextState: 2
   changeState: 0
@@ -14216,7 +14466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &592654677
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15230,9 +15480,11 @@ MonoBehaviour:
       de cada vitrina. "
     mostrarMision: 1
     textoMision: Encuentra la llave correcta
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 0}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 0
   nextState: 8
   changeState: 1
@@ -16326,6 +16578,140 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02539271, y: 0.033589803, z: 0.024966309}
   m_Center: {x: 0.00005951718, y: 0.000005088344, z: -0.0045344783}
+--- !u!1 &678520919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 678520920}
+  - component: {fileID: 678520922}
+  - component: {fileID: 678520921}
+  m_Layer: 5
+  m_Name: Text (TMPMalo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &678520920
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678520919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 490136487}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -9}
+  m_SizeDelta: {x: 1318.1, y: 72.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &678520921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678520919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: VIda sapo ijuepuuuuuuuuuuuuuuuuuuuuuuuu
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 535312db50fe3a943b2b029611dfdef6, type: 2}
+  m_sharedMaterial: {fileID: -5735116459583578130, guid: 535312db50fe3a943b2b029611dfdef6, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 6.2
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &678520922
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678520919}
+  m_CullTransparentMesh: 1
 --- !u!1 &680127367 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6614559721751249221, guid: 8b09493d82a88fb46bad0a9dda571934, type: 3}
@@ -16924,9 +17310,11 @@ MonoBehaviour:
   - texto: "se abri\xF3 una puerta, vamos a buscar las dem\xE1s llaves "
     mostrarMision: 1
     textoMision: "Encontrar la siguiente habitaci\xF3n"
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 0
   nextState: 4
   changeState: 1
@@ -17375,6 +17763,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736452708}
   m_CullTransparentMesh: 1
+--- !u!65 &736829380
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880002159}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1099439, y: 0.19809593, z: 0.02591961}
+  m_Center: {x: 0.054971956, y: 0.09904797, z: 1.2799508e-11}
 --- !u!1 &736977199
 GameObject:
   m_ObjectHideFlags: 0
@@ -18152,10 +18561,12 @@ MonoBehaviour:
   - texto: "Cuantas cosas hay aqu\xED, \xBFno quieres llevarte todo?. "
     mostrarMision: 1
     textoMision: Investiga la tienda
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 490136486}
-  dialogueText: {fileID: 1760534109}
-  missionText: {fileID: 920546033}
-  triggerSequence: 0
+  dialogueText: {fileID: 678520921}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
+  triggerSequence: 1
   nextState: 6
   changeState: 1
 --- !u!65 &759153536
@@ -20772,6 +21183,7 @@ RectTransform:
   m_Children:
   - {fileID: 128809624}
   - {fileID: 592654677}
+  - {fileID: 1141134952}
   m_Father: {fileID: 1880002160}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -21158,85 +21570,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0006741333, y: 0.0013109398, z: 0.0013118457}
   m_Center: {x: -0.00002819061, y: 0.000005820999, z: -0.0000071525574}
---- !u!1 &920546031
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 920546032}
-  - component: {fileID: 920546034}
-  - component: {fileID: 920546033}
-  m_Layer: 5
-  m_Name: TextMisiones
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &920546032
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920546031}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.937, y: 1.937, z: 1.937}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 361544125}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 522, y: 423}
-  m_SizeDelta: {x: 372.8, y: 85.7}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &920546033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920546031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 226
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Mision: completar este juego sin caer en la locura'
---- !u!222 &920546034
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920546031}
-  m_CullTransparentMesh: 1
 --- !u!1 &921430112
 GameObject:
   m_ObjectHideFlags: 0
@@ -22007,9 +22340,9 @@ MonoBehaviour:
   interactionHintCanvas: {fileID: 459123318}
   keyObject: {fileID: 1857872184}
   firstDialogPanel: {fileID: 1527235818}
-  firstDialogText: {fileID: 1514992031}
+  firstDialogText: {fileID: 0}
   multiAttemptDialogPanel: {fileID: 490136486}
-  multiAttemptDialogText: {fileID: 1760534109}
+  multiAttemptDialogText: {fileID: 0}
   firstAttemptMessage: 'Me parece que esa llave no nos va a servir, busquemos otra. '
   successMessage: "Lo hicimos muy bien \xA1Vamos! Que solo queda una habitaci\xF3n
     m\xE1s. "
@@ -22731,8 +23064,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1791619464}
   - {fileID: 759153534}
   - {fileID: 1189578960}
+  - {fileID: 450466802}
   - {fileID: 1290788406}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24317,7 +24652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalText: {fileID: 1771350855}
   warningPanel: {fileID: 490136486}
-  warningText: {fileID: 1760534109}
+  warningText: {fileID: 0}
   mensajeAdvertencia: "\xA1Un objeto de sabotaje ha salido del \xE1rea!"
   mensajeDuracion: 3
   objetoSabotajePrefab: {fileID: 357486674}
@@ -24443,9 +24778,11 @@ MonoBehaviour:
   - texto: "\xA1Otra caja! Esto ya es f\xE1cil. Miremos a ver que hay en el computador. "
     mostrarMision: 1
     textoMision: Encuentra el codigo de la caja fuerte
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 2
   nextState: 4
   changeState: 0
@@ -24901,6 +25238,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139152225}
   m_CullTransparentMesh: 1
+--- !u!1 &1141134949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1141134952}
+  - component: {fileID: 1141134951}
+  - component: {fileID: 1141134950}
+  m_Layer: 0
+  m_Name: ImageBloqueada
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1141134950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141134949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 1a6a5a3ac85b6954dbcff1257d259f40, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1141134951
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141134949}
+  m_CullTransparentMesh: 1
+--- !u!224 &1141134952
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141134949}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 887457910}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1141874435 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2399234722128331005, guid: 8b09493d82a88fb46bad0a9dda571934, type: 3}
@@ -25789,11 +26201,13 @@ MonoBehaviour:
   - texto: 'Algo me dice que vamos a tardar una eternidad en encontrar todo lo de
       la lista.    '
     mostrarMision: 1
-    textoMision: Consigue el codigo de la puerta para conseguir la llave
+    textoMision: "Consigue los art\xEDculos de la lista"
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
-  triggerSequence: 1
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
+  triggerSequence: 2
   nextState: 6
   changeState: 0
 --- !u!65 &1189578962
@@ -27348,9 +27762,11 @@ MonoBehaviour:
       nuevo, pase algo diferente...  "
     mostrarMision: 1
     textoMision: Encuentra los digitos faltantes para abrir la caja fuerte
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 7
   nextState: 2
   changeState: 0
@@ -27669,7 +28085,6 @@ Transform:
   - {fileID: 715420980}
   - {fileID: 226908477}
   - {fileID: 1117957545}
-  - {fileID: 1791619464}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1257415936
@@ -28229,13 +28644,15 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - texto: "Buen trabajo, ya casi podemos salir de este lugar \xA1Que bien! "
+  - texto: 'busquemos la otra llave, ya estoy cansado '
     mostrarMision: 1
-    textoMision: "Continua a la siguiente habitaci\xF3n"
+    textoMision: "Busca a la siguiente habitaci\xF3n"
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 490136486}
-  dialogueText: {fileID: 1760534109}
-  missionText: {fileID: 920546033}
-  triggerSequence: 2
+  dialogueText: {fileID: 678520921}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
+  triggerSequence: 4
   nextState: 6
   changeState: 0
 --- !u!65 &1290788408
@@ -29571,9 +29988,11 @@ MonoBehaviour:
   - texto: "No pasa nada, acerqu\xE9monos una vez m\xE1s el tel\xE9fono. "
     mostrarMision: 1
     textoMision: Encuentra los digitos faltantes para abrir la caja fuerte
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 10
   nextState: 2
   changeState: 0
@@ -29704,9 +30123,11 @@ MonoBehaviour:
       una pista. "
     mostrarMision: 1
     textoMision: Encuentra los digitos faltantes para abrir la caja fuerte
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 4
   nextState: 2
   changeState: 0
@@ -29783,6 +30204,140 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0074449824, y: 0.11240418, z: 0.040868625}
   m_Center: {x: 0.0005942768, y: -0.016861536, z: -0.0005059717}
+--- !u!1 &1364112328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1364112329}
+  - component: {fileID: 1364112331}
+  - component: {fileID: 1364112330}
+  m_Layer: 5
+  m_Name: Text (TMP)Misiones
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1364112329
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364112328}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 361544125}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 462, y: 476}
+  m_SizeDelta: {x: 833.6, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1364112330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364112328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Mision: No morir ni matar a nadie porque estoy cagandome en todo'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 43.8
+  m_fontSizeBase: 43.8
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1364112331
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364112328}
+  m_CullTransparentMesh: 1
 --- !u!1 &1367900148 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6580506823337980793, guid: 8b09493d82a88fb46bad0a9dda571934, type: 3}
@@ -30777,7 +31332,7 @@ MonoBehaviour:
   animationClip: {fileID: 7400000, guid: b86ed2c1012e0f74eae4ea8fd19746ea, type: 2}
   objectToShow: {fileID: 548234213}
   dialogPanel: {fileID: 1527235818}
-  dialogText: {fileID: 1514992031}
+  dialogText: {fileID: 0}
   dialogMessage: Esoo! obtuvimos la primera llave, solo faltan 4
   dialogDelay: 1
   dialogDuration: 3
@@ -31769,6 +32324,7 @@ MonoBehaviour:
   lockedMessagePanel: {fileID: 0}
   unlockAfterDelay: 0
   unlockDelay: 5
+  interactionDistance: 5
   openSound: {fileID: 0}
   closeSound: {fileID: 0}
 --- !u!1 &1463023972
@@ -32484,7 +33040,7 @@ MonoBehaviour:
   animationClip: {fileID: 7400000, guid: 6a6903ab7f0466a4885a64f29016e0ee, type: 2}
   objectToShow: {fileID: 0}
   dialogPanel: {fileID: 1527235818}
-  dialogText: {fileID: 1514992031}
+  dialogText: {fileID: 0}
   dialogMessage: No hay nada (ndeah), intenta digitarlo en otro teclado
   dialogDelay: 1
   dialogDuration: 3
@@ -32867,86 +33423,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 158208727}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1514992029
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1514992030}
-  - component: {fileID: 1514992032}
-  - component: {fileID: 1514992031}
-  m_Layer: 5
-  m_Name: Text (Legacy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1514992030
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514992029}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.937, y: 1.937, z: 1.937}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1527235819}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: -36}
-  m_SizeDelta: {x: 819.1, y: 130.7}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1514992031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514992029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 226
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "En estos libros no hay nada, bueno, se me ocurre otra idea; trata de poner
-    ese vaso sobre la mesa de centro, quiz\xE1 eso puede servir. "
---- !u!222 &1514992032
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514992029}
-  m_CullTransparentMesh: 1
 --- !u!1 &1521533364
 GameObject:
   m_ObjectHideFlags: 0
@@ -33150,7 +33626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1527235819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33163,13 +33639,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1514992030}
+  - {fileID: 398214743}
   m_Father: {fileID: 361544125}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -409.89423}
-  m_SizeDelta: {x: 0, y: -819.7885}
+  m_AnchoredPosition: {x: -18.339417, y: -435.6931}
+  m_SizeDelta: {x: -440.7866, y: -908.1511}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1527235820
 MonoBehaviour:
@@ -33184,7 +33660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -35317,16 +35793,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionText: {fileID: 1722055247}
   correctCode: 300
-  objectToAnimate: {fileID: 62138965}
-  animationClip: {fileID: 7400000, guid: a4fbb5eb13785e64285b0a199c903df6, type: 2}
+  objectToAnimate: {fileID: 1435004210}
+  animationClip: {fileID: 7400000, guid: a02781572021d7b43a82fcdffff59ac2, type: 2}
   objectToShow: {fileID: 1654478918}
   dialogPanel: {fileID: 1527235818}
-  dialogText: {fileID: 1514992031}
-  dialogMessage: Perfecto, ahora que tenemos dos llaves
+  dialogText: {fileID: 398214744}
+  dialogMessage: "Buen trabajo, ya casi podemos salir de este lugar \xA1Que bien! "
   dialogDelay: 1
   dialogDuration: 3
   cameraTransform: {fileID: 474191596}
-  raycastDistance: 5
+  raycastDistance: 10
 --- !u!65 &1655997708
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35346,8 +35822,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7.917665, y: 1.0879449, z: 3.9222157}
-  m_Center: {x: 2.772641, y: 0.0439723, z: 0.9317274}
+  m_Size: {x: 4.991325, y: 1.0879449, z: 9.316232}
+  m_Center: {x: 1.309465, y: 0.043972302, z: -1.7652735}
 --- !u!23 &1655997709
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36049,15 +36525,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cdde6da430ec4874fab6e2d2681dff16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.02
+      value: -50.52
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cdde6da430ec4874fab6e2d2681dff16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -64.41
+      value: -64.62
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cdde6da430ec4874fab6e2d2681dff16, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.29
+      value: -11.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cdde6da430ec4874fab6e2d2681dff16, type: 3}
       propertyPath: m_LocalRotation.w
@@ -37178,7 +37654,7 @@ MonoBehaviour:
   m_text: E para interactuar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -37268,7 +37744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 35}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1726193798 stripped
@@ -37804,86 +38280,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 158208727}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1760534107
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1760534108}
-  - component: {fileID: 1760534110}
-  - component: {fileID: 1760534109}
-  m_Layer: 5
-  m_Name: TextMalo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1760534108
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1760534107}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.937, y: 1.937, z: 1.937}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 490136487}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: -36}
-  m_SizeDelta: {x: 819.1, y: 130.7}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1760534109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1760534107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.5, g: 0.0495283, b: 0.0495283, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 226
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "En estos libros no hay nada, bueno, se me ocurre otra idea; trata de poner
-    ese vaso sobre la mesa de centro, quiz\xE1 eso puede servir. "
---- !u!222 &1760534110
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1760534107}
-  m_CullTransparentMesh: 1
 --- !u!1 &1762729123 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4356877828898064976, guid: 8b09493d82a88fb46bad0a9dda571934, type: 3}
@@ -38908,11 +39304,11 @@ Transform:
   m_GameObject: {fileID: 1791619463}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.71044064, z: -0, w: 0.7037572}
-  m_LocalPosition: {x: -3.97, y: 31, z: -2.28}
-  m_LocalScale: {x: 0.2832232, y: 0.2832232, z: 3.0684402}
+  m_LocalPosition: {x: 40.89501, y: 31, z: 44.99305}
+  m_LocalScale: {x: 0.28322324, y: 0.2832232, z: 3.0684404}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1250298779}
+  m_Father: {fileID: 1012805804}
   m_LocalEulerAnglesHint: {x: 0, y: -90.542, z: 0}
 --- !u!114 &1791619465
 MonoBehaviour:
@@ -38934,10 +39330,12 @@ MonoBehaviour:
   - texto: "Deber\xEDamos revisar si otra puerta se abri\xF3. "
     mostrarMision: 1
     textoMision: "Encuentra la sigueinte Habitaci\xF3n"
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
-  triggerSequence: 3
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
+  triggerSequence: 0
   nextState: 4
   changeState: 0
 --- !u!65 &1791619466
@@ -38975,9 +39373,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocked: 0
   interactMessagePanel: {fileID: 128809623}
-  lockedMessagePanel: {fileID: 592654676}
+  lockedMessagePanel: {fileID: 1141134949}
   unlockAfterDelay: 1
   unlockDelay: 20
+  interactionDistance: 5
   openSound: {fileID: 8300000, guid: b14a566adea071047a6afc2ec92c3e95, type: 3}
   closeSound: {fileID: 8300000, guid: ac16f83147d287b4692f722d6c54e6e9, type: 3}
 --- !u!1 &1807939616
@@ -39197,9 +39596,11 @@ MonoBehaviour:
   - texto: "Vac\xEDos, miremos nuevamente si hay algo en la mesa. "
     mostrarMision: 1
     textoMision: Encuentra los digitos faltantes para obtener la llave
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 9
   nextState: 2
   changeState: 0
@@ -40482,24 +40883,36 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5619302609615435187, guid: 2b3005f6ff3a8764fb305ad24c9977cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1880002163}
+    - targetCorrespondingSourceObject: {fileID: 5619302609615435187, guid: 2b3005f6ff3a8764fb305ad24c9977cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 736829380}
     - targetCorrespondingSourceObject: {fileID: 1585015375599971490, guid: 2b3005f6ff3a8764fb305ad24c9977cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1880002167}
     - targetCorrespondingSourceObject: {fileID: 1585015375599971490, guid: 2b3005f6ff3a8764fb305ad24c9977cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1806806756}
+    - targetCorrespondingSourceObject: {fileID: 1585015375599971490, guid: 2b3005f6ff3a8764fb305ad24c9977cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1880002173}
     - targetCorrespondingSourceObject: {fileID: -1981176674353629320, guid: 2b3005f6ff3a8764fb305ad24c9977cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1880002166}
     - targetCorrespondingSourceObject: {fileID: -1981176674353629320, guid: 2b3005f6ff3a8764fb305ad24c9977cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1880002165}
+    - targetCorrespondingSourceObject: {fileID: -1981176674353629320, guid: 2b3005f6ff3a8764fb305ad24c9977cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1880002169}
     - targetCorrespondingSourceObject: {fileID: -1244234205430477131, guid: 2b3005f6ff3a8764fb305ad24c9977cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 166350563}
     - targetCorrespondingSourceObject: {fileID: -1244234205430477131, guid: 2b3005f6ff3a8764fb305ad24c9977cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 166350564}
+    - targetCorrespondingSourceObject: {fileID: -1244234205430477131, guid: 2b3005f6ff3a8764fb305ad24c9977cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 166350566}
     - targetCorrespondingSourceObject: {fileID: -2013708376385591173, guid: 2b3005f6ff3a8764fb305ad24c9977cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 352191090}
@@ -40541,9 +40954,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocked: 1
   interactMessagePanel: {fileID: 128809623}
-  lockedMessagePanel: {fileID: 592654676}
+  lockedMessagePanel: {fileID: 1141134949}
   unlockAfterDelay: 0
   unlockDelay: 5
+  interactionDistance: 5
   openSound: {fileID: 8300000, guid: b14a566adea071047a6afc2ec92c3e95, type: 3}
   closeSound: {fileID: 8300000, guid: ac16f83147d287b4692f722d6c54e6e9, type: 3}
 --- !u!65 &1880002164
@@ -40561,12 +40975,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1099439, y: 0.19809593, z: 0.02591961}
-  m_Center: {x: 0.054971956, y: 0.09904797, z: 1.2799508e-11}
+  m_Size: {x: 0.109943874, y: 0.19809593, z: 0.07188568}
+  m_Center: {x: 0.05497196, y: 0.09904797, z: -0.022983184}
 --- !u!114 &1880002165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40581,12 +40995,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocked: 0
   interactMessagePanel: {fileID: 128809623}
-  lockedMessagePanel: {fileID: 592654676}
+  lockedMessagePanel: {fileID: 1141134949}
   unlockAfterDelay: 0
   unlockDelay: 5
+  interactionDistance: 5
   openSound: {fileID: 8300000, guid: b14a566adea071047a6afc2ec92c3e95, type: 3}
   closeSound: {fileID: 8300000, guid: ac16f83147d287b4692f722d6c54e6e9, type: 3}
 --- !u!65 &1880002166
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880002161}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.10594389, y: 0.19809593, z: 0.070295475}
+  m_Center: {x: 0.052971944, y: 0.09904797, z: -0.022187933}
+--- !u!65 &1880002167
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880002162}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.11094387, y: 0.19809593, z: 0.10386756}
+  m_Center: {x: 0.055471946, y: 0.09904797, z: -0.013978272}
+--- !u!65 &1880002169
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40607,7 +41064,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.105943896, y: 0.19809593, z: 0.025919609}
   m_Center: {x: 0.052971955, y: 0.09904797, z: 0}
---- !u!65 &1880002167
+--- !u!65 &1880002173
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41030,9 +41487,11 @@ MonoBehaviour:
       extra\xF1o, intentemos salir de aqu\xED. "
     mostrarMision: 1
     textoMision: Encuentra la salida principal
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 1
   nextState: 0
   changeState: 1
@@ -42173,9 +42632,11 @@ MonoBehaviour:
   - texto: "\xA1Bingo!, la llave debe estar en esta caja fuerte  "
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 3
   nextState: 2
   changeState: 0
@@ -44805,9 +45266,11 @@ MonoBehaviour:
       y revisar si hay algo ah\xED  "
     mostrarMision: 1
     textoMision: Encuentra los digitos faltantes para abrir la caja fuerte
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 398214744}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 6
   nextState: 2
   changeState: 0
@@ -45039,7 +45502,7 @@ MonoBehaviour:
   animationClip: {fileID: 7400000, guid: a4fbb5eb13785e64285b0a199c903df6, type: 2}
   objectToShow: {fileID: 1654478918}
   dialogPanel: {fileID: 1527235818}
-  dialogText: {fileID: 1514992031}
+  dialogText: {fileID: 0}
   dialogMessage: Perfecto, ahora que tenemos dos llaves
   dialogDelay: 1
   dialogDuration: 3
@@ -46108,9 +46571,11 @@ MonoBehaviour:
   - texto: "Hay muchas llaves, espero no te abrumes con tanta informaci\xF3n"
     mostrarMision: 1
     textoMision: Encuentra la llave correcta
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 490136486}
-  dialogueText: {fileID: 1760534109}
-  missionText: {fileID: 920546033}
+  dialogueText: {fileID: 0}
+  missionText: {fileID: 1364112330}
+  musicaFondo: {fileID: 0}
   triggerSequence: 0
   nextState: 8
   changeState: 1
