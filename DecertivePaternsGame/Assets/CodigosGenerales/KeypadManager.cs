@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class KeypadManager : MonoBehaviour
 {
     public static KeypadManager instance;  // Singleton para acceder desde cualquier objeto
     public GameObject keypadPanel;  // Panel del teclado
     public GameObject otherPanel;
-    public Text codeDisplay;  // Donde se muestra el código ingresado
+    public TMP_Text codeDisplay;  // Donde se muestra el código ingresado
     private string enteredCode = "";  // Código que el usuario ingresa
     private string currentCorrectCode;  // El código correcto actual para verificar
     private Safe currentObject;  // Referencia al objeto actual que estamos interactuando

@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
+
 
 public class ChestInteraction : MonoBehaviour
 {
@@ -8,9 +10,9 @@ public class ChestInteraction : MonoBehaviour
     public Canvas interactionHintCanvas;        // Canvas que muestra "Presiona E para interactuar"
     public GameObject keyObject;                // La llave dentro del cofre
     public GameObject firstDialogPanel;         // Panel del diálogo para el primer intento fallido y mensaje de éxito
-    public Text firstDialogText;                // Texto para el primer intento fallido y mensaje de éxito
+    public TMP_Text firstDialogText;                // Texto para el primer intento fallido y mensaje de éxito
     public GameObject multiAttemptDialogPanel;  // Panel del diálogo para intentos múltiples (5to, 8vo, etc.)
-    public Text multiAttemptDialogText;         // Texto para los intentos múltiples
+    public TMP_Text multiAttemptDialogText;         // Texto para los intentos múltiples
 
     // Variables para los mensajes de diálogo, configurables en el Inspector
     [TextArea] public string firstAttemptMessage = "La llave es incorrecta. Prueba con otra llave.";

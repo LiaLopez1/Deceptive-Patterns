@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class SumaValores : MonoBehaviour
 {
     public Text totalText;  // Texto del UI donde se mostrará la suma total de los precios
     public GameObject warningPanel; // Panel para mostrar el mensaje de advertencia
-    public Text warningText; // Texto dentro del panel de advertencia
+    public TMP_Text warningText; // Texto dentro del panel de advertencia
     public string mensajeAdvertencia = "¡Un objeto de sabotaje ha salido del área!"; // Mensaje personalizable
     public float mensajeDuracion = 3f; // Duración del mensaje de advertencia en segundos
 
