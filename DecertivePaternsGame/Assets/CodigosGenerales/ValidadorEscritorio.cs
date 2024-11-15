@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
+
 
 public class ChestInteraction : MonoBehaviour
 {
@@ -8,9 +10,9 @@ public class ChestInteraction : MonoBehaviour
     public Canvas interactionHintCanvas;        // Canvas que muestra "Presiona E para interactuar"
     public GameObject keyObject;                // La llave dentro del cofre
     public GameObject firstDialogPanel;         // Panel del diálogo para el primer intento fallido y mensaje de éxito
-    public Text firstDialogText;                // Texto para el primer intento fallido y mensaje de éxito
+    public TMP_Text firstDialogText;                // Texto para el primer intento fallido y mensaje de éxito
     public GameObject multiAttemptDialogPanel;  // Panel del diálogo para intentos múltiples (5to, 8vo, etc.)
-    public Text multiAttemptDialogText;         // Texto para los intentos múltiples
+    public TMP_Text multiAttemptDialogText;         // Texto para los intentos múltiples
 
     // Variables para los mensajes de diálogo, configurables en el Inspector
     [TextArea] public string firstAttemptMessage = "La llave es incorrecta. Prueba con otra llave.";
@@ -24,6 +26,11 @@ public class ChestInteraction : MonoBehaviour
     private int failedAttempts = 0;             // Contador de intentos fallidos
     private Collider triggerCollider;           // Referencia al Collider del propio Trigger
 
+    public AudioSource audioSource;             // AudioSource para reproducir los sonidos
+    public AudioClip firstAttemptSound;         // Sonido para el primer intento fallido
+    public AudioClip successSound;              // Sonido para el mensaje de éxito
+    public AudioClip multiAttemptSound;         // Sonido para los intentos múltiples
+
     private void Start()
     {
         interactionHintCanvas.gameObject.SetActive(false);
@@ -33,6 +40,11 @@ public class ChestInteraction : MonoBehaviour
 
         // Obtiene el Collider del propio objeto en el que está el script
         triggerCollider = GetComponent<Collider>();
+
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();  // Agregar un AudioSource si no está asignado
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -72,6 +84,13 @@ public class ChestInteraction : MonoBehaviour
             triggerCollider.enabled = false; // Desactiva el propio trigger para evitar más interacciones
             firstDialogText.text = successMessage; // Muestra el mensaje de éxito
             firstDialogPanel.SetActive(true);
+
+            // Reproduce el sonido de éxito
+            if (audioSource != null && successSound != null)
+            {
+                audioSource.PlayOneShot(successSound);
+            }
+
             StartCoroutine(HideDialogAfterDelay(firstDialogPanel, successDialogDuration)); // Oculta el panel después de un tiempo específico para éxito
             StartCoroutine(ActivateKeyAfterAnimation()); // Activa la llave después de la animación
         }
@@ -90,6 +109,13 @@ public class ChestInteraction : MonoBehaviour
         {
             firstDialogText.text = firstAttemptMessage;
             firstDialogPanel.SetActive(true);
+
+            // Reproduce el sonido del primer intento fallido
+            if (audioSource != null && firstAttemptSound != null)
+            {
+                audioSource.PlayOneShot(firstAttemptSound);
+            }
+
             StartCoroutine(HideDialogAfterDelay(firstDialogPanel, dialogDisplayDuration)); // Oculta el primer diálogo después de un tiempo específico para fallos
         }
         // Mostrar el diálogo para intentos múltiples en el 5º, 8º, 11º intento, etc.
@@ -97,6 +123,13 @@ public class ChestInteraction : MonoBehaviour
         {
             multiAttemptDialogText.text = multiAttemptMessage;
             multiAttemptDialogPanel.SetActive(true);
+
+            // Reproduce el sonido para intentos múltiples
+            if (audioSource != null && multiAttemptSound != null)
+            {
+                audioSource.PlayOneShot(multiAttemptSound);
+            }
+
             StartCoroutine(HideDialogAfterDelay(multiAttemptDialogPanel, dialogDisplayDuration)); // Oculta el panel de intentos múltiples después de un tiempo
         }
         else

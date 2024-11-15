@@ -23,6 +23,9 @@ public class SumaValores : MonoBehaviour
 
     private List<GameObject> objetosSabotajeClonados = new List<GameObject>(); // Lista para almacenar los objetos de sabotaje clonados
 
+    public AudioSource audioSource;  // AudioSource para reproducir el sonido de advertencia
+    public AudioClip warningSound;  // Sonido que se reproduce cuando se muestra la advertencia
+
     private void Start()
     {
         if (totalText != null)
@@ -33,6 +36,11 @@ public class SumaValores : MonoBehaviour
         if (warningPanel != null)
         {
             warningPanel.SetActive(false); // Inicialmente ocultamos el panel de advertencia
+        }
+
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();  // Agregar un AudioSource si no está asignado
         }
     }
 
@@ -130,6 +138,12 @@ public class SumaValores : MonoBehaviour
         {
             warningText.text = mensajeAdvertencia; // Mostrar el mensaje personalizado
             warningPanel.SetActive(true); // Activar el panel de advertencia
+
+            // Reproducir el sonido de advertencia
+            if (audioSource != null && warningSound != null)
+            {
+                audioSource.PlayOneShot(warningSound);  // Reproduce el sonido una sola vez
+            }
         }
     }
 

@@ -20,6 +20,10 @@ public class Safe : MonoBehaviour
     public Transform cameraTransform;  // Transform de la cámara del jugador
     public float raycastDistance = 5f;  // Distancia del raycast
 
+    public AudioSource audioSource;  // AudioSource para reproducir el sonido
+    public AudioClip unlockSound;  // Sonido que se reproduce cuando se desbloquea
+    public float audioDelay = 1.0f;  // Retraso en segundos antes de reproducir el audio
+
     private bool isNear = false;  // Si el jugador está apuntando al objeto
     private Animator objectAnimator;  // Animator del objeto
     private Animation objectAnimation;  // Si prefieres usar el componente Animation en vez de Animator
@@ -52,6 +56,11 @@ public class Safe : MonoBehaviour
         if (dialogPanel != null)
         {
             dialogPanel.SetActive(false);
+        }
+
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();  // Agregar un AudioSource si no está asignado
         }
     }
 
@@ -123,6 +132,12 @@ public class Safe : MonoBehaviour
             Debug.LogWarning("No se encontró Animator o Animation en el objeto " + objectToAnimate.name);
         }
 
+        // Iniciar la corrutina para reproducir el sonido de desbloqueo con retraso
+        if (audioSource != null && unlockSound != null)
+        {
+            StartCoroutine(PlayAudioWithDelay(audioDelay));
+        }
+
         // Marcar que la caja ha sido desbloqueada
         hasBeenUnlocked = true;
 
@@ -151,5 +166,12 @@ public class Safe : MonoBehaviour
             yield return new WaitForSeconds(dialogDuration);  // Mantener el diálogo visible durante un tiempo
             dialogPanel.SetActive(false);  // Ocultar el panel de diálogo
         }
+    }
+
+    // Corrutina para reproducir el audio con un retraso
+    private IEnumerator PlayAudioWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);  // Esperar el tiempo de retraso especificado
+        audioSource.PlayOneShot(unlockSound);  // Reproducir el sonido
     }
 }
