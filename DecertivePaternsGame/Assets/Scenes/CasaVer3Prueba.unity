@@ -42897,7 +42897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37327ceb91bd9c0489edcfe9ff027085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 0
+  isLocked: 1
   interactMessagePanel: {fileID: 163279274}
   lockedMessagePanel: {fileID: 1141134949}
   unlockAfterDelay: 1
@@ -44389,7 +44389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37327ceb91bd9c0489edcfe9ff027085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 0
+  isLocked: 1
   interactMessagePanel: {fileID: 163279274}
   lockedMessagePanel: {fileID: 1141134949}
   unlockAfterDelay: 0
