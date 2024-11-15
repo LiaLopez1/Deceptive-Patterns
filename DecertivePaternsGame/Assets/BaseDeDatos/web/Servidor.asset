@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4192fbafa8ae045b1038eb6443b4f3, type: 3}
   m_Name: Servidor
   m_EditorClassIdentifier: 
-  servidor: http://localhost/deceptivePatterns/
+  servidor: http://localhost:8080/deceptivePatterns/
   servicios:
   - nombre: login
     URL: login.php
@@ -45,7 +45,7 @@ MonoBehaviour:
   ocupado: 1
   respuesta:
     codigo: 200
-    mensaje: Llaves obtenidas correctamente
-    llaves: 7
-    nombrecompleto: 
+    mensaje: Datos obtenidos correctamente
+    llaves: 0
+    nombrecompleto: Natalia lopez
     correo: 
