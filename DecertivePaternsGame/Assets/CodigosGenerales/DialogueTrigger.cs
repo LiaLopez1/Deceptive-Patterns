@@ -66,7 +66,7 @@ public class DialogueTrigger : MonoBehaviour
         // Reducir el volumen de la música de fondo
         if (musicaFondo != null)
         {
-            musicaFondo.volume = originalMusicVolume * 0.3f; // Reducir  volumen de la música
+            musicaFondo.volume = originalMusicVolume * 0.2f; // Reducir  volumen de la música
         }
 
         // Retraso opcional antes de que comience el diálogo

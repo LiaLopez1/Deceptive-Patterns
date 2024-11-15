@@ -23,6 +23,11 @@ public class SumaValores : MonoBehaviour
 
     private List<GameObject> objetosSabotajeClonados = new List<GameObject>(); // Lista para almacenar los objetos de sabotaje clonados
 
+    public AudioSource musicaGeneral;  // AudioSource para la música de fondo
+    public AudioClip warningSound;  // Sonido que se reproduce cuando se muestra la advertencia
+
+    private float originalMusicVolume; // Para almacenar el volumen original de la música
+
     private void Start()
     {
         if (totalText != null)
@@ -33,6 +38,12 @@ public class SumaValores : MonoBehaviour
         if (warningPanel != null)
         {
             warningPanel.SetActive(false); // Inicialmente ocultamos el panel de advertencia
+        }
+
+        // Guardar el volumen original de la música de fondo
+        if (musicaGeneral != null)
+        {
+            originalMusicVolume = musicaGeneral.volume;
         }
     }
 
@@ -128,8 +139,20 @@ public class SumaValores : MonoBehaviour
 
         if (warningPanel != null && warningText != null)
         {
+            // Reducir el volumen de la música de fondo antes de mostrar el mensaje de advertencia
+            if (musicaGeneral != null)
+            {
+                musicaGeneral.volume = originalMusicVolume * 0.3f; // Reducir el volumen de la música al 30%
+            }
+
             warningText.text = mensajeAdvertencia; // Mostrar el mensaje personalizado
             warningPanel.SetActive(true); // Activar el panel de advertencia
+
+            // Reproducir el sonido de advertencia
+            if (warningSound != null)
+            {
+                PlayWarningAudio(warningSound);
+            }
         }
     }
 
@@ -140,5 +163,27 @@ public class SumaValores : MonoBehaviour
         {
             warningPanel.SetActive(false); // Ocultar el panel de advertencia después del retraso
         }
+
+        // Restaurar el volumen original de la música de fondo después de ocultar el mensaje de advertencia
+        if (musicaGeneral != null)
+        {
+            musicaGeneral.volume = originalMusicVolume;
+        }
+    }
+
+    // Función para reproducir el audio del mensaje de advertencia con un GameObject temporal
+    private void PlayWarningAudio(AudioClip clip)
+    {
+        // Crear un GameObject temporal para reproducir el audio
+        GameObject audioObject = new GameObject("WarningAudio");
+        AudioSource tempAudioSource = audioObject.AddComponent<AudioSource>();
+
+        // Configurar el AudioSource
+        tempAudioSource.clip = clip;
+        tempAudioSource.volume = 1.0f;  // Aumentar el volumen del sonido de advertencia para destacarlo
+        tempAudioSource.Play();
+
+        // Destruir el GameObject después de que el audio termine
+        Destroy(audioObject, clip.length);
     }
 }
