@@ -20,10 +20,10 @@ public class Safe : MonoBehaviour
     public Transform cameraTransform;  // Transform de la cámara del jugador
     public float raycastDistance = 5f;  // Distancia del raycast
 
-    public AudioSource audioSource;  // AudioSource para reproducir el sonido
-    public AudioClip unlockSound;  // Sonido que se reproduce cuando se desbloquea
-    public float audioDelay = 1.0f;  // Retraso en segundos antes de reproducir el audio
+    public AudioSource musicaGeneral;  // AudioSource para la música general del ambiente
+    public AudioClip dialogVoiceClip;  // Clip de audio de la voz del diálogo
 
+    private float originalMusicVolume;  // Volumen original de la música general
     private bool isNear = false;  // Si el jugador está apuntando al objeto
     private Animator objectAnimator;  // Animator del objeto
     private Animation objectAnimation;  // Si prefieres usar el componente Animation en vez de Animator
@@ -58,9 +58,10 @@ public class Safe : MonoBehaviour
             dialogPanel.SetActive(false);
         }
 
-        if (audioSource == null)
+        // Guardar el volumen original de la música general
+        if (musicaGeneral != null)
         {
-            audioSource = gameObject.AddComponent<AudioSource>();  // Agregar un AudioSource si no está asignado
+            originalMusicVolume = musicaGeneral.volume;
         }
     }
 
@@ -132,12 +133,6 @@ public class Safe : MonoBehaviour
             Debug.LogWarning("No se encontró Animator o Animation en el objeto " + objectToAnimate.name);
         }
 
-        // Iniciar la corrutina para reproducir el sonido de desbloqueo con retraso
-        if (audioSource != null && unlockSound != null)
-        {
-            StartCoroutine(PlayAudioWithDelay(audioDelay));
-        }
-
         // Marcar que la caja ha sido desbloqueada
         hasBeenUnlocked = true;
 
@@ -161,17 +156,45 @@ public class Safe : MonoBehaviour
 
         if (dialogPanel != null && dialogText != null)
         {
+            // Reducir el volumen de la música de fondo antes de reproducir el diálogo
+            if (musicaGeneral != null)
+            {
+                musicaGeneral.volume = originalMusicVolume * 0.2f;  // Reducir el volumen de la música al 30%
+            }
+
             dialogText.text = dialogMessage;  // Establecer el mensaje del diálogo
             dialogPanel.SetActive(true);
+
+            // Reproducir la voz del diálogo si hay un audio asignado
+            if (dialogVoiceClip != null)
+            {
+                PlayDialogueAudio(dialogVoiceClip);
+            }
+
             yield return new WaitForSeconds(dialogDuration);  // Mantener el diálogo visible durante un tiempo
             dialogPanel.SetActive(false);  // Ocultar el panel de diálogo
+
+            // Restaurar el volumen original de la música general
+            if (musicaGeneral != null)
+            {
+                musicaGeneral.volume = originalMusicVolume;
+            }
         }
     }
 
-    // Corrutina para reproducir el audio con un retraso
-    private IEnumerator PlayAudioWithDelay(float delay)
+    // Función para reproducir el audio del diálogo con un GameObject temporal
+    private void PlayDialogueAudio(AudioClip clip)
     {
-        yield return new WaitForSeconds(delay);  // Esperar el tiempo de retraso especificado
-        audioSource.PlayOneShot(unlockSound);  // Reproducir el sonido
+        // Crear un GameObject temporal para reproducir el audio
+        GameObject audioObject = new GameObject("DialogueAudio");
+        AudioSource tempAudioSource = audioObject.AddComponent<AudioSource>();
+
+        // Configurar el AudioSource
+        tempAudioSource.clip = clip;
+        tempAudioSource.volume = 1.0f;  // Aumentar un poco el volumen del diálogo para destacarlo
+        tempAudioSource.Play();
+
+        // Destruir el GameObject después de que el audio termine
+        Destroy(audioObject, clip.length);
     }
 }
