@@ -7,6 +7,7 @@ public class KeypadManager : MonoBehaviour
     public static KeypadManager instance;  // Singleton para acceder desde cualquier objeto
     public GameObject keypadPanel;  // Panel del teclado
     public GameObject otherPanel;
+    public GameObject otherPanel1;
     public TMP_Text codeDisplay;  // Donde se muestra el código ingresado
     private string enteredCode = "";  // Código que el usuario ingresa
     private string currentCorrectCode;  // El código correcto actual para verificar
@@ -33,6 +34,7 @@ public class KeypadManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         otherPanel.SetActive(true);
+        otherPanel1.SetActive(true);
     }
 
     public void ToggleKeypadPanel()
@@ -47,6 +49,7 @@ public class KeypadManager : MonoBehaviour
             Cursor.visible = false;
             ClearCode();
             otherPanel.SetActive(true);
+            otherPanel1.SetActive(true);
             playerController.enabled = true;  // Desbloquear la cámara cuando se cierra el panel
         }
         else
@@ -55,6 +58,7 @@ public class KeypadManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             otherPanel.SetActive(false);
+            otherPanel1.SetActive(false);
             playerController.enabled = false;  // Bloquear la cámara cuando el panel esté activo
         }
     }
@@ -71,6 +75,12 @@ public class KeypadManager : MonoBehaviour
 
     public void AddDigit(string digit)
     {
+        if (enteredCode.Length == 0 && codeDisplay.text == "Error")
+        {
+            // Si se ingresa un nuevo dígito después de un error, limpiar el texto
+            codeDisplay.text = "";
+        }
+
         if (enteredCode.Length < 6)  // Limitar el código a 6 dígitos
         {
             enteredCode += digit;
@@ -88,16 +98,21 @@ public class KeypadManager : MonoBehaviour
                 currentObject.PlayCorrectCodeAnimation();  // Ejecutar la animación del objeto cuando el código es correcto
                 playerController.enabled = true;  // Reactivar la cámara al terminar la animación
             }
+
+            // Limpiar el mensaje en caso de éxito
+            ClearCode();
         }
         else
         {
             Debug.Log("Código incorrecto");
+            // Mostrar mensaje de error en la pantalla de código
+            codeDisplay.text = "Error";
         }
     }
 
     public void ClearCode()
     {
         enteredCode = "";
-        codeDisplay.text = enteredCode;
+        codeDisplay.text = "";
     }
 }
