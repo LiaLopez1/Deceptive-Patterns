@@ -14176,6 +14176,7 @@ GameObject:
   - component: {fileID: 525357529}
   - component: {fileID: 525357531}
   - component: {fileID: 525357530}
+  - component: {fileID: 525357532}
   m_Layer: 0
   m_Name: Trigger12
   m_TagString: Untagged
@@ -14247,6 +14248,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 68.6524, y: 5.7141733, z: 0.9112155}
   m_Center: {x: -47.648148, y: 2.357087, z: -1.4049568}
+--- !u!114 &525357532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525357528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2476ff4de300ae04d8c0ac0e03900fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerToWatch: 11
 --- !u!1 &526913295
 GameObject:
   m_ObjectHideFlags: 0

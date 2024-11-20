@@ -21,7 +21,7 @@ public class PruebaControlador : MonoBehaviour
     private Vector3 escalaNormal;
     private Vector3 escalaAgachado;
     public float tiempoAgachado = 0.1f;
-    private bool agachado = false;
+    //private bool agachado = false;
 
     void Start()
     {

@@ -1,5 +1,3 @@
-// este codigo baja el volumen del audio un poco cuando los audios suenan
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,17 +14,17 @@ public class DialogueTrigger : MonoBehaviour
     public struct DialogueEntry
     {
         public string texto; // Texto principal del diálogo
-        public bool mostrarMision; // Indica si se debe mostrar el texto de misión
+        public bool mostrarMision; 
         public string textoMision; // Texto de misión específico para este diálogo
         public AudioClip audioClip; // Clip de audio asociado con este diálogo
     }
 
-    public DialogueEntry[] dialogos; // Array de diálogos con información adicional
-    public GameObject dialoguePanel; // Panel que contiene el texto del diálogo
-    public TMP_Text dialogueText; // Componente de texto para mostrar el diálogo principal
-    public TMP_Text missionText; // Componente de texto opcional para la misión
+    public DialogueEntry[] dialogos; 
+    public GameObject dialoguePanel; 
+    public TMP_Text dialogueText; 
+    public TMP_Text missionText; 
 
-    public AudioSource musicaFondo; // Referencia al AudioSource de la música de fondo
+    public AudioSource musicaFondo;
 
     public int triggerSequence; // Secuencia necesaria para activar este trigger
     public GameManager.GameState nextState; // Estado a cambiar después de este diálogo
@@ -35,11 +33,15 @@ public class DialogueTrigger : MonoBehaviour
     private bool isDialogueActive = false; // Para evitar colisiones durante el diálogo
     private int dialoguesShownCount = 0; // Contador de diálogos mostrados
 
+
     // Variables para la verificación de triggers completados
-    private static int completedTriggers = 0; // Contador global de triggers completados
-    private const int totalTriggersToComplete = 14; // Total de triggers necesarios para cambiar de estado
+   
+    private const int totalTriggersToComplete = 14; 
 
     private float originalMusicVolume; // Para almacenar el volumen original de la música
+
+    // Crear un evento para notificar que se ha activado un trigger
+    public static event System.Action<DialogueTrigger> OnTriggerActivated;
 
     private void Start()
     {
@@ -56,6 +58,8 @@ public class DialogueTrigger : MonoBehaviour
         if (other.CompareTag("Player") && gameManager.dialogueSequence == triggerSequence && !isDialogueActive)
         {
             StartCoroutine(HandleDialogue());
+            // Invocar el evento cuando el trigger se active
+            OnTriggerActivated?.Invoke(this);
         }
     }
 
@@ -118,25 +122,8 @@ public class DialogueTrigger : MonoBehaviour
             missionText.gameObject.SetActive(false); // Solo ocultamos si el último diálogo no necesita mostrar misión
         }
 
-        // Marcamos este trigger como completado
-        completedTriggers++;
-
         // Avanzamos en la secuencia de diálogos
         gameManager.AdvanceDialogueSequence();
-
-        // Verificamos si los diálogos se reinician (es decir, dialoguesShownCount se va a poner en 0)
-        if (dialoguesShownCount > 0)
-        {
-            if (completedTriggers >= totalTriggersToComplete)
-            {
-                Debug.Log("Todos los diálogos de los 14 triggers fueron activados antes de reiniciar.");
-            }
-            else
-            {
-                int triggersRestantes = totalTriggersToComplete - completedTriggers;
-                Debug.LogWarning($"Reinicio de diálogos realizado faltando {triggersRestantes} triggers por activar.");
-            }
-        }
 
         // Reiniciamos el contador de diálogos para la próxima secuencia
         dialoguesShownCount = 0;

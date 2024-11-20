@@ -108,14 +108,14 @@ public class Puerta : MonoBehaviour
         {
             // Si la puerta está abierta, la cerramos (rotamos -90 grados)
             transform.Rotate(0, 90f, 0);
-            Debug.Log("Puerta cerrada");
+            //Debug.Log("Puerta cerrada");
             PlaySound(closeSound); // Reproducimos el sonido de cierre
         }
         else
         {
             // Si la puerta está cerrada, la abrimos (rotamos 90 grados)
             transform.Rotate(0, -90f, 0);
-            Debug.Log("Puerta abierta");
+            //Debug.Log("Puerta abierta");
             PlaySound(openSound); // Reproducimos el sonido de apertura
         }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.CullingGroup;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class GameManager : MonoBehaviour
     public GameState currentState = GameState.Exploring;
     public int dialogueSequence = 0;
 
+    //se agregro esto
+    //public static event System.Action<GameState> OnStateChanged;
+
     // Referencias a las series de triggers
     public GameObject[] triggerSerie1;
     public GameObject[] triggerSerie2;
@@ -29,6 +33,9 @@ public class GameManager : MonoBehaviour
     {
         currentState = newState;
         Debug.Log("State changed to: " + newState.ToString());
+
+        //se agrego esto
+        //OnStateChanged?.Invoke(newState);
 
         switch (newState)
         {
