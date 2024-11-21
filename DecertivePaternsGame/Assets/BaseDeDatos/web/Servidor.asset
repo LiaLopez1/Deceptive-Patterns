@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4192fbafa8ae045b1038eb6443b4f3, type: 3}
   m_Name: Servidor
   m_EditorClassIdentifier: 
-  servidor: http://localhost/deceptivePatterns/
+  servidor: https://white-wombat-994036.hostingersite.com/deceptivePatterns/
   servicios:
   - nombre: login
     URL: login.php
@@ -42,10 +42,15 @@ MonoBehaviour:
     URL: obtener_datos_usuario.php
     parametros:
     - nombreroll
-  ocupado: 1
+  - nombre: actualizarClave
+    URL: actualizar_clave.php
+    parametros:
+    - nombreroll
+    - clave
+  ocupado: 0
   respuesta:
     codigo: 200
-    mensaje: Llaves obtenidas correctamente
-    llaves: 4
+    mensaje: Clave actualizada correctamente
+    llaves: 0
     nombrecompleto: 
     correo: 
