@@ -912,7 +912,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 19, y: 320.99997}
-  m_SizeDelta: {x: 1246.27, y: 50}
+  m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &437370058
 MonoBehaviour:
@@ -934,7 +934,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bienvenido a Deceptive house
+  m_text: La camara de los secretos
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f5c8b1d098e21b843a4de8c485bd6e2c, type: 2}
   m_sharedMaterial: {fileID: 7499325286855102519, guid: f5c8b1d098e21b843a4de8c485bd6e2c, type: 2}
@@ -961,8 +961,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 140
+  m_fontSizeBase: 140
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
