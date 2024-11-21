@@ -3,10 +3,11 @@ using UnityEngine.Video;
 
 public class FinalSequence : MonoBehaviour
 {
-    public GameObject videoCanvas; // Canvas que contiene el VideoPlayer
-    public VideoPlayer videoPlayer; // Componente VideoPlayer
-    public GameObject finalCanvas;  // Canvas final que aparecerá luego del video
-    public MonoBehaviour pauseMenuScript; // Script que controla el menú de pausa, en un objeto vacío
+    public GameObject videoCanvas;      // Canvas que contiene el VideoPlayer
+    public VideoPlayer videoPlayer;    // Componente VideoPlayer
+    public GameObject finalCanvas;     // Canvas final que aparecerá luego del video
+    public MonoBehaviour pauseMenuScript; // Script que controla el menú de pausa
+    public UserInfoDisplay userInfoDisplay; // Referencia al script UserInfoDisplay
 
     void Start()
     {
@@ -39,6 +40,12 @@ public class FinalSequence : MonoBehaviour
         // Desbloquear el cursor cuando el video termine
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        // Mostrar información del usuario al finalizar el video
+        if (userInfoDisplay != null)
+        {
+            userInfoDisplay.MostrarDatosUsuario();
+        }
 
         // Mantener el script del menú de pausa desactivado durante el canvas final
     }

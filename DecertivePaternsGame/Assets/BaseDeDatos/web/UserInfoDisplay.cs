@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class UserInfoDisplay : MonoBehaviour
 {
     public Servidor servidor;
-    public GameObject userInfoCanvas;
-    public TMP_Text userNameTMP;
-    public TMP_Text userEmailTMP;
-    public Button closeButton;
+    public GameObject userInfoCanvas; // Canvas que contiene la información del usuario
+    public TMP_Text userNameTMP;     // Texto para mostrar el nombre del usuario
+    public TMP_Text userEmailTMP;    // Texto para mostrar el correo del usuario
+    public Button closeButton;       // Botón para cerrar el canvas
 
     private void Start()
     {
@@ -27,7 +27,6 @@ public class UserInfoDisplay : MonoBehaviour
 
     private IEnumerator SolicitarDatosUsuario()
     {
-        // Enviar solicitud al servidor para obtener la información del usuario
         string[] datos = new string[1];
         datos[0] = login.nombreRollActual; // Usamos el nombre de usuario almacenado al iniciar sesión
 
