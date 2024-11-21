@@ -1,5 +1,6 @@
-// este codigo es para saber si el jugador activo todas las casillas, entonces si activa el ultimo trigguer que es el que va a tener este
-//script entonces significa que cayo en el patron de la primera habitacion
+// este codigo es para saber si el jugador activo todas las casillas, entonces
+// si activa el ultimo trigguer que es el que va a tener este
+// script entonces significa que cayo en el patron de la primera habitacion
 
 using System.Collections;
 using System.Collections.Generic;
