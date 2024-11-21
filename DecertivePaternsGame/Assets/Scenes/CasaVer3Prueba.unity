@@ -11419,12 +11419,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450466801}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.8050511, z: -0, w: 0.5932056}
-  m_LocalPosition: {x: -34.679, y: 30.14, z: -12.893}
-  m_LocalScale: {x: 0.33697897, y: 0.2832232, z: 3.0684402}
+  m_LocalRotation: {x: -0, y: -0.15937382, z: -0, w: 0.9872184}
+  m_LocalPosition: {x: 0.6363876, y: 0, z: -5.9381742}
+  m_LocalScale: {x: 0.60280967, y: 1, z: 1.098756}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1012805804}
+  m_Father: {fileID: 1189578960}
   m_LocalEulerAnglesHint: {x: 0, y: -107.23, z: 0}
 --- !u!114 &450466803
 MonoBehaviour:
@@ -17636,8 +17636,8 @@ Transform:
   m_GameObject: {fileID: 641014090}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7078796, z: -0, w: 0.70633316}
-  m_LocalPosition: {x: 3.4, y: 31, z: -46.294098}
-  m_LocalScale: {x: 0.37512913, y: 0.2832232, z: 3.0684402}
+  m_LocalPosition: {x: -16.7, y: 31, z: -46.3}
+  m_LocalScale: {x: 0.37512913, y: 0.2832232, z: 7.517065}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 588664026}
@@ -17659,11 +17659,10 @@ MonoBehaviour:
   delayBetweenDialogues: 1
   durationOfDialogue: 4
   dialogos:
-  - texto: "No s\xE9 por d\xF3nde podr\xEDamos empezar, leamos las descripciones
-      de cada vitrina. "
+  - texto: "No se como abrir el escritorio, revisemos que llave nos servir\xEDa"
     mostrarMision: 1
     textoMision: Encuentra la llave correcta
-    audioClip: {fileID: 8300000, guid: 0695fb6d1d1dc814087a44aa531692e6, type: 3}
+    audioClip: {fileID: 8300000, guid: 43b77b52397af514faa27f65dd69bbdc, type: 3}
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 398214744}
   missionText: {fileID: 1364112330}
@@ -19826,12 +19825,12 @@ MonoBehaviour:
   gameManager: {fileID: 590081471}
   delayBeforeDialogue: 0
   delayBetweenDialogues: 1
-  durationOfDialogue: 0
+  durationOfDialogue: 3
   dialogos:
-  - texto: 
+  - texto: Revisemos si alguna se puerta se abrio
     mostrarMision: 1
     textoMision: "Encuentra la siguiente habitaci\xF3n"
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: d7afd8d7dc7c62845b0771f4d8774ed4, type: 3}
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 398214744}
   missionText: {fileID: 1364112330}
@@ -26148,7 +26147,6 @@ Transform:
   - {fileID: 1791619464}
   - {fileID: 759153534}
   - {fileID: 1189578960}
-  - {fileID: 450466802}
   - {fileID: 1290788406}
   - {fileID: 450742525}
   m_Father: {fileID: 0}
@@ -29742,7 +29740,8 @@ Transform:
   m_LocalPosition: {x: -52.9, y: 30.14, z: -12.72}
   m_LocalScale: {x: 0.2832232, y: 0.2832232, z: 3.0684402}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 450466802}
   m_Father: {fileID: 1012805804}
   m_LocalEulerAnglesHint: {x: 0, y: -88.889, z: 0}
 --- !u!114 &1189578961
@@ -35102,10 +35101,9 @@ MonoBehaviour:
   objectToShow: {fileID: 548234213}
   dialogPanel: {fileID: 1527235818}
   dialogText: {fileID: 398214744}
-  dialogMessage: "\xA1Esoooo!, obtuvimos la primera llave, ahora solo faltan 4, se
-    abri\xF3 una puerta, vamos a buscar las dem\xE1s llaves "
+  dialogMessage: "\xA1Esoooo!, obtuvimos la primera llave, ahora solo faltan 3"
   dialogDelay: 1
-  dialogDuration: 8
+  dialogDuration: 3
   cameraTransform: {fileID: 474191596}
   raycastDistance: 5
   musicaGeneral: {fileID: 1546128936}
@@ -40201,6 +40199,7 @@ GameObject:
   - component: {fileID: 1655997709}
   - component: {fileID: 1655997708}
   - component: {fileID: 1655997707}
+  - component: {fileID: 1655997711}
   m_Layer: 0
   m_Name: Cajafuerte2 (1)
   m_TagString: Untagged
@@ -40320,6 +40319,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655997705}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1655997711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655997705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06677495cf7fb2145895ef32420b4612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  safeToMonitor: {fileID: 1655997707}
+  correctCode: 290
+  incorrectCode: 330
 --- !u!1 &1657832164
 GameObject:
   m_ObjectHideFlags: 0
@@ -44311,10 +44325,10 @@ MonoBehaviour:
   delayBetweenDialogues: 0
   durationOfDialogue: 0
   dialogos:
-  - texto: 
+  - texto: "Deberiamos revisar si otra puerta se abri\xF3"
     mostrarMision: 1
     textoMision: "Encuentra la siguiente Habitaci\xF3n"
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 50ed3f5659400514ba28b9d28845150a, type: 3}
   dialoguePanel: {fileID: 1527235818}
   dialogueText: {fileID: 398214744}
   missionText: {fileID: 1364112330}
@@ -45847,7 +45861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37327ceb91bd9c0489edcfe9ff027085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  isLocked: 0
   interactMessagePanel: {fileID: 163279274}
   lockedMessagePanel: {fileID: 1141134949}
   unlockAfterDelay: 0
@@ -48741,12 +48755,12 @@ MonoBehaviour:
   gameManager: {fileID: 590081471}
   delayBeforeDialogue: 0
   delayBetweenDialogues: 1
-  durationOfDialogue: 4
+  durationOfDialogue: 2
   dialogos:
   - texto: 'busquemos la otra llave, ya estoy cansado '
     mostrarMision: 1
     textoMision: "Busca a la siguiente habitaci\xF3n"
-    audioClip: {fileID: 8300000, guid: f58a8bcfb159bda4894d7014d00efbb5, type: 3}
+    audioClip: {fileID: 8300000, guid: a2a770f1ac186d8488cbdbb40d16befd, type: 3}
   dialoguePanel: {fileID: 490136486}
   dialogueText: {fileID: 678520921}
   missionText: {fileID: 1364112330}
@@ -50269,8 +50283,7 @@ MonoBehaviour:
   objectToShow: {fileID: 1654478918}
   dialogPanel: {fileID: 1527235818}
   dialogText: {fileID: 398214744}
-  dialogMessage: "Perfecto, ahora que tenemos dos llaves, deber\xEDamos revisar si
-    otra puerta se abri\xF3. "
+  dialogMessage: Perfecto, ya tenemos dos llaves
   dialogDelay: 1
   dialogDuration: 3
   cameraTransform: {fileID: 474191596}

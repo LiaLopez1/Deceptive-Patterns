@@ -4,6 +4,8 @@ using TMPro;
 
 public class KeypadManager : MonoBehaviour
 {
+    public static event System.Action<string> OnCodeChecked;
+
     public static KeypadManager instance;  // Singleton para acceder desde cualquier objeto
     public GameObject keypadPanel;  // Panel del teclado
     public GameObject otherPanel;
@@ -90,6 +92,8 @@ public class KeypadManager : MonoBehaviour
 
     public void CheckCode()
     {
+        OnCodeChecked?.Invoke(enteredCode);
+
         if (enteredCode == currentCorrectCode)
         {
             Debug.Log("Código correcto: Acción ejecutada");
@@ -104,7 +108,7 @@ public class KeypadManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Código incorrecto");
+            //Debug.Log("Código incorrecto");
             // Mostrar mensaje de error en la pantalla de código
             codeDisplay.text = "Error";
         }
