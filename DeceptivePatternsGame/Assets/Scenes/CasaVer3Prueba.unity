@@ -14625,6 +14625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerToWatch: 11
+  servidor: {fileID: 11400000, guid: 0a8ecb7fbd695b54ab7b9fa9b9ed5357, type: 2}
 --- !u!1 &526913295
 GameObject:
   m_ObjectHideFlags: 0
@@ -19427,7 +19428,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: VIda sapo ijuepuuuuuuuuuuuuuuuuuuuuuuuu
+  m_text: "Di\xE1logo malo"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 535312db50fe3a943b2b029611dfdef6, type: 2}
   m_sharedMaterial: {fileID: -5735116459583578130, guid: 535312db50fe3a943b2b029611dfdef6, type: 2}
@@ -42049,7 +42050,6 @@ MonoBehaviour:
   correctCode: 290
   incorrectCode: 330
   servidor: {fileID: 11400000, guid: 0a8ecb7fbd695b54ab7b9fa9b9ed5357, type: 2}
-  nombreroll: 
 --- !u!1 &1657832164
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,7 +47,12 @@ MonoBehaviour:
     parametros:
     - nombreroll
     - clave
-  ocupado: 0
+  - nombre: actualizarPatron
+    URL: actualizar_patron.php
+    parametros:
+    - nombreroll
+    - patron
+  ocupado: 1
   respuesta:
     codigo: 200
     mensaje: Clave actualizada correctamente
