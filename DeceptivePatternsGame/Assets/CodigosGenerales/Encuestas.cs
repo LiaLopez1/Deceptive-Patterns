@@ -1,84 +1,73 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class EncuestaManager : MonoBehaviour
+public class Encuestas : MonoBehaviour
 {
-    [System.Serializable]
-    public class Pregunta
-    {
-        public Toggle toggleSi; // Toggle para la opción "Sí"
-        public Toggle toggleNo; // Toggle para la opción "No"
-        [HideInInspector]
-        public string respuestaSeleccionada; // Para almacenar la respuesta seleccionada ("Sí" o "No")
-    }
-
-    public Pregunta[] preguntas; // Lista de preguntas con sus toggles
-    public Button botonSiguiente; // El botón que se activará
+    public Servidor servidor;
+    public Toggle[] togglesSi; // Lista de toggles "Sí"
+    public Toggle[] togglesNo; // Lista de toggles "No"
+    public Button botonEnviar; // Botón para enviar las respuestas
 
     void Start()
     {
-        // Inicializamos el botón como desactivado
-        botonSiguiente.interactable = false;
-
-        // Inicializamos los toggles y agregamos listeners
-        foreach (var pregunta in preguntas)
+        // Agregar funcionalidad al botón
+        botonEnviar.onClick.AddListener(EnviarTodasLasRespuestas);
+    }
+    
+    public void EnviarTodasLasRespuestas()
+    {
+        // Validar si hay un usuario logueado
+        if (string.IsNullOrEmpty(login.nombreRollActual))
         {
-            // Ambos toggles comienzan desactivados
-            pregunta.toggleSi.isOn = false;
-            pregunta.toggleNo.isOn = false;
-            pregunta.respuestaSeleccionada = ""; // Sin respuesta seleccionada
-
-            // Agregamos listeners para controlar la exclusividad y verificar respuestas
-            pregunta.toggleSi.onValueChanged.AddListener(delegate { OnToggleValueChanged(pregunta, "Sí", pregunta.toggleNo); });
-            pregunta.toggleNo.onValueChanged.AddListener(delegate { OnToggleValueChanged(pregunta, "No", pregunta.toggleSi); });
+            Debug.LogError("No hay usuario logueado. No se pueden enviar respuestas.");
+            return;
         }
+
+        // Capturar las respuestas de las 12 preguntas (1 para "Sí", 0 para "No")
+        string[] respuestas = new string[12];
+        for (int i = 0; i < togglesSi.Length; i++)
+        {
+            respuestas[i] = togglesSi[i].isOn ? "1" : "0"; // 1 si "Sí", 0 si "No"
+        }
+
+        // Iniciar la solicitud para enviar las respuestas
+        StartCoroutine(EnviarRespuestasAlServidor(respuestas));
     }
 
-    // Este método asegura que al activar un toggle, el otro se desactive y guarda la respuesta
-    void OnToggleValueChanged(Pregunta pregunta, string respuesta, Toggle otherToggle)
+    IEnumerator EnviarRespuestasAlServidor(string[] respuestas)
     {
-        if (otherToggle.isOn) // Si el otro toggle estaba activo, lo desactivamos
+        WWWForm formulario = new WWWForm();
+        formulario.AddField("nombreroll", login.nombreRollActual); // Nombre del usuario
+
+        // Agregar respuestas al formulario
+        for (int i = 0; i < respuestas.Length; i++)
         {
-            otherToggle.isOn = false;
+            formulario.AddField($"p{i + 1}", respuestas[i]);
         }
 
-        // Guardamos la respuesta si este toggle está activado
-        if (pregunta.toggleSi.isOn || pregunta.toggleNo.isOn)
+        // Enviar la solicitud al servidor
+        UnityWebRequest request = UnityWebRequest.Post(servidor.servidor + "/encuestas.php", formulario);
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
         {
-            pregunta.respuestaSeleccionada = respuesta;
+            Debug.Log($"Respuesta del servidor: {request.downloadHandler.text}");
+            var respuesta = JsonUtility.FromJson<Respuesta>(request.downloadHandler.text);
+
+            if (respuesta.codigo == 201)
+            {
+                Debug.Log("Respuestas enviadas correctamente.");
+            }
+            else
+            {
+                Debug.LogError($"Error enviando respuestas: {respuesta.mensaje}");
+            }
         }
         else
         {
-            pregunta.respuestaSeleccionada = ""; // Sin respuesta si ambos toggles están apagados
-        }
-
-        // Verificamos si todas las preguntas están correctamente contestadas
-        VerificarPreguntas();
-    }
-
-    void VerificarPreguntas()
-    {
-        // Iteramos sobre todas las preguntas
-        foreach (var pregunta in preguntas)
-        {
-            // Si ambas opciones están desactivadas, el botón no se activa
-            if (string.IsNullOrEmpty(pregunta.respuestaSeleccionada))
-            {
-                botonSiguiente.interactable = false;
-                return; // Salimos de la función porque hay preguntas sin contestar
-            }
-        }
-
-        // Si llegamos aquí, todas las preguntas tienen exactamente una respuesta válida
-        botonSiguiente.interactable = true;
-    }
-
-    // Método para imprimir las respuestas seleccionadas (puedes usarlo al presionar el botón)
-    public void ImprimirRespuestas()
-    {
-        foreach (var pregunta in preguntas)
-        {
-            Debug.Log($"Pregunta: {pregunta.toggleSi.name} / Respuesta seleccionada: {pregunta.respuestaSeleccionada}");
+            Debug.LogError($"Error en la solicitud: {request.error}");
         }
     }
 }

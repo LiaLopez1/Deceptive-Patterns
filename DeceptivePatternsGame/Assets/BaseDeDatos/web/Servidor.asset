@@ -52,10 +52,26 @@ MonoBehaviour:
     parametros:
     - nombreroll
     - patron
-  ocupado: 1
+  - nombre: encuestas
+    URL: encuestas.php
+    parametros:
+    - nombreroll
+    - p1
+    - p2
+    - p3
+    - p4
+    - p5
+    - p6
+    - p7
+    - p8
+    - p9
+    - p10
+    - p11
+    - p12
+  ocupado: 0
   respuesta:
-    codigo: 200
-    mensaje: Clave actualizada correctamente
+    codigo: 404
+    mensaje: 
     llaves: 0
     nombrecompleto: 
     correo: 

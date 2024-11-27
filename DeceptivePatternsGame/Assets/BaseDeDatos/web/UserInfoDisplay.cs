@@ -9,14 +9,11 @@ public class UserInfoDisplay : MonoBehaviour
     public GameObject userInfoCanvas; // Canvas que contiene la información del usuario
     public TMP_Text userNameTMP;     // Texto para mostrar el nombre del usuario
     public TMP_Text userEmailTMP;    // Texto para mostrar el correo del usuario
-    public Button closeButton;       // Botón para cerrar el canvas
-
     private void Start()
     {
         userInfoCanvas.SetActive(false); // Asegurarse de que el canvas esté oculto al inicio
 
-        // Asignar la acción para cerrar el canvas al botón
-        closeButton.onClick.AddListener(() => userInfoCanvas.SetActive(false));
+
     }
 
     // Método para solicitar y mostrar los datos del usuario

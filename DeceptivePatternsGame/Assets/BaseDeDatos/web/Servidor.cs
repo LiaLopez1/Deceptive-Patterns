@@ -73,7 +73,7 @@ public class Servidor : ScriptableObject
         }
 
         ocupado = false;
-        callback?.Invoke(); // Invocar el callback si no es null
+        callback?.Invoke(); 
     }
 }
 
