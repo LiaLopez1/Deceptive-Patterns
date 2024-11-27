@@ -7,6 +7,7 @@ public class PCInteraction : MonoBehaviour
     public Camera computerCamera;
     public GameObject interactionText;
     public GameObject panelToDisable;
+    public GameObject panelToDisable2;
     public GameObject computerCanvas;
     public MonoBehaviour playerMovementScript;
     public GameObject pointerImage; // Imagen del puntero en el canvas
@@ -20,6 +21,7 @@ public class PCInteraction : MonoBehaviour
         computerCamera.enabled = false;
         interactionText.SetActive(false);
         panelToDisable.SetActive(true);
+        panelToDisable2.SetActive(true);
         computerCanvas.SetActive(false);
 
         // Asegurar que el puntero esté activo al inicio
@@ -43,7 +45,8 @@ public class PCInteraction : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
 
-                panelToDisable.SetActive(false);
+                panelToDisable.SetActive(false); 
+                panelToDisable2.SetActive(false);
                 computerCanvas.SetActive(true);
                 computerCanvas.GetComponent<Canvas>().worldCamera = computerCamera;
 
@@ -69,6 +72,7 @@ public class PCInteraction : MonoBehaviour
                 Cursor.visible = false;
 
                 panelToDisable.SetActive(true);
+                panelToDisable2.SetActive(true);
                 computerCanvas.SetActive(false);
 
                 if (isPlayerInTrigger)
