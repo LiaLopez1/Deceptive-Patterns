@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1777845, g: 0.22258957, b: 0.30474555, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -632,8 +632,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pantalla completa
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4212,8 +4212,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4309,6 +4309,7 @@ MonoBehaviour:
   lockedMessagePanel: {fileID: 592654676}
   unlockAfterDelay: 0
   unlockDelay: 5
+  interactionDistance: 5
   openSound: {fileID: 0}
   closeSound: {fileID: 0}
 --- !u!65 &166350564
@@ -4411,9 +4412,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 8
   nextState: 2
   changeState: 0
@@ -4754,6 +4757,117 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8f1df27f3e8eea94f8b0cda4d262582f, type: 3}
   m_PrefabInstance: {fileID: 2126006632}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &185449655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185449659}
+  - component: {fileID: 185449658}
+  - component: {fileID: 185449657}
+  - component: {fileID: 185449656}
+  m_Layer: 0
+  m_Name: WallsHouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 1
+  m_IsActive: 1
+--- !u!64 &185449656
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185449655}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2373991517999576923, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+--- !u!23 &185449657
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185449655}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 5523053481396897384, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+  - {fileID: 6333779402777281928, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+  - {fileID: -4570835203589042136, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+  - {fileID: -2420180177379187506, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+  - {fileID: -6313076611758289295, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+  - {fileID: -6697264580770102812, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &185449658
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185449655}
+  m_Mesh: {fileID: 2373991517999576923, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+--- !u!4 &185449659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185449655}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071067, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -332.1, y: 11.004717, z: -1.2839782}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &190614413
 GameObject:
   m_ObjectHideFlags: 0
@@ -5182,9 +5296,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 0
   nextState: 4
   changeState: 1
@@ -6235,12 +6351,15 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 2
   nextState: 2
   changeState: 1
@@ -6495,6 +6614,7 @@ MonoBehaviour:
   lockedMessagePanel: {fileID: 592654676}
   unlockAfterDelay: 0
   unlockDelay: 5
+  interactionDistance: 5
   openSound: {fileID: 0}
   closeSound: {fileID: 0}
 --- !u!65 &352191091
@@ -8083,9 +8203,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 5
   nextState: 2
   changeState: 0
@@ -8265,8 +8387,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Calidad
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9153,8 +9275,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Option A
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9718,9 +9840,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 0
   nextState: 0
   changeState: 0
@@ -9958,9 +10082,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 11
   nextState: 2
   changeState: 0
@@ -10252,8 +10378,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10524,9 +10650,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 13
   nextState: 2
   changeState: 0
@@ -10790,6 +10918,7 @@ MonoBehaviour:
   computerCamera: {fileID: 838994366}
   interactionText: {fileID: 1722055247}
   panelToDisable: {fileID: 1694678631}
+  panelToDisable2: {fileID: 0}
   computerCanvas: {fileID: 1210961038}
   playerMovementScript: {fileID: 2070728856}
   pointerImage: {fileID: 0}
@@ -14110,8 +14239,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Brillo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14764,9 +14893,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 0
   nextState: 6
   changeState: 1
@@ -15941,6 +16072,135 @@ RectTransform:
   m_AnchoredPosition: {x: 454, y: 258.00006}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &876713913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 876713918}
+  - component: {fileID: 876713917}
+  - component: {fileID: 876713916}
+  - component: {fileID: 876713915}
+  - component: {fileID: 876713914}
+  m_Layer: 0
+  m_Name: FloorHouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 1
+  m_IsActive: 1
+--- !u!65 &876713914
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876713913}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.6561317, y: 1.6501544, z: 0.005999999}
+  m_Center: {x: -0.22732788, y: -0.025002267, z: -0.0029999996}
+--- !u!64 &876713915
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876713913}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4690479759352689776, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+--- !u!23 &876713916
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876713913}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -3335346271246440689, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+  - {fileID: -6615434337646332195, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &876713917
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876713913}
+  m_Mesh: {fileID: -4690479759352689776, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+--- !u!4 &876713918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876713913}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071067, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.31254292}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &877873953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6919683763462532184, guid: 8b09493d82a88fb46bad0a9dda571934, type: 3}
@@ -16815,8 +17075,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sonido
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17364,6 +17624,10 @@ MonoBehaviour:
   dialogDisplayDuration: 2
   successDialogDuration: 3
   openAnimationDuration: 2
+  musicaGeneral: {fileID: 0}
+  firstAttemptSound: {fileID: 0}
+  successSound: {fileID: 0}
+  multiAttemptSound: {fileID: 0}
 --- !u!65 &966469811
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17625,9 +17889,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 12
   nextState: 2
   changeState: 0
@@ -17737,8 +18003,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Controles
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19525,6 +19791,8 @@ MonoBehaviour:
   - {fileID: 16652501}
   - {fileID: 1043435376}
   tiempoEntreSabotajes: 5
+  musicaGeneral: {fileID: 0}
+  warningSound: {fileID: 0}
 --- !u!65 &1112827935
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21927,9 +22195,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 7
   nextState: 2
   changeState: 0
@@ -23165,7 +23435,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keypadPanel: {fileID: 1972285998}
   otherPanel: {fileID: 1694678631}
-  codeDisplay: {fileID: 1219628080}
+  otherPanel1: {fileID: 0}
+  codeDisplay: {fileID: 0}
   playerController: {fileID: 2070728856}
 --- !u!1 &1325912780 stripped
 GameObject:
@@ -23310,9 +23581,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 10
   nextState: 2
   changeState: 0
@@ -23701,9 +23974,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 4
   nextState: 2
   changeState: 0
@@ -24710,12 +24985,14 @@ MonoBehaviour:
   animationClip: {fileID: 7400000, guid: b86ed2c1012e0f74eae4ea8fd19746ea, type: 2}
   objectToShow: {fileID: 548234213}
   dialogPanel: {fileID: 1527235818}
-  dialogText: {fileID: 1514992031}
+  dialogText: {fileID: 0}
   dialogMessage: Esoo! obtuvimos la primera llave, solo faltan 4
   dialogDelay: 1
   dialogDuration: 3
   cameraTransform: {fileID: 474191596}
   raycastDistance: 5
+  musicaGeneral: {fileID: 0}
+  dialogVoiceClip: {fileID: 0}
 --- !u!1 &1409236003 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1606057615522382512, guid: 8b09493d82a88fb46bad0a9dda571934, type: 3}
@@ -25347,6 +25624,112 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440055493}
   m_CullTransparentMesh: 1
+--- !u!1 &1441253102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1441253106}
+  - component: {fileID: 1441253105}
+  - component: {fileID: 1441253104}
+  - component: {fileID: 1441253103}
+  m_Layer: 0
+  m_Name: CeilingHouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 1
+  m_IsActive: 1
+--- !u!64 &1441253103
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441253102}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2631217411839932605, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+--- !u!23 &1441253104
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441253102}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 623745476747331691, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1441253105
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441253102}
+  m_Mesh: {fileID: -2631217411839932605, guid: 90df6594942d41a4a9ef4e3411c68c1c, type: 3}
+--- !u!4 &1441253106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441253102}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1.7391385e-23, y: 0.7071067, z: 0.7071068, w: -2.0042545e-23}
+  m_LocalPosition: {x: -352.8, y: 78.4, z: -0.3}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1441397963
 GameObject:
   m_ObjectHideFlags: 0
@@ -25878,6 +26261,7 @@ MonoBehaviour:
   lockedMessagePanel: {fileID: 0}
   unlockAfterDelay: 0
   unlockDelay: 5
+  interactionDistance: 5
   openSound: {fileID: 0}
   closeSound: {fileID: 0}
 --- !u!1 &1463023972
@@ -26293,12 +26677,14 @@ MonoBehaviour:
   animationClip: {fileID: 7400000, guid: 6a6903ab7f0466a4885a64f29016e0ee, type: 2}
   objectToShow: {fileID: 0}
   dialogPanel: {fileID: 1527235818}
-  dialogText: {fileID: 1514992031}
+  dialogText: {fileID: 0}
   dialogMessage: No hay nada (ndeah), intenta digitarlo en otro teclado
   dialogDelay: 1
   dialogDuration: 3
   cameraTransform: {fileID: 474191596}
   raycastDistance: 5
+  musicaGeneral: {fileID: 0}
+  dialogVoiceClip: {fileID: 0}
 --- !u!65 &1491521547
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30674,8 +31060,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pantalla
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -30766,6 +31152,7 @@ MonoBehaviour:
   lockedMessagePanel: {fileID: 592654676}
   unlockAfterDelay: 1
   unlockDelay: 5
+  interactionDistance: 5
   openSound: {fileID: 0}
   closeSound: {fileID: 0}
 --- !u!1 &1808332680
@@ -30979,9 +31366,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 9
   nextState: 2
   changeState: 0
@@ -32275,6 +32664,7 @@ MonoBehaviour:
   lockedMessagePanel: {fileID: 592654676}
   unlockAfterDelay: 0
   unlockDelay: 5
+  interactionDistance: 5
   openSound: {fileID: 0}
   closeSound: {fileID: 0}
 --- !u!65 &1880002164
@@ -32315,6 +32705,7 @@ MonoBehaviour:
   lockedMessagePanel: {fileID: 592654676}
   unlockAfterDelay: 0
   unlockDelay: 5
+  interactionDistance: 5
   openSound: {fileID: 0}
   closeSound: {fileID: 0}
 --- !u!65 &1880002166
@@ -32609,9 +33000,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 1
   nextState: 0
   changeState: 1
@@ -33417,9 +33810,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 3
   nextState: 2
   changeState: 0
@@ -34616,8 +35011,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Relaci\xF3n de aspecto"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -35386,9 +35781,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 6
   nextState: 2
   changeState: 0
@@ -35825,8 +36222,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Muy bajo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -36128,9 +36525,11 @@ MonoBehaviour:
   - texto: 
     mostrarMision: 0
     textoMision: 
+    audioClip: {fileID: 0}
   dialoguePanel: {fileID: 1527235818}
-  dialogueText: {fileID: 1514992031}
+  dialogueText: {fileID: 0}
   missionText: {fileID: 0}
+  musicaFondo: {fileID: 0}
   triggerSequence: 0
   nextState: 8
   changeState: 1
@@ -38197,6 +38596,9 @@ SceneRoots:
   - {fileID: 556573870}
   - {fileID: 1084262160}
   - {fileID: 602677057}
+  - {fileID: 1441253106}
+  - {fileID: 876713918}
+  - {fileID: 185449659}
   - {fileID: 2126006632}
   - {fileID: 62138961}
   - {fileID: 590081472}
