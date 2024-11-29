@@ -29,7 +29,6 @@ public class codigoIncorrecto : MonoBehaviour
         else if (enteredCode == correctCode)
         {
             Debug.Log("El jugador ha ingresado el código correcto.");
-            StartCoroutine(ActualizarClave(0)); // Mantener la clave en 0
         }
     }
 
