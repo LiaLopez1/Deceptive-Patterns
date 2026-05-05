@@ -1,0 +1,414 @@
+fileFormatVersion: 2
+guid: ac39807d700e04a429df6f3382d9d68c
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AnchorMat
+    second: {fileID: 2100000, guid: cb83101c3f2dc1642b0f70005f96b0fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Big_RopeMat
+    second: {fileID: 2100000, guid: 383fa638e249a8a42911ff19eceb865d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box001Mat
+    second: {fileID: 2100000, guid: 4c07f8f8809d88240b329ab8ebcc545b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box005Mat
+    second: {fileID: 2100000, guid: 11ca7bc48346ff444b93b3d536be543e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box008Mat
+    second: {fileID: 2100000, guid: 7149d4ba340cc344099d9b8d0a8499ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CannonballMat
+    second: {fileID: 2100000, guid: 0be2919b906532f4d81b70e5e96ea693, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChaliceMat
+    second: {fileID: 2100000, guid: 0e2abc1abefda9a43a8aa39d4411e298, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin001Mat
+    second: {fileID: 2100000, guid: 119eabf3fc678f34cbc3c328c85e6252, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin002Mat
+    second: {fileID: 2100000, guid: eaa1114a7b7a67e4698c1e4688aa1881, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin003Mat
+    second: {fileID: 2100000, guid: ff9448e5255272c42a6382f6f5fc3c77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin004Mat
+    second: {fileID: 2100000, guid: b43cdbc89d8972d4da9eb55c1894cd54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin005Mat
+    second: {fileID: 2100000, guid: e8b19252770ff0441b0250988cbfe1b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin006Mat
+    second: {fileID: 2100000, guid: 9cd51d8f3bb7457428a5641c3175fadf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin007Mat
+    second: {fileID: 2100000, guid: 7fac13a550ba6e84cbf27acf567e3f86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin008Mat
+    second: {fileID: 2100000, guid: 43aab96c80aee7045b93f6b47e75a2ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin009Mat
+    second: {fileID: 2100000, guid: 52652d2a35e2790448fa9f30bc0d2b52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin010Mat
+    second: {fileID: 2100000, guid: ba405d012248ceb4fa41f7672811c180, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin011Mat
+    second: {fileID: 2100000, guid: ad72e4ba70cd4d248a8d7bb04afde029, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin012Mat
+    second: {fileID: 2100000, guid: 7c54e4d7c10b4c04a80d0ab89ad92038, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin013Mat
+    second: {fileID: 2100000, guid: 37b5729c55d4bff4d9d4beef87e5d9f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin014Mat
+    second: {fileID: 2100000, guid: 1f0f82f09d6d51049a3daaf4d8ae00e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coin015Mat
+    second: {fileID: 2100000, guid: 69215c1815240a44dba634cb31cf255a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CoinMat
+    second: {fileID: 2100000, guid: 0566b5bd3d64ae2458baad604c49ea6b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CompassMat
+    second: {fileID: 2100000, guid: 5bfb1d6405ae9ca4aa03bbe5f803c2f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coral001Mat
+    second: {fileID: 2100000, guid: 06a15afaf61e87a46aaed4eac8ee7056, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coral002Mat
+    second: {fileID: 2100000, guid: 30249c919f7c9ca4aad0a4b502168ad4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coral003Mat
+    second: {fileID: 2100000, guid: 2f5c241556372a446b3a019e373adae3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CoralMat
+    second: {fileID: 2100000, guid: 065d62983551531428fd1d7e3ec4fa23, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crows_NestMat
+    second: {fileID: 2100000, guid: e5b6a46a4c8f62e468022c562764ed3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crystal003Mat
+    second: {fileID: 2100000, guid: a57f9bc03ed0bbd45b6c631a06e5de2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crystal004Mat
+    second: {fileID: 2100000, guid: 156b5cdd8c10cba4fab0a1592d91f5e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crystal1Mat
+    second: {fileID: 2100000, guid: 616eaa0391511ee4faf5a63bbf32568f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crystal2Mat
+    second: {fileID: 2100000, guid: 3dab453d8a58cfa4db5a96ddbfdab1be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dead_FishMat
+    second: {fileID: 2100000, guid: 275c42b463042cd4db7809f5db856135, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Destroyed_PlankMat
+    second: {fileID: 2100000, guid: 1f57a6e33fba50d408b1c643287a794e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold_Bar001Mat
+    second: {fileID: 2100000, guid: 0abe1c64c815acb42a0a3a91f4cb6167, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold_Bar002Mat
+    second: {fileID: 2100000, guid: 3f865e5e71426ed48a8cf0567fb7fc66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold_Bar003Mat
+    second: {fileID: 2100000, guid: 4152b77423853a1488f50238864807ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold_BarMat
+    second: {fileID: 2100000, guid: 061adc8daff282149a5b344b85ed32ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold_MoneyMat
+    second: {fileID: 2100000, guid: a3404a6881c23754c86f5f36404a11f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lion_FishMat
+    second: {fileID: 2100000, guid: c3d04166ec4443a42b81d2014ba0f84d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PadlockMat
+    second: {fileID: 2100000, guid: cdd290c82b21e3f4692cd9515430ac64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pirate_FlagMat
+    second: {fileID: 2100000, guid: 86cad1f633bee054d89c5f621cb1efd7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plane001Mat
+    second: {fileID: 2100000, guid: 16364250cb49c6343a9400af2417b4fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plane002Mat
+    second: {fileID: 2100000, guid: d112b441823fecb448385d0ccdddb0bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock2_StylizedMat
+    second: {fileID: 2100000, guid: 347b1bfefd6b5ae469b686551976442f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RockPile2Mat
+    second: {fileID: 2100000, guid: ebe8162a31c86cf4bb423d378b58c346, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock_Low2Mat
+    second: {fileID: 2100000, guid: 1da6516235f8e3343a59751a6f659233, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SW003Mat
+    second: {fileID: 2100000, guid: 0f23222ba3a091c46a2a389ec8d3c0cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SW004Mat
+    second: {fileID: 2100000, guid: 625f2d241203fa046985bb398a3e4ee4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SW005Mat
+    second: {fileID: 2100000, guid: ea8fd4e40103eef4d92898ec8e1fae60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SW006Mat
+    second: {fileID: 2100000, guid: 12a9a98329e3d9f4aab2d188e908e11b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SW007Mat
+    second: {fileID: 2100000, guid: 6756daba2ee531542a688353b9c9f69f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SW008Mat
+    second: {fileID: 2100000, guid: 4611d1e71fac60d40b5c53e6021b4379, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SW009Mat
+    second: {fileID: 2100000, guid: 3bc8bd2ace33375438e18c7a2864a482, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SW1Mat
+    second: {fileID: 2100000, guid: 4eaafad86154ac145b58e37410a692a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SW2Mat
+    second: {fileID: 2100000, guid: 64cbe2a284c18484faf8e3f861a4b606, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ShipwreckMat
+    second: {fileID: 2100000, guid: 1c0c099ebbe4f694499133caea270d12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_RopeMat
+    second: {fileID: 2100000, guid: ff1b277f3dcd27e46b74c187630716ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Terrain1Mat
+    second: {fileID: 2100000, guid: 93f9513406a0f344591c89de81bb4ed3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Treasure_ChestMat
+    second: {fileID: 2100000, guid: 422acad6e8ff04e488cd7392edb65083, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

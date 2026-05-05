@@ -1,0 +1,829 @@
+fileFormatVersion: 2
+guid: e6b89174e8e9c0745ae15a8c57ce8a35
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_BackWall_GroupMat
+    second: {fileID: 2100000, guid: 3f7673cf6604b554aa9cf256c34dc252, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_BuildingBlocks_Group_BentSuport_LP1Mat
+    second: {fileID: 2100000, guid: a217af4a7395c784d88b9dd25c371ce5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_BuildingBlocks_Group_BentSuport_LP2Mat
+    second: {fileID: 2100000, guid: 5ab4d64fd25b35843b65d45d369f2e8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_BuildingBlocks_Group_BentSuport_LP3Mat
+    second: {fileID: 2100000, guid: 861684dd0f0fc9c48ac5933b1d731a95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_BuildingBlocks_Group_BentSuport_LP4Mat
+    second: {fileID: 2100000, guid: 43c601b5b495a354cb91f5b8e8a6e733, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_BuildingBlocks_Group_BigBeam_LP1Mat
+    second: {fileID: 2100000, guid: 59c1e57a613abfc41a1feee209fc5b55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_BuildingBlocks_Group_Pillar_LP2Mat
+    second: {fileID: 2100000, guid: 027ef5dcbf83ba44b9d2406155d9f9d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_BuildingBlocks_Group_Wall_LP1Mat
+    second: {fileID: 2100000, guid: e82000db89b1fe442ba3fbb98c66809d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_BuildingBlocks_Group_Wall_LP2Mat
+    second: {fileID: 2100000, guid: f4195b180c47b224f96af6b6012ce866, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Candel_LP3_Props_GroupMat
+    second: {fileID: 2100000, guid: 05519ce9d5b387348bd561d1955a2602, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Pillar_LP1_BuildingBlocks_GroupMat
+    second: {fileID: 2100000, guid: e8ed81183ddecee4cae33ee1e3cd5527, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Candel_LP1Mat
+    second: {fileID: 2100000, guid: a6a3c4aad9fd8f3469fcf5595ac36a0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Candel_LP2Mat
+    second: {fileID: 2100000, guid: 4d4edaed9cbf60443ad43852fceb8484, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Jug_LP1Mat
+    second: {fileID: 2100000, guid: 1e174bccbbc57414da6f79e74db3af16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Jug_LP2Mat
+    second: {fileID: 2100000, guid: 74dce4fa205ddeb4cb0832e7686c7a2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Jug_LP3Mat
+    second: {fileID: 2100000, guid: f2b1bc85c5910844fb5e1caecf920c0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Jug_LP4Mat
+    second: {fileID: 2100000, guid: 6885bee88b0932242b7b2bcd22b50677, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Jug_LP5Mat
+    second: {fileID: 2100000, guid: 56cce72ecf6473143b084b9b922d11c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Jug_LP6Mat
+    second: {fileID: 2100000, guid: de3f40e85e5f8bf48acaa64de9e9cc3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Jug_LP7Mat
+    second: {fileID: 2100000, guid: e57cbb265a14c1841a669b0e05751a99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Knife_LP1Mat
+    second: {fileID: 2100000, guid: 6b5f10f10e9dea34e8ec154225217059, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Knife_LP2Mat
+    second: {fileID: 2100000, guid: 3fb470e8d29c95c4194e5975b90ce4fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Knife_LP3Mat
+    second: {fileID: 2100000, guid: b7041f9eefc27c54780d842d3f0cbbc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Knife_LP4Mat
+    second: {fileID: 2100000, guid: d1be4ac8900984e498154d77985fb245, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Knife_LP5Mat
+    second: {fileID: 2100000, guid: f7dae789781621a468374c6e52eb5fee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Lant_LP1Mat
+    second: {fileID: 2100000, guid: 5e903ec0c4fe7a44fac089185905f933, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Lant_LP2Mat
+    second: {fileID: 2100000, guid: 3eb4a6b92c73f714ab46058272fb56f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Lant_LP3Mat
+    second: {fileID: 2100000, guid: 796ff809c64e845428aed12d97faed15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Map_LP1Mat
+    second: {fileID: 2100000, guid: 73724a3368b0d9543b4101d2bad1ea98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Net_LP1Mat
+    second: {fileID: 2100000, guid: 1d381a67ed7aa1444996a9ad113516ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_RoundBotel_LP1Mat
+    second: {fileID: 2100000, guid: 1cc40f95ed201b14785793c6cc52b7a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_RoundBotel_LP2Mat
+    second: {fileID: 2100000, guid: 5ac498ae9f7d5bd47b710ba7e7eb36ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_RoundBotel_LP3Mat
+    second: {fileID: 2100000, guid: dced76d9a82038d46937eaa22b6a2892, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_RoundBotel_LP4Mat
+    second: {fileID: 2100000, guid: 9e979c1322411f547b43a2a9a220b7d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_SquareBottel_LP1Mat
+    second: {fileID: 2100000, guid: be3fadcb7ba4ae646a3879bf0207e3be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_SquareBottel_LP2Mat
+    second: {fileID: 2100000, guid: 0972161bb85a3d04593eb002f393e129, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_SquareBottel_LP3Mat
+    second: {fileID: 2100000, guid: 233ee6aeeb216154db1514cd910919eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_SquareBottel_LP4Mat
+    second: {fileID: 2100000, guid: 7e87116e38fd59b4b9bc2949ad559b92, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Stain_LP1Mat
+    second: {fileID: 2100000, guid: 2c063ef0799ea6c41924222861f410e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Stain_LP2Mat
+    second: {fileID: 2100000, guid: c1600379e5470934bb632949e5a787b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Stain_LP3Mat
+    second: {fileID: 2100000, guid: 419ea62f97b6b2841a261eb022a69de2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Stain_LP4Mat
+    second: {fileID: 2100000, guid: 60aaf2c9f88d30c4e9db248ea323c3ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Stain_LP5Mat
+    second: {fileID: 2100000, guid: 0d849708b2876c844be3d9ab6e6d013f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Sword_LP1Mat
+    second: {fileID: 2100000, guid: 72ea0b97747f2d641aabee563621be99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Sword_LP2Mat
+    second: {fileID: 2100000, guid: 8293bf2be2f70f748b8e7701b7b21ae3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Sword_LP3Mat
+    second: {fileID: 2100000, guid: 89780968c70f94b4ca898964020acbe9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Sword_LP4Mat
+    second: {fileID: 2100000, guid: 2eb508a3b63f73e42805914d7db3e72a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Sword_LP5Mat
+    second: {fileID: 2100000, guid: 9f3817eef36de50428cc21ba9d97ddae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP10Mat
+    second: {fileID: 2100000, guid: 3b7783086546bc44396e6d21af36dcad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP11Mat
+    second: {fileID: 2100000, guid: b25d7021af446ea4182d18e28c788b19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP12Mat
+    second: {fileID: 2100000, guid: 9cb12b81bfd99904080476cd3aaae86d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP13Mat
+    second: {fileID: 2100000, guid: 675a84679b5f533429a89b4fe32dc913, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP14Mat
+    second: {fileID: 2100000, guid: d2ef771d9f1ea4d4ab576e7746376a6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP15Mat
+    second: {fileID: 2100000, guid: ea40a5dc76589604d98c4621d4a6eaab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP16Mat
+    second: {fileID: 2100000, guid: 1a63a3c9cfb8f6d4784338ce64c8740a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP1Mat
+    second: {fileID: 2100000, guid: 1ae0ceaf8b937f04cb9f1005312e7ef5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP2Mat
+    second: {fileID: 2100000, guid: 01a6f4f2655b983408f6dc25d732c2ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP3Mat
+    second: {fileID: 2100000, guid: 72553f544c159844f9f36597deda021a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP4Mat
+    second: {fileID: 2100000, guid: 1407a92e6f433774483f2b23347d06a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP5Mat
+    second: {fileID: 2100000, guid: c46c6ac10efa1624f812c551d29888f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP6Mat
+    second: {fileID: 2100000, guid: 6913b5b5b284f2048833a764eab8dfe8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP7Mat
+    second: {fileID: 2100000, guid: d2f7f323ed59c3248a0e6562339e1da0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP8Mat
+    second: {fileID: 2100000, guid: 02e295560bf233a4789ae35edacd1d53, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Tankard_LP9Mat
+    second: {fileID: 2100000, guid: adb112a26261a804da3c07fb803801d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Target_LP1Mat
+    second: {fileID: 2100000, guid: 362c08ac343521943a9f8b404dea3081, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Wheel_LP1Mat
+    second: {fileID: 2100000, guid: d0f3aac93aa7f4047bac53da913963fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Window_LP1Mat
+    second: {fileID: 2100000, guid: f32cbf87f46e3894dbb91ff20d2e9380, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FinalScene_Props_Group_Window_LP2Mat
+    second: {fileID: 2100000, guid: d64b12bce7bb2f6408cfeb0eb618fe11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plank_62_WoodenFurniture__Group_FinalSceneMat
+    second: {fileID: 2100000, guid: 9a859a0d750a597458c5041dd5b0abde, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Barrel_LP1Mat
+    second: {fileID: 2100000, guid: 5f35addc168200e41bdaee794da54551, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Barrel_LP2Mat
+    second: {fileID: 2100000, guid: 1a239de54fa9bdc4186ba6c02966e687, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Barrel_LP3Mat
+    second: {fileID: 2100000, guid: 3cfb5ab6b8e7f7e4aad78471859ab9cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Barrel_LP4Mat
+    second: {fileID: 2100000, guid: 74ef6f6fcd0c36d4bb9806eefce476da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Barrel_LP5Mat
+    second: {fileID: 2100000, guid: f5bd078c1ef87fe448ac34d152d3ce87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Barrel_LPMat
+    second: {fileID: 2100000, guid: 8d2eac102fe85944db3c8be455073e95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Bench_LP1Mat
+    second: {fileID: 2100000, guid: 277b106d10e08f7479a4e495f86f5bc0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Chair_LP1Mat
+    second: {fileID: 2100000, guid: 56ad42e132043af4193ea6660c28d4ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Chair_LP2Mat
+    second: {fileID: 2100000, guid: 4c82862c1839bea4d871a491723212bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Chair_LP3Mat
+    second: {fileID: 2100000, guid: 5b57b4f93e131d5428c16b5b323e02d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Chair_LP4Mat
+    second: {fileID: 2100000, guid: abbaf0f223615fc48bccc908aab90548, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plan_15Mat
+    second: {fileID: 2100000, guid: 49ec31a23901fdf48bcf5df4817ae6d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plan_16Mat
+    second: {fileID: 2100000, guid: 8d224a7e2e5a6d0409550daf2749130f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plan_17Mat
+    second: {fileID: 2100000, guid: b38479597970cb84bbb30448d9afce75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plan_18Mat
+    second: {fileID: 2100000, guid: 1288e23c51424774f817f584b80fa413, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plan_19Mat
+    second: {fileID: 2100000, guid: 0929ffa5c8f2b4744bded8a3ea44a4e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plan_20Mat
+    second: {fileID: 2100000, guid: 3fd9a6484176b924d942da73b3bbb879, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plan_21Mat
+    second: {fileID: 2100000, guid: 87bc77f45706b064e94c0ba9121c2e57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_100Mat
+    second: {fileID: 2100000, guid: 005a36326e16acc45b4b7ca6a2c151ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_101Mat
+    second: {fileID: 2100000, guid: 2539eab4a20e59a468e4bef2bc62b941, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_102Mat
+    second: {fileID: 2100000, guid: d5806525207d37d4887885a9737273c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_103Mat
+    second: {fileID: 2100000, guid: 52301b2942d1c2346b8ac48360b134a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_104Mat
+    second: {fileID: 2100000, guid: 433c3ee5912a2eb40b9c42d10fec97f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_105Mat
+    second: {fileID: 2100000, guid: f35139b02dc336f459a93c60066bb98a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_106Mat
+    second: {fileID: 2100000, guid: bb55bc941ee48d4428ca3b7864efa0fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_107Mat
+    second: {fileID: 2100000, guid: 41ee27e14b211f94d84779e3727c9948, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_110Mat
+    second: {fileID: 2100000, guid: afda195dc10d9e34499635699a99a830, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_111Mat
+    second: {fileID: 2100000, guid: ce0dafc3bb5334b49b0c7d7a7b94ace2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_112Mat
+    second: {fileID: 2100000, guid: 111f767369ac0a740b7f4044f3f6e595, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_113Mat
+    second: {fileID: 2100000, guid: b1ecd748acf987746be15b797bd3b483, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_114Mat
+    second: {fileID: 2100000, guid: 7f3a9e748f827d04d9058baa82fb508a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_115Mat
+    second: {fileID: 2100000, guid: 23d66f0ac10534f409ed79b118ffba06, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_58Mat
+    second: {fileID: 2100000, guid: 8181548d958a31a40b05da6c6bc3dbee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_59Mat
+    second: {fileID: 2100000, guid: a42e85c4c58d5764f818e4a012458008, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_60Mat
+    second: {fileID: 2100000, guid: b8cc9e7b6c05322438062784af22fd6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_61Mat
+    second: {fileID: 2100000, guid: 36d5670a93533574fa16fbe07ed54261, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_63Mat
+    second: {fileID: 2100000, guid: bc887e7bbeb8d9648acf259b49b44576, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_64Mat
+    second: {fileID: 2100000, guid: 08410f88c3960524c8b59f38df45a7ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_65Mat
+    second: {fileID: 2100000, guid: 15e953ef5d639204caabaaa6dd750b6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_66Mat
+    second: {fileID: 2100000, guid: b30c84ca8a43fce4aa9390674d8930d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_67Mat
+    second: {fileID: 2100000, guid: d640c5a6df690234ba4912bcf3ea8fba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_68Mat
+    second: {fileID: 2100000, guid: 22c8111accc39f643ad02a0e81696eef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_69Mat
+    second: {fileID: 2100000, guid: e0c35c7616bafa545b91a42a9c6d888e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_70Mat
+    second: {fileID: 2100000, guid: 784f67fdd8eb0cc4d95c4a95c9a3046d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_71Mat
+    second: {fileID: 2100000, guid: 9127f7392f976d34488ee9ba59f5b8f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_72Mat
+    second: {fileID: 2100000, guid: 7e8f0e56a24eb524ca905aa896b292eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_73Mat
+    second: {fileID: 2100000, guid: 02b146dc4e96e544e8177f7eab3956b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_74Mat
+    second: {fileID: 2100000, guid: 9908a5ff9fb92e642bf35eda2c31d7fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_75Mat
+    second: {fileID: 2100000, guid: 38fb697295662f64a9ffad14f9063510, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_76Mat
+    second: {fileID: 2100000, guid: 891e62770f97e224883d76b7fb56c6d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_77Mat
+    second: {fileID: 2100000, guid: ec8ca01c7d14b4e438baefa48fac9fd1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_78Mat
+    second: {fileID: 2100000, guid: 01fdb07acaa866143be8a2513c2aa1f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_79Mat
+    second: {fileID: 2100000, guid: b8d62bd50c7c7e1489ea43d2cebbd7a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_80Mat
+    second: {fileID: 2100000, guid: 82aa68920840188438f9ee13aae16a81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_81Mat
+    second: {fileID: 2100000, guid: ada20b7c156d35d49986ea5e332fb391, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_82Mat
+    second: {fileID: 2100000, guid: 80176b22ff485e1419be427fcf7462d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_83Mat
+    second: {fileID: 2100000, guid: 7ddd2fb7705b5e448b1135bf59b35456, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_84Mat
+    second: {fileID: 2100000, guid: ae4d2ba279ec6224c8bacd7759b04fac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_85Mat
+    second: {fileID: 2100000, guid: 291c889f5b6a0d541be1b01f633c49f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_86Mat
+    second: {fileID: 2100000, guid: e20d3c91d8c728f4e92f3ca802a6df04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_87Mat
+    second: {fileID: 2100000, guid: 839457210a5b56148a996b942fa7e9eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_88Mat
+    second: {fileID: 2100000, guid: 3199bd9850d2920418ddec7cfc9ebcda, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_89Mat
+    second: {fileID: 2100000, guid: 934a55e16ff305740a8ba9a61943f0f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_90Mat
+    second: {fileID: 2100000, guid: 45fcd43e692e0be4c9d166db66fff123, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_91Mat
+    second: {fileID: 2100000, guid: f07d67e0b5711c947b0329cfd194199b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_92Mat
+    second: {fileID: 2100000, guid: c112e813f3bb1674c8b1e00bd9a153d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_93Mat
+    second: {fileID: 2100000, guid: b2f48cea86f04ad4781271bca7c88f99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_94Mat
+    second: {fileID: 2100000, guid: 680559c5f54cecc4983ee09a0322cba2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_95Mat
+    second: {fileID: 2100000, guid: 2b1ce3dbaea7cf84fa264c0a0636e6d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_96Mat
+    second: {fileID: 2100000, guid: 9283bfdf9630094478248f778f62f724, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_97Mat
+    second: {fileID: 2100000, guid: 93b65059cf740a549a59f6cf6c99edfa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_98Mat
+    second: {fileID: 2100000, guid: 3fd3c68a1d81cb243b3f00f1de50a86c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Plank_99Mat
+    second: {fileID: 2100000, guid: 28e09ca112b564143bddbacb8a6eec43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Tabel_LP1Mat
+    second: {fileID: 2100000, guid: b92d74665e3051e4b805a7b9e21c46f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFurniture__Group_FinalScene_Tabel_LP2Mat
+    second: {fileID: 2100000, guid: a90bc0337c277e545bb98da2e7396476, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

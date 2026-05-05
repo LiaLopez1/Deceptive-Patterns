@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: bb5b49b303214d044a535cce6b15f950
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default_Material
+    second: {fileID: 2100000, guid: 13d1f113cc64fcd42abf086fb54a4d63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default_bod2
+    second: {fileID: 2100000, guid: 46d333aac27733c47ad842a0fc269ddc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default_lef1
+    second: {fileID: 2100000, guid: 115987388002bd64a9e79a5e48bf1fc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default_p1
+    second: {fileID: 2100000, guid: c3dea66074293ba45a80d839ed200c8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: beijing1
+    second: {fileID: 2100000, guid: 12e3bc3f6ce05fe458f914a9925dd2a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: beike_beike
+    second: {fileID: 2100000, guid: 1953e049feee9054fa5b398b5d879cee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn2
+    second: {fileID: 2100000, guid: 5450053c1b4e53540868bebaf4584535, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn3
+    second: {fileID: 2100000, guid: 7a1d0b66165228b40beb2f6854ee881c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: di_lambert3
+    second: {fileID: 2100000, guid: a09e572e367a20741b230ecd193d9146, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fanCoral1Shader
+    second: {fileID: 2100000, guid: f3ff4aa4cf29ee64ab52e8195f3366c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fanCoral2LeafShader4
+    second: {fileID: 2100000, guid: b67519479cffee2448d359cb4d76b5b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fanCoral2Shader4
+    second: {fileID: 2100000, guid: 7ebe5d03bfc703f44a78dcaa19dda753, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: haixing_haixing
+    second: {fileID: 2100000, guid: 2f37f12ee5aeab64fa2fa469945acaa8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: haizhe
+    second: {fileID: 2100000, guid: 18960f22d56ecd244bd791823eccb6c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lvcao18_kelp1LeafShader
+    second: {fileID: 2100000, guid: 2115af0caf1d7a948ae518f8e9b54dc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lvcao_kelp1Shader
+    second: {fileID: 2100000, guid: 750b2b7176c5ccc4caed798ceb896e43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: s1
+    second: {fileID: 2100000, guid: a473e46a46a9773498a669135ea62a7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: s_12_s06
+    second: {fileID: 2100000, guid: df9091512f14d714a91c47a6f366e41d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: s_h4_Default_Tree1vis
+    second: {fileID: 2100000, guid: 10a306893805b8a45948cf1ba30ef9f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: seashell4Shader
+    second: {fileID: 2100000, guid: 3c226f10a392d4f4ea80cc1be256fe83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shitou1
+    second: {fileID: 2100000, guid: fff3c674ecbe24640b81e04f4da66de9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shitou2
+    second: {fileID: 2100000, guid: 688260ade58404043bf9fbfe1899aefc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shuicao01
+    second: {fileID: 2100000, guid: a91548a7ff45b354bb43394b65e48f61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shuicao05_wire_087225088
+    second: {fileID: 2100000, guid: f35c864eb584b1440b97afab820d5531, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ss_fanCoral1Shader12
+    second: {fileID: 2100000, guid: d0f5a0707cb8897468bee435e01268af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ss_lambert52
+    second: {fileID: 2100000, guid: 58b06fbdb414386488bee9ee30d9388f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: useBackground2
+    second: {fileID: 2100000, guid: 4da3c4e450e0d484cb32679f9b4837b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: xiaoguo_02_blinn1
+    second: {fileID: 2100000, guid: d89d81b887fd6a143b9d76f245ba07c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: xiaohaizao____Default1
+    second: {fileID: 2100000, guid: 166c878dff2597548bae471a6f6b4e2f, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 147s1
+    second: {fileID: 2800000, guid: c768be9914af3144085ab0fd74a68527, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 20120119042710600855
+    second: {fileID: 2800000, guid: 7e6c2b538887fde498112cc99c3f32c5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Normal_2_normals
+    second: {fileID: 2800000, guid: 5cb8ed3899edb4547bf19050abd7b685, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RS19bod1
+    second: {fileID: 2800000, guid: e41cc505e163fe24bb407a452adf430d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RS19bod2_b
+    second: {fileID: 2800000, guid: 51d39dcbe1d981b4d99b57fd787b0e3a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: STON052
+    second: {fileID: 2800000, guid: c7d81451f333967408ea79bd699a123b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: beijing
+    second: {fileID: 2800000, guid: e2e8de2e1a476ec4bbd3c3a023ad7a03, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 'di aotu '
+    second: {fileID: 2800000, guid: dfa4799725f8260488ed02c462c5ac2a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: haizhe
+    second: {fileID: 2800000, guid: 0da0345a5126a0248b3fda046285c727, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: initialShadingGroup_Color
+    second: {fileID: 2800000, guid: 9a48a8a05f28a4543aac0bf01564ad86, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: s01
+    second: {fileID: 2800000, guid: 5c943ff70da1b57499c91368e16a031d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: s02
+    second: {fileID: 2800000, guid: 48f1535303fb25643904f2167a731a74, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: s03
+    second: {fileID: 2800000, guid: 9513afba9a08992499fa4bf5f2404a60, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

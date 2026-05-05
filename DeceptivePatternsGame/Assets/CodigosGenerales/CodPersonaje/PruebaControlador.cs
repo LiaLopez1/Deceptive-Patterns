@@ -30,6 +30,9 @@ public class PruebaControlador : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         originalHeight = transform.localScale.y;
 
+        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;
+
         rotationX = 0f;
         cameraTransform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
 
@@ -42,7 +45,7 @@ public class PruebaControlador : MonoBehaviour
         // Movimiento
         Move();
 
-        // Rotación de la cámara y el jugador
+        // Rotaciï¿½n de la cï¿½mara y el jugador
         Look();
 
         // Agacharse
@@ -56,7 +59,7 @@ public class PruebaControlador : MonoBehaviour
             agachado = false;
         }
 
-        // Interpolación suave para el agachado
+        // Interpolaciï¿½n suave para el agachado
         transform.localScale = Vector3.Lerp(transform.localScale, agachado ? escalaAgachado : escalaNormal, Time.deltaTime / tiempoAgachado);
         */
 
@@ -84,8 +87,8 @@ public class PruebaControlador : MonoBehaviour
     {
         if (!PanelManager.isSettingsActive)
         {
-            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity ;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity ;
 
             transform.Rotate(Vector3.up * mouseX);
 
@@ -95,7 +98,7 @@ public class PruebaControlador : MonoBehaviour
         }
     }
 
-    // Eliminado el método Jump ya que el salto no es necesario
+    // Eliminado el mï¿½todo Jump ya que el salto no es necesario
     /*
     void Jump()
     {
@@ -120,10 +123,10 @@ public class PruebaControlador : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, raycastDistance))
         {
-            // Opcional: Dibujar el rayo en la escena para visualización
+            // Opcional: Dibujar el rayo en la escena para visualizaciï¿½n
             Debug.DrawRay(cameraTransform.position, cameraTransform.forward * raycastDistance, Color.red);
 
-            // Opcional: Interacción con el objeto apuntado
+            // Opcional: Interacciï¿½n con el objeto apuntado
             //if (hit.collider != null)
             //{
             //    //Debug.Log("Apuntando a: " + hit.collider.gameObject.name);
